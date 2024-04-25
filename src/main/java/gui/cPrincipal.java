@@ -1,9 +1,6 @@
 package gui;
 
-import aplicacion.Contenido;
-import aplicacion.FachadaAplicacion;
-import aplicacion.Oyente;
-import aplicacion.Playlist;
+import aplicacion.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
@@ -32,6 +29,8 @@ public class cPrincipal {
     private HBox playlistBox;
     @FXML
     private HBox artistaBox;
+    @FXML
+    private HBox cancionBox;
 
     @FXML
     public void clickUsuario() throws IOException {
@@ -67,6 +66,15 @@ public class cPrincipal {
            artistaBox.getChildren().add(loader.load());
            cTemplateArtistaInicio controller = loader.getController();
            controller.setLabelUsuario(aux.getContrasena());
+           controller.setFachadas(this.fgui, this.fa);
+       }
+       ArrayList<Cancion> topCanciones;
+       topCanciones = fa.topCanciones();
+       for (Cancion aux : topCanciones) {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("templateCancion.fxml"));
+           cancionBox.getChildren().add(loader.load());
+           cTemplateCancion controller = loader.getController();
+           controller.setLabelUsuario(aux.getNombre());
            controller.setFachadas(this.fgui, this.fa);
        }
    }
