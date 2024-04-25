@@ -114,71 +114,46 @@
             </VBox>
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="335.0" layoutY="-1.0" prefHeight="709.0" prefWidth="866.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="335.0" layoutY="-1.0" prefHeight="703.0" prefWidth="867.0">
          <content>
-            <VBox prefHeight="674.0" prefWidth="2051.0" spacing="30.0">
+            <VBox prefWidth="842.0" spacing="10.0">
                <children>
-                  <Label text="Listas recomendadas" textAlignment="CENTER" textFill="#808b96">
+                  <Label text="Las playlist de Spotipify" textFill="#737373">
                      <font>
-                        <Font name="System Bold" size="30.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
-                  <ScrollPane prefHeight="221.0" prefWidth="2053.0">
+                  <ScrollPane prefHeight="290.0" prefWidth="832.0" vbarPolicy="NEVER">
                      <content>
-                        <HBox fx:id="panePlaylist" alignment="CENTER_LEFT" prefHeight="216.0" prefWidth="673.0" spacing="100.0">
-                           <children>
-                              <VBox prefHeight="216.0" prefWidth="85.0" spacing="5.0" styleClass="gray-hover">
-                                 <children>
-                                    <ImageView fitHeight="166.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../spoti/descarga.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="53.0" prefWidth="166.0" text="Súmergete en los bestsellers del momento" wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="216.0" prefWidth="85.0" spacing="5.0" styleClass="gray-hover">
-                                 <children>
-                                    <ImageView fitHeight="144.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../spoti/descarga_1.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="53.0" prefWidth="166.0" text="Súmergete en los bestsellers del momento" wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="216.0" prefWidth="85.0" spacing="5.0" styleClass="gray-hover">
-                                 <children>
-                                    <ImageView fitHeight="169.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../spoti/region_es_default.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="53.0" prefWidth="166.0" text="Súmergete en los bestsellers del momento" wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
+                        <HBox prefHeight="273.0" prefWidth="1100.0" />
+                     </content>
+                  </ScrollPane>
+                  <Label text="Los artitas mas escuchados" textFill="#737373">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane prefHeight="290.0" prefWidth="830.0" vbarPolicy="NEVER">
+                     <content>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                     </content>
+                  </ScrollPane>
+                  <Label text="Las canciones mas escuchadas" textFill="#737373">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="290.0" prefWidth="830.0">
+                     <content>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                      </content>
                   </ScrollPane>
                </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </padding>
             </VBox>
          </content>
-         <padding>
-            <Insets bottom="50.0" left="20.0" top="25.0" />
-         </padding>
       </ScrollPane>
    </children>
 </AnchorPane>
