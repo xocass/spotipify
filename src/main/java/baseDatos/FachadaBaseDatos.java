@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import aplicacion.Contenido;
 import aplicacion.Oyente;
+import aplicacion.Playlist;
 
 public class FachadaBaseDatos {
     private aplicacion.FachadaAplicacion fa;
@@ -105,4 +106,6 @@ public class FachadaBaseDatos {
         }
         return resultado;
     }
+    public ArrayList<Playlist> playlistDefecto(){return daoPlaylist.playlistDefecto();}
+
 }

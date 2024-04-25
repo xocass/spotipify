@@ -16,4 +16,6 @@ public class GestionContenido {
     public ArrayList<Contenido> buscar(String buscar){
         return fbd.buscar(buscar);
     }
+    public ArrayList<Playlist> playlistDefecto(){return fbd.playlistDefecto();}
+
 }
