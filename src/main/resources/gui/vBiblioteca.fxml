@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cBiblioteca">
+   <children>
+      <AnchorPane layoutX="-6.0" layoutY="-21.0" prefHeight="735.0" prefWidth="330.0" style="-fx-background-color: #01D856;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="292.0" layoutX="26.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../spoti/SpotifyLogo.jpeg" />
+               </image>
+            </ImageView>
+            <VBox layoutX="3.0" layoutY="208.0" prefHeight="200.0" prefWidth="337.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#clickInicio" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-spotify-50blanco.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="INICIO" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickBuscar" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-búsqueda-100.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="BUSCAR" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-biblioteca-100.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="MI BIBLIOTECA" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="3.0" layoutY="589.0" prefHeight="100.0" prefWidth="337.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-usuario-90.png" />
+                           </image>
+                        </ImageView>
+                        <Label onMouseClicked="#clickUsuario" text="USUARIO" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickAjustes" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-ajustes-50.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="AJUSTES" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="331.0" layoutY="-1.0" prefHeight="705.0" prefWidth="869.0">
+         <content>
+            <VBox prefWidth="842.0" spacing="10.0">
+               <children>
+                  <Label text="TU MUSICA" textFill="#808b96">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane prefHeight="160.0" prefWidth="830.0" vbarPolicy="NEVER">
+                     <content>
+                        <HBox fx:id="boxMusica" prefHeight="162.0" prefWidth="501.0" />
+                     </content>
+                  </ScrollPane>
+                  <Label text="TUS PLAYLISTS" textFill="#808b96">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="10.0" layoutY="56.0" prefHeight="160.0" prefWidth="842.0" vbarPolicy="NEVER">
+                     <content>
+                        <HBox fx:id="boxPlaylist" prefHeight="162.0" prefWidth="718.0" />
+                     </content>
+                  </ScrollPane>
+                  <Label layoutX="10.0" layoutY="176.0" text="TUS AMIGOS" textFill="#808b96">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="10.0" layoutY="269.0" prefHeight="160.0" prefWidth="842.0" vbarPolicy="NEVER">
+                     <content>
+                        <HBox fx:id="boxAmigos" prefHeight="166.0" prefWidth="513.0" />
+                     </content>
+                  </ScrollPane>
+                  <Label layoutX="10.0" layoutY="324.0" text="TUS PODCAST" textFill="#808b96">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="10.0" layoutY="437.0" prefHeight="160.0" prefWidth="842.0" vbarPolicy="NEVER">
+                     <content>
+                        <HBox fx:id="boxPodcast" prefHeight="164.0" prefWidth="363.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </content>
+         <padding>
+            <Insets left="20.0" top="10.0" />
+         </padding>
+      </ScrollPane>
+   </children>
+</AnchorPane>

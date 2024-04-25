@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cPrincipal">
+   <children>
+      <AnchorPane layoutX="-6.0" layoutY="-21.0" prefHeight="735.0" prefWidth="330.0" style="-fx-background-color: #01D856;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="292.0" layoutX="26.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../spoti/SpotifyLogo.jpeg" />
+               </image>
+            </ImageView>
+            <VBox layoutX="3.0" layoutY="208.0" prefHeight="200.0" prefWidth="337.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-spotify-50blanco.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="INICIO" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="boxBuscar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickBuscar" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-búsqueda-100.png" />
+                           </image>
+                        </ImageView>
+                        <Label onMouseClicked="#clickBuscar" text="BUSCAR" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="boxBiblioteca" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickBiblioteca" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-biblioteca-100.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="MI BIBLIOTECA" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="3.0" layoutY="589.0" prefHeight="100.0" prefWidth="337.0">
+               <children>
+                  <HBox fx:id="boxUsuario" alignment="CENTER_LEFT" onMouseClicked="#clickUsuario" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-usuario-90.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="USUARIO" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="boxAjustes" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickAjustes" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../spoti/icons8-ajustes-50.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="AJUSTES" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="335.0" layoutY="-1.0" prefHeight="709.0" prefWidth="866.0">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+               <children>
+                  <Label text="LISTAS DE REPRODUCCION RECOMENDADAS" textAlignment="CENTER" textFill="#808b96">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="216.0" prefWidth="673.0" spacing="100.0">
+                     <children>
+                        <VBox prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 global" textAlignment="CENTER" textFill="#808b96">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/region_es_default.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 España" textAlignment="CENTER" textFill="#808b96">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="238.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga_1.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 Bolivia" textAlignment="CENTER" textFill="#808b96">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="216.0" prefWidth="673.0" spacing="100.0">
+                     <children>
+                        <VBox prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="238.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label text="ARTISTAS DEL MOMENTO" textAlignment="CENTER" textFill="#808b96">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="216.0" prefWidth="673.0" spacing="100.0">
+                     <children>
+                        <VBox prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="238.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="216.0" prefWidth="673.0" spacing="100.0">
+                     <children>
+                        <VBox prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="238.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label text="TUS AMIGOS" textAlignment="CENTER" textFill="#808b96">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="216.0" prefWidth="673.0" spacing="100.0">
+                     <children>
+                        <VBox prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="238.0" layoutY="10.0" prefHeight="234.0" prefWidth="140.0" spacing="20.0" styleClass="gray-hover">
+                           <children>
+                              <AnchorPane prefHeight="138.0" prefWidth="147.0" styleClass="bordered-image">
+                                 <children>
+                                    <ImageView fitHeight="144.0" fitWidth="150.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../spoti/descarga.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="TOP 50 GLOBAL" textAlignment="CENTER" textFill="#01d856">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+         <padding>
+            <Insets bottom="50.0" left="75.0" top="25.0" />
+         </padding>
+      </ScrollPane>
+   </children>
+</AnchorPane>

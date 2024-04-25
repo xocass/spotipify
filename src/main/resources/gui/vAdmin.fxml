@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="518.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cAdmin">
+   <children>
+      <AnchorPane layoutX="-26.0" layoutY="-10.0" prefHeight="114.0" prefWidth="544.0" style="-fx-background-color: #01D856;">
+         <children>
+            <Label layoutX="171.0" layoutY="43.0" prefHeight="30.0" prefWidth="261.0" text="AJUSTES DE ADMINISTRADOR" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="56.0" fitWidth="52.0" layoutX="473.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../spoti/icons8-ajustes-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="89.0" fitWidth="69.0" layoutX="62.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../spoti/SpotifyLogoPequeno.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <HBox layoutX="-5.0" layoutY="132.0" prefHeight="86.0" prefWidth="523.0" spacing="15.0">
+         <children>
+            <AnchorPane fx:id="btnUuarios" prefHeight="86.0" prefWidth="150.0">
+               <styleClass>
+                  <String fx:value="plan-cuadro" />
+                  <String fx:value="dark-hover" />
+               </styleClass>
+               <children>
+                  <Label layoutX="32.0" layoutY="22.0" prefHeight="39.0" prefWidth="92.0" text="USUARIOS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="btnArtistas" prefHeight="50.0" prefWidth="150.0">
+               <styleClass>
+                  <String fx:value="plan-cuadro" />
+                  <String fx:value="dark-hover" />
+               </styleClass>
+               <children>
+                  <Label layoutX="30.0" layoutY="23.0" prefHeight="39.0" prefWidth="94.0" text="ARTISTAS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="btnContenido" prefHeight="86.0" prefWidth="150.0">
+               <styleClass>
+                  <String fx:value="plan-cuadro" />
+                  <String fx:value="dark-hover" />
+               </styleClass>
+               <children>
+                  <Label layoutX="19.0" layoutY="22.0" prefHeight="39.0" prefWidth="112.0" text="CONTENIDO" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+package aplicacion;
+
+import aplicacion.FachadaAplicacion;
+import aplicacion.Oyente;
+import baseDatos.FachadaBaseDatos;
+import gui.FachadaGui;
+
+public class GestionUsuarios {
+    FachadaGui fgui;
+    FachadaBaseDatos fbd;
+    public GestionUsuarios(FachadaGui fgui, FachadaBaseDatos fbd){
+        this.fgui=fgui;
+        this.fbd=fbd;
+    }
+
+    public Oyente validarUsuario(String user, String pass){
+       return fbd.validarUsuario(user,pass);
+    }
+    public Oyente validarAdmin(String user, String pass){
+        return fbd.validarAdmin(user,pass);
+    }
+    public boolean comprobarNombre(String user){return fbd.comprobarNombre(user);}
+    public void registrarUsuario(String usuario, String contrasena, String email, String nacimiento){
+        fbd.registrarUsuario(usuario,contrasena,email,nacimiento);
+    }
+
+}

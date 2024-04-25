@@ -1,0 +1,27 @@
+.bordered-image {
+    -fx-border-color: black; /* Color del borde (negro en este caso) */
+    -fx-border-width: 2px;   /* Ancho del borde (2 píxeles en este caso) */
+    -fx-border-style: solid; /* Estilo del borde (sólido en este caso) */
+}
+
+.button-style {
+	-fx-background-color: #01D856;
+	-fx-border-color: #DFDFDF;
+	-fx-border-radius: 10;
+	-fx-background-radius: 10;
+}
+
+.dark-hover:hover {
+    -fx-background-color: #018736; /* Cambia el color de fondo cuando el mouse está encima */
+}
+
+.plan-cuadro {
+	-fx-background-color: #01D856;
+	-fx-border-color: #DFDFDF;
+	-fx-border-radius: 30;
+	-fx-background-radius: 30;
+}
+
+.gray-hover:hover {
+    -fx-background-color: #DFDFDF; /* Cambia el color de fondo cuando el mouse está encima */
+}
