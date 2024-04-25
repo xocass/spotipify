@@ -112,6 +112,30 @@ public class FachadaGui extends Application {
         principalStage.show();
         entrarStage.close();
     }
+    public void showUsuarioMod() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vOyenteMod.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        cOyenteMod controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        principalStage.setScene(scene);
+        principalStage.show();
+    }
+    public void showArtistasMod() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtistaMod.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        cArtistaMod controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        principalStage.setScene(scene);
+        principalStage.show();
+    }
+    public void showContenidoMod() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vContenidoMod.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        cContenidoMod controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        principalStage.setScene(scene);
+        principalStage.show();
+    }
 
     public static void main(String[] args) {
         launch();

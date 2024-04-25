@@ -1,6 +1,7 @@
 package aplicacion;
 
 public class Oyente {
+    //PENE
     String nombre;
     String contrasena;
     String email;
