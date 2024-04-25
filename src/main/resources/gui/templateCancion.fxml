@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="220.0" styleClass="gray-hover" stylesheets="../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="220.0" styleClass="gray-hover" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="190.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="../spoti/descarga.jpg" />
+            <Image url="@../spoti/descarga.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="labelUsuario" prefHeight="50.0" prefWidth="190.0" text="Disfruta al maximo nivel de nuestras playlists anuales" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="labelUsuario" prefHeight="50.0" prefWidth="150.0" text="Vive junto a Spotipify de las mejores canciones del momento" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font size="11.0" />
+            <Font size="10.0" />
          </font>
       </Label>
    </children>
