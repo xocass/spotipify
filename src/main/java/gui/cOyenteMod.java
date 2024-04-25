@@ -45,7 +45,7 @@ public class cOyenteMod {
                 cTemplateUsuarioEliminar controller = loader.getController();
 
                 controller.setLabelNombre(aux.getNombre());
-                controller.setLabelEmail(aux.getEmail());
+                controller.setLabelEmail(aux.getContrasena());
 
                 controller.setFachadas(this.fgui,this.fa);
             }

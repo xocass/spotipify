@@ -16,15 +16,18 @@
             <Image url="@../spoti/UsuarioMusica.png" />
          </image>
       </ImageView>
-      <Label text="NOMBRE USUARIO" textFill="WHITE">
+      <Label fx:id="labelNombre" prefHeight="20.0" prefWidth="127.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label prefHeight="17.0" prefWidth="186.0" text="CORREO" textFill="WHITE" />
+      <Label fx:id="labelEmail" prefHeight="17.0" prefWidth="225.0" textFill="WHITE">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin></Label>
       <Button fx:id="btnEliminar" mnemonicParsing="false" text="ELIMINAR">
          <HBox.margin>
-            <Insets left="40.0" />
+            <Insets left="5.0" />
          </HBox.margin>
          <styleClass>
             <String fx:value="button-style-gray" />
