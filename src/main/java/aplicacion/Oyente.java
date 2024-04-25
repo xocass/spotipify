@@ -31,4 +31,16 @@ public class Oyente {
         this.fechanac = fechanac;
     }
     public String getNombre(){return nombre;}
+    public void setNombre(){this.nombre=nombre;}
+    public String getContrasena(){return contrasena;}
+
+    public void setContrasena(String contrasena) {this.contrasena = contrasena;}
+
+    public String getFechanac(){return fechanac;}
+
+    public void setFechanac(String fechanac) {this.fechanac = fechanac;}
+
+    public String getEmail(){return email;}
+
+    public void setEmail(String email) {this.email = email;}
 }

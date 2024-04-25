@@ -72,7 +72,7 @@ public class FachadaGui extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vUsuario.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         cUsuario controller = fxmlLoader.getController();
-        controller.setFachadas(this,fa);
+        controller.setFachadas(this,fa,actual);
         principalStage.setScene(scene);
         principalStage.show();
     }

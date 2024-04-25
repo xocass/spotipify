@@ -31,7 +31,8 @@ public class cRegistrarse {
     @FXML
     private Label labelVacio;
     public void setFgui(FachadaGui fgui, FachadaAplicacion fa) {
-        this.fgui = fgui; this.fa=fa;
+        this.fgui = fgui;
+        this.fa=fa;
     }
     @FXML
     public void atras() throws IOException {

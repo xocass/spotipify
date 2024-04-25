@@ -68,6 +68,10 @@ public class cBuscar {
 
                 controller.setLabelNombre(aux.getNombre());
                 controller.setLabelTipo(aux.getPais_tipoalbum());
+
+                controller.setFachadas(this.fgui,this.fa);
+                controller.setTipo(aux.getTipo());
+
                 if (aux.getTipo() > 0) {
                     for (int i = 0; i < aux.getCreador().size(); i++) {
                         if (i != 0) controller.setLabelArtista(", ");
