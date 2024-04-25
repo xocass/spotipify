@@ -1,6 +1,7 @@
 package gui;
 
 import aplicacion.FachadaAplicacion;
+import aplicacion.Oyente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -9,14 +10,17 @@ import javafx.scene.layout.HBox;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.time.chrono.Chronology;
 
 public class cUsuario {
     private FachadaGui fgui;
     private FachadaAplicacion fa;
 
-    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
+    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa, Oyente oyente){
         this.fgui=fgui;
         this.fa=fa;
+        fieldContraseña.setText(oyente.getContrasena());
+        fieldCorreo.setText(oyente.getEmail());
     }
 
     @FXML
@@ -37,7 +41,7 @@ public class cUsuario {
     private DatePicker fechaNacimiento;
     @FXML
     public void clickInicio() throws IOException {
-        fgui.principal();
+
     }
     public void iniciar(){
         fieldCorreo.setText("");
