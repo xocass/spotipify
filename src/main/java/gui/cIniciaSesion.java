@@ -46,7 +46,7 @@ public class cIniciaSesion {
         else{
             aux=fa.validarAdmin(fieldUsuario.getText(),fieldContrasena.getText());
             if(aux!=null)
-                fgui.showAdmin(aux);
+                fgui.showAdmin();
             else labelNoExiste.setText("El usuario y/o contraseña no existe");
         }
     }

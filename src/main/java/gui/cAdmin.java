@@ -22,7 +22,7 @@ public class cAdmin {
     private AnchorPane boxArtistas;
     @FXML
     private AnchorPane boxContenido;
-    private ImageView btnAtras;
+
 
     @FXML
     public void clickUsuario() throws IOException {

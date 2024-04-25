@@ -76,7 +76,14 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
-
+    public void showArtista() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtista.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        cArtista controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        principalStage.setScene(scene);
+        principalStage.show();
+    }
     public void showBuscar() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vBuscar.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
@@ -101,8 +108,8 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
-    public void showAdmin(Oyente aux) throws IOException{
-        actual=aux;
+    public void showAdmin() throws IOException{
+        //actual=aux;
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 518, 246);
         cAdmin controller = fxmlLoader.getController();
@@ -136,7 +143,9 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
-
+    public void irAtrasMod() throws IOException{
+        showAdmin();
+    }
     public static void main(String[] args) {
         launch();
     }

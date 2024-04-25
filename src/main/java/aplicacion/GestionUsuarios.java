@@ -5,6 +5,8 @@ import aplicacion.Oyente;
 import baseDatos.FachadaBaseDatos;
 import gui.FachadaGui;
 
+import java.util.ArrayList;
+
 public class GestionUsuarios {
     FachadaGui fgui;
     FachadaBaseDatos fbd;
@@ -23,5 +25,5 @@ public class GestionUsuarios {
     public void registrarUsuario(String usuario, String contrasena, String email, String nacimiento){
         fbd.registrarUsuario(usuario,contrasena,email,nacimiento);
     }
-
+    //public ArrayList<Oyente> buscar(String buscar){return fbd.buscarUsuario(buscar);}
 }

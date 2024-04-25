@@ -46,7 +46,7 @@
             <VBox prefHeight="241.0" prefWidth="540.0" />
          </content>
       </ScrollPane>
-      <ImageView fx:id="btnAtras" fitHeight="50.0" fitWidth="46.0" layoutX="550.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnAtras" fitHeight="50.0" fitWidth="46.0" layoutX="550.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#irAtras">
          <image>
             <Image url="@../spoti/icons8-flecha-responder-50.png" />
          </image>
