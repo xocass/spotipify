@@ -119,7 +119,7 @@ public class FachadaGui extends Application {
         principalStage.show();
         entrarStage.close();
     }
-    public void showUsuarioMod() throws IOException{
+    public void showOyenteMod() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vOyenteMod.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 566);
         cOyenteMod controller = fxmlLoader.getController();

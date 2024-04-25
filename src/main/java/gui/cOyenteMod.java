@@ -37,15 +37,17 @@ public class cOyenteMod {
         vboxBuscar.getChildren().clear();
         ArrayList<Oyente> resultado;
         if (!fieldBuscar.getText().isEmpty()) {
-            //resultado = fa.buscarUsuario(fieldBuscar.getText());
+            resultado = fa.buscarUsuario(fieldBuscar.getText());
             for (Oyente aux : resultado) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("templateUsuarioEliminar.fxml"));
                 vboxBuscar.getChildren().add(loader.load());
 
-                cTemplateBuscar controller = loader.getController();
+                cTemplateUsuarioEliminar controller = loader.getController();
 
                 controller.setLabelNombre(aux.getNombre());
-                //controller.setLabelTipo(aux.getCorreo());
+                controller.setLabelEmail(aux.getEmail());
+
+
             }
         }
     }

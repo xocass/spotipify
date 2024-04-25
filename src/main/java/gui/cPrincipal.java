@@ -47,7 +47,7 @@ public class cPrincipal {
         fgui.showAjustes();
     }
 
-    public void iniciar() throws IOException {
+   public void iniciar() throws IOException {
         ArrayList<Playlist> defecto = new ArrayList<>();
         defecto=fa.playlistDefecto();
         for (Playlist aux : defecto) {

@@ -26,7 +26,7 @@ public class cAdmin {
 
     @FXML
     public void clickUsuario() throws IOException {
-        fgui.showUsuarioMod();
+        fgui.showOyenteMod();
     }
     @FXML
     public void clickArtistas() throws IOException{

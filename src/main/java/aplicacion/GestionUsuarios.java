@@ -25,5 +25,5 @@ public class GestionUsuarios {
     public void registrarUsuario(String usuario, String contrasena, String email, String nacimiento){
         fbd.registrarUsuario(usuario,contrasena,email,nacimiento);
     }
-    //public ArrayList<Oyente> buscar(String buscar){return fbd.buscarUsuario(buscar);}
+    public ArrayList<Oyente> buscar(String buscar){return fbd.buscarUsuario(buscar);}
 }
