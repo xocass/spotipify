@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -141,7 +142,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <PasswordField id="fieldContrasena" prefHeight="26.0" prefWidth="350.0" />
+                  <PasswordField id="fieldContrasena" fx:id="fieldContraseña" prefHeight="26.0" prefWidth="350.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="80.0" prefWidth="410.0" spacing="10.0">
@@ -156,7 +157,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField id="fieldCorreo" prefHeight="26.0" prefWidth="350.0" promptText="example@../spoti/mail.com" />
+                  <TextField id="fieldCorreo" fx:id="fieldCorreo" prefHeight="26.0" prefWidth="350.0" promptText="example@gmail.com" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="410.0" spacing="10.0">
@@ -171,12 +172,12 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField id="fieldFecha" prefHeight="26.0" prefWidth="350.0" promptText="dd/mm/aaaa" />
+                  <DatePicker fx:id="fechaNacimiento" editable="false" prefHeight="26.0" prefWidth="354.0" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="671.0" layoutY="623.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="111.0" text="Actualizar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnActualizar" layoutX="671.0" layoutY="623.0" mnemonicParsing="false" onAction="#clickActualizar" prefHeight="40.0" prefWidth="111.0" text="Actualizar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -185,14 +186,14 @@
             <String fx:value="dark-hover" />
          </styleClass>
       </Button>
-      <HBox id="btnPremium" alignment="CENTER_LEFT" layoutX="981.0" layoutY="113.0" prefHeight="92.0" prefWidth="179.0" spacing="10.0">
+      <HBox id="btnPremium" alignment="CENTER_LEFT" layoutX="1006.0" layoutY="115.0" prefHeight="66.0" prefWidth="138.0" spacing="10.0">
          <children>
             <ImageView fitHeight="42.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../spoti/icons8-mejorar-80blanco.png" />
                </image>
             </ImageView>
-            <Label prefHeight="82.0" prefWidth="109.0" text="¡ACTUALIZA TU PLAN AHORA!" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label alignment="CENTER" prefHeight="65.0" prefWidth="50.0" text="PLAN" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
