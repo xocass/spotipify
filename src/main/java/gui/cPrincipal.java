@@ -29,6 +29,8 @@ public class cPrincipal {
     private HBox boxAjustes;
     @FXML
     private HBox playlistBox;
+    @FXML
+    private HBox artistaBox;
 
     @FXML
     public void clickUsuario() throws IOException {
@@ -51,10 +53,20 @@ public class cPrincipal {
     }
 
     public void iniciar() throws IOException {
-        ArrayList<Playlist> defecto = new ArrayList<>();
+        ArrayList<Playlist> defecto;
         defecto = fa.playlistDefecto();
         for (Playlist aux : defecto) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("templateCancion.fxml"));
+            playlistBox.getChildren().add(loader.load());
+            cTemplateCancion controller = loader.getController();
+            controller.setLabelUsuario(aux.getNombre());
+            controller.setFachadas(this.fgui, this.fa);
+        }
+
+        ArrayList<Oyente> verificados;
+        defecto = fa.verificados();
+        for (Oyente aux : verificados) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
             playlistBox.getChildren().add(loader.load());
             cTemplateCancion controller = loader.getController();
             controller.setLabelUsuario(aux.getNombre());
