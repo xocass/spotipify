@@ -10,7 +10,9 @@ import javafx.scene.layout.HBox;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.chrono.Chronology;
+import java.time.format.DateTimeFormatter;
 
 public class cUsuario {
     private FachadaGui fgui;
@@ -21,6 +23,8 @@ public class cUsuario {
         this.fa=fa;
         fieldContraseña.setText(oyente.getContrasena());
         fieldCorreo.setText(oyente.getEmail());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        fechaNacimiento.setValue(LocalDate.parse(oyente.getFechanac(), formatter));
     }
 
     @FXML

@@ -17,6 +17,7 @@ public class FachadaBaseDatos {
     private daoArtista daoArtista;
     private daoAlbumes daoAlbumes;
     private daoPrograma daoPrograma;
+    private daoPlaylist daoPlaylist;
 
     public FachadaBaseDatos (aplicacion.FachadaAplicacion fa){
         Properties configuracion = new Properties();
@@ -45,6 +46,7 @@ public class FachadaBaseDatos {
             this.daoArtista = new daoArtista(conexion,fa);
             this.daoAlbumes = new daoAlbumes(conexion,fa);
             this.daoPrograma = new daoPrograma(conexion,fa);
+            this.daoPlaylist = new daoPlaylist(conexion,fa);
 
 
         } catch (FileNotFoundException f){
