@@ -10,6 +10,7 @@ import java.util.Properties;
 import aplicacion.Cancion;
 import aplicacion.Contenido;
 import aplicacion.Oyente;
+import aplicacion.Artista;
 import aplicacion.Playlist;
 
 public class FachadaBaseDatos {
@@ -101,8 +102,6 @@ public class FachadaBaseDatos {
                 }
             }
         }
-
-
         aux = daoArtista.buscar(buscar);
         if (!aux.isEmpty()){
             resultado.addAll(aux);
@@ -110,10 +109,19 @@ public class FachadaBaseDatos {
         return resultado;
     }
 
-    public ArrayList<Oyente> buscarUsuario(String buscar){
+    public ArrayList<Oyente> buscarOyente(String buscar){
         ArrayList<Oyente> resultado = new ArrayList<>();
         ArrayList<Oyente> aux;
         aux=daoUsuarios.buscar(buscar);
+        if(!aux.isEmpty()) {
+            resultado.addAll(aux);
+        }
+        return resultado;
+    }
+    public ArrayList<Artista> buscarArtista(String buscar){
+        ArrayList<Artista> resultado = new ArrayList<>();
+        ArrayList<Artista> aux;
+        aux=daoArtista.buscarMod(buscar);
         if(!aux.isEmpty()) {
             resultado.addAll(aux);
         }

@@ -18,6 +18,11 @@ public class Artista {
         this.paisNacimiento= paisNacimiento;
         this.verificado=verificado;
     }
+    public Artista(String nombreArtistico, String paisNacimiento, boolean verificado){
+        this.nombreArtistico= nombreArtistico;
+        this.paisNacimiento= paisNacimiento;
+        this.verificado=verificado;
+    }
 
     public String getNombre(){return nombre;}
     public void setNombre(){this.nombre=nombre;}
@@ -36,7 +41,8 @@ public class Artista {
     public String getNombreArtistico(){return nombreArtistico;}
     public void setNombreArtistico(String nombreArtistico){this.nombreArtistico=nombreArtistico;}
     public String getPaisNacimiento(){return paisNacimiento;}
-
     public void setPaisNacimiento(String paisNacimiento) {this.paisNacimiento = paisNacimiento;}
+    public Boolean getVerificado(){return verificado;}
+    public void setVerificado(String paisNacimiento) {this.verificado = verificado;}
 
 }

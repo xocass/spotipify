@@ -37,7 +37,7 @@ public class cOyenteMod {
         vboxBuscar.getChildren().clear();
         ArrayList<Oyente> resultado;
         if (!fieldBuscar.getText().isEmpty()) {
-            resultado = fa.buscarUsuario(fieldBuscar.getText());
+            resultado = fa.buscarOyente(fieldBuscar.getText());
             for (Oyente aux : resultado) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("templateUsuarioEliminar.fxml"));
                 vboxBuscar.getChildren().add(loader.load());
