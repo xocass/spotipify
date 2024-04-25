@@ -117,5 +117,6 @@ public class FachadaBaseDatos {
         return resultado;
     }
     public ArrayList<Playlist> playlistDefecto(){return daoPlaylist.playlistDefecto();}
+    public ArrayList<Oyente> verificados(){return daoArtista.verificados();}
 
 }

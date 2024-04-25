@@ -37,5 +37,5 @@ public class FachadaAplicacion {
         return gc.buscar(buscar);
     }
     public ArrayList<Oyente> buscarUsuario(String buscar){return gu.buscar(buscar);}
-    //public ArrayList<Playlist> playlistDefecto(){return gc.playlistDefecto();}
+    public ArrayList<Oyente> verificados(){return gu.verificados();}
 }

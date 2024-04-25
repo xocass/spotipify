@@ -1,6 +1,7 @@
 package baseDatos;
 
 import aplicacion.Contenido;
+import aplicacion.Oyente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,6 +32,31 @@ public class daoArtista extends AbstractDAO{
             while (rsArtista.next())
             {
                 resultado.add(new Contenido(rsArtista.getString("nombreartistico"), rsArtista.getString("paisnacimiento"),null,0));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
+    public ArrayList<Oyente> verificados(){
+        ArrayList<Oyente> resultado = new ArrayList<>();
+        Connection con;
+        PreparedStatement stmArtista=null;
+        ResultSet rsArtista;
+
+        con=this.getConexion();
+
+        try {
+            stmArtista=con.prepareStatement("select nombre, nombreartistico "+
+                    "from artista "+
+                    "where verificado is TRUE");
+            rsArtista=stmArtista.executeQuery();
+            while (rsArtista.next())
+            {
+                resultado.add(new Oyente(rsArtista.getString("nombre"), rsArtista.getString("nombreartistico")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
