@@ -28,4 +28,6 @@ public class GestionUsuarios {
     public ArrayList<Oyente> buscarOyente(String buscar){return fbd.buscarOyente(buscar);}
     public ArrayList<Artista> buscarArtista(String buscar){return fbd.buscarArtista(buscar);}
     public ArrayList<Oyente> verificados(){return fbd.verificados();}
+    public ArrayList<String> siguiendo(String nombre){return fbd.siguiendo(nombre);}
+
 }
