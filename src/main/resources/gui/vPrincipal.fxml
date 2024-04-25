@@ -125,17 +125,17 @@
                   </Label>
                   <ScrollPane prefHeight="290.0" prefWidth="832.0" vbarPolicy="NEVER">
                      <content>
-                        <HBox prefHeight="273.0" prefWidth="1100.0" />
+                        <HBox fx:id="playlistBox" prefHeight="273.0" prefWidth="1100.0" />
                      </content>
                   </ScrollPane>
-                  <Label text="Los artitas mas escuchados" textFill="#737373">
+                  <Label text="Los artistas mas escuchados" textFill="#737373">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
                   <ScrollPane prefHeight="290.0" prefWidth="830.0" vbarPolicy="NEVER">
                      <content>
-                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <HBox fx:id="artistaBox" prefHeight="100.0" prefWidth="200.0" />
                      </content>
                   </ScrollPane>
                   <Label text="Las canciones mas escuchadas" textFill="#737373">
@@ -145,7 +145,7 @@
                   </Label>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="290.0" prefWidth="830.0">
                      <content>
-                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <HBox fx:id="cancionBox" prefHeight="100.0" prefWidth="200.0" />
                      </content>
                   </ScrollPane>
                </children>
