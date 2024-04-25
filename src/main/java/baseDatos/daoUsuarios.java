@@ -1,11 +1,13 @@
 package baseDatos;
 
+import aplicacion.Contenido;
 import aplicacion.Oyente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class daoUsuarios extends AbstractDAO{
     public daoUsuarios(Connection conexion, aplicacion.FachadaAplicacion fa){
@@ -164,5 +166,32 @@ public class daoUsuarios extends AbstractDAO{
         }finally{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
+    }
+
+    public ArrayList<Oyente> buscar(String busqueda){
+        ArrayList<Oyente> resultado = new ArrayList<>();
+        Connection con;
+        PreparedStatement stmOyente=null;
+        ResultSet rsOyente;
+
+        con=this.getConexion();
+
+        try {
+            stmOyente=con.prepareStatement("select oy.nombre as nombre, oy.email as email "+
+                    "from oyente oy "+
+                    "where oy.nombre like ? ");
+            stmOyente.setString(1, "%"+busqueda+"%");
+            rsOyente=stmOyente.executeQuery();
+            while (rsOyente.next())
+            {
+                resultado.add(new Oyente(rsOyente.getString("nombre"), rsOyente.getString("email")));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmOyente.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
     }
 }

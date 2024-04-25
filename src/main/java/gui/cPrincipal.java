@@ -47,14 +47,15 @@ public class cPrincipal {
         fgui.showAjustes();
     }
 
-   public void iniciar() throws IOException {
-        ArrayList<Playlist> defecto = new ArrayList<>();
-        defecto=fa.playlistDefecto();
-        for (Playlist aux : defecto) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateCancion.fxml"));
-            playlistBox.getChildren().add(loader.load());
-            cTemplateCancion controller = loader.getController();
-            controller.setLabelUsuario(aux.getNombre());
-            controller.setFachadas(this.fgui,this.fa);
-    }
+   /*public void iniciar() throws IOException {
+       ArrayList<Playlist> defecto = new ArrayList<>();
+       defecto = fa.playlistDefecto();
+       for (Playlist aux : defecto) {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("templateCancion.fxml"));
+           playlistBox.getChildren().add(loader.load());
+           cTemplateCancion controller = loader.getController();
+           controller.setLabelUsuario(aux.getNombre());
+           controller.setFachadas(this.fgui, this.fa);
+       }
+   }*/
 }
