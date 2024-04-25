@@ -24,7 +24,7 @@ public class daoArtista extends AbstractDAO{
 
         try {
             stmArtista=con.prepareStatement("select nombreartistico, paisnacimiento "+
-                    "from Artista "+
+                    "from artista "+
                     "where nombreartistico like ?");
             stmArtista.setString(1, "%"+busqueda+"%");
             rsArtista=stmArtista.executeQuery();

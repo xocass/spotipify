@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Spotipify" uuid="5a46b235-9bd6-4ff8-bbd1-10300c5c9b5d">
+    <data-source source="LOCAL" name="pqnougax@flora.db.elephantsql.com" uuid="aa0497e8-1e44-47f0-8531-17d8a69bb607">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
