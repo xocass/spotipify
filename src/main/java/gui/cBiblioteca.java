@@ -1,13 +1,23 @@
 package gui;
 
 import aplicacion.FachadaAplicacion;
+import aplicacion.Oyente;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class cBiblioteca {
     FachadaGui fgui;
     FachadaAplicacion fa;
+    @FXML
+    private HBox boxMusica;
+    @FXML
+    private HBox boxPlaylist;
+    @FXML
+    private HBox boxAmigos;
 
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui;
@@ -30,5 +40,16 @@ public class cBiblioteca {
     @FXML
     public void clickAjustes() throws IOException{
         fgui.showAjustes();
+    }
+    public void iniciar() throws IOException {
+        ArrayList<String> aux;
+        aux = fa.siguiendo(fgui.getActual().getNombre());
+        for (int i=0;i<aux.size();i++) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
+            boxAmigos.getChildren().add(loader.load());
+            cTemplateArtistaInicio controller = loader.getController();
+            controller.setLabelUsuario(aux.get(i));
+            controller.setFachadas(this.fgui, this.fa);
+        }
     }
 }

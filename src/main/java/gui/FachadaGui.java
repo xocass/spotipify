@@ -15,6 +15,8 @@ public class FachadaGui extends Application {
     Stage principalStage;
     FachadaAplicacion fa;
     Oyente actual;
+    public Oyente getActual() {return actual;}
+
     @Override
     public void start(Stage stage) throws IOException {
         entrarStage=stage;
@@ -107,6 +109,7 @@ public class FachadaGui extends Application {
         cBiblioteca controller = fxmlLoader.getController();
         controller.setFachadas(this,fa);
         principalStage.setScene(scene);
+        controller.iniciar();
         principalStage.show();
     }
     public void showAdmin() throws IOException{

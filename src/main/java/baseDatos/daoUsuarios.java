@@ -194,4 +194,31 @@ public class daoUsuarios extends AbstractDAO{
         }
         return resultado;
     }
+    public ArrayList<String> siguiendo(String nombre){
+        ArrayList<String> resultado = new ArrayList<>();
+        Connection con;
+        PreparedStatement stmSiguiendo=null;
+        ResultSet rsSiguiendo;
+
+        con=this.getConexion();
+
+        try {
+            stmSiguiendo=con.prepareStatement("select idoyente2 "+
+                    "from seramigo "+
+                    "where idoyente1 = ?");
+            stmSiguiendo.setString(1,nombre);
+            rsSiguiendo=stmSiguiendo.executeQuery();
+            while (rsSiguiendo.next())
+            {
+                resultado.add(rsSiguiendo.getString("idoyente2"));
+                System.out.println(rsSiguiendo.getString("idoyente2"));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmSiguiendo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }

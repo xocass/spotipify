@@ -40,4 +40,6 @@ public class FachadaAplicacion {
     public ArrayList<Artista> buscarArtista(String buscar){return gu.buscarArtista(buscar);}
     public ArrayList<Oyente> verificados(){return gu.verificados();}
     public ArrayList<Cancion> topCanciones(){return gc.topCanciones();}
+    public ArrayList<String> siguiendo(String nombre){return gu.siguiendo(nombre);}
+
 }
