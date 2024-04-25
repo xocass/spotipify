@@ -1,7 +1,7 @@
 package aplicacion;
 
 import java.util.ArrayList;
-
+//hola
 public class Contenido {
     private String nombre;
     private String pais_tipoalbum;
