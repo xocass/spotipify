@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,18 +10,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cAjustes">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="-6.0" layoutY="-21.0" prefHeight="734.0" prefWidth="330.0" style="-fx-background-color: #01D856;">
+      <AnchorPane layoutX="-6.0" layoutY="-21.0" prefHeight="735.0" prefWidth="330.0" style="-fx-background-color: #01D856;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="292.0" layoutX="26.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../spoti/SpotifyLogo.jpeg" />
                </image>
             </ImageView>
-            <VBox layoutX="19.0" layoutY="201.0" prefHeight="200.0" prefWidth="297.0">
+            <VBox layoutX="3.0" layoutY="208.0" prefHeight="200.0" prefWidth="337.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#clickInicio" prefHeight="100.0" prefWidth="395.0" spacing="20.0">
+                  <HBox id="btnInicio" fx:id="btnInicio" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -32,8 +34,11 @@
                            </font>
                         </Label>
                      </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickBuscar" prefHeight="100.0" prefWidth="395.0" spacing="20.0">
+                  <HBox id="btnBuscar" fx:id="btnBuscar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -46,40 +51,49 @@
                            </font>
                         </Label>
                      </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickBiblioteca" prefHeight="100.0" prefWidth="395.0" spacing="20.0">
+                  <HBox fx:id="btnBiblioteca" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
-                        <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../spoti/icons8-biblioteca-100.png" />
                            </image>
                         </ImageView>
-                        <Label text="BIBLIOTECA" textFill="WHITE">
+                        <Label text="MI BIBLIOTECA" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
                      </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
-            <VBox layoutX="18.0" layoutY="606.0" prefHeight="100.0" prefWidth="297.0">
+            <VBox layoutX="3.0" layoutY="589.0" prefHeight="100.0" prefWidth="337.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#clickUsuario" prefHeight="100.0" prefWidth="395.0" spacing="20.0">
+                  <HBox id="btnUsuario" fx:id="btnUsuario" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../spoti/icons8-usuario-90.png" />
                            </image>
                         </ImageView>
-                        <Label onMouseClicked="#clickUsuario" text="USUARIO" textFill="WHITE">
+                        <Label text="USUARIO" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
                      </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="395.0" spacing="20.0">
+                  <HBox id="btnAjustes" fx:id="btnAjustes" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -92,25 +106,28 @@
                            </font>
                         </Label>
                      </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>
          </children>
       </AnchorPane>
-      <Label layoutX="685.0" layoutY="24.0" prefHeight="94.0" prefWidth="283.0" text="AJUSTES">
+      <ImageView fitHeight="201.0" fitWidth="233.0" layoutX="640.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../spoti/usuario-de-perfil.png" />
+         </image>
+      </ImageView>
+      <Label id="labelUsuario" fx:id="labelNombrePlaylist" layoutX="582.0" layoutY="250.0" prefHeight="54.0" prefWidth="333.0" text="NOMBRE PLAYLIST">
          <font>
-            <Font name="System Bold" size="64.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <ImageView fitHeight="62.0" fitWidth="71.0" layoutX="611.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../spoti/icons8-ajustes-50negro.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="569.0" fitWidth="461.0" layoutX="739.0" layoutY="394.0" opacity="0.38" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../spoti/llave-inglesa.png" />
-         </image>
-      </ImageView>
+      <ScrollPane hbarPolicy="NEVER" layoutX="375.0" layoutY="335.0" prefHeight="330.0" prefWidth="764.0">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="186.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
