@@ -2,6 +2,7 @@ package gui;
 
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
@@ -21,6 +22,7 @@ public class cAdmin {
     private AnchorPane boxArtistas;
     @FXML
     private AnchorPane boxContenido;
+    private ImageView btnAtras;
 
     @FXML
     public void clickUsuario() throws IOException {
@@ -34,5 +36,6 @@ public class cAdmin {
     public void clickContenido() throws IOException{
         fgui.showContenidoMod();
     }
+
 
 }
