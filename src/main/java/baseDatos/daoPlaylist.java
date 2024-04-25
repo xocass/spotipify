@@ -35,7 +35,7 @@ public class daoPlaylist extends AbstractDAO{
             rsPlaylist=stmPlaylist.executeQuery();
             while (rsPlaylist.next())
             {
-                resultado.add(new Playlist(rsPlaylist.getString("nombre"),rsPlaylist.getString("idoyente")));
+                resultado.add(new Playlist(rsPlaylist.getString("nombreplaylist"),rsPlaylist.getString("idoyente")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

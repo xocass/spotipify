@@ -64,6 +64,7 @@ public class FachadaGui extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         cPrincipal controller = fxmlLoader.getController();
         controller.setFachadas(this,fa);
+        controller.iniciar();
         principalStage.setScene(scene);
         principalStage.show();
     }
