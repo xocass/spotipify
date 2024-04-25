@@ -42,11 +42,11 @@ public class cIniciaSesion {
     protected void clickEntrar() throws IOException {
         Oyente aux = fa.validarUsuario(fieldUsuario.getText(),fieldContrasena.getText());
         if (aux!=null)
-            fgui.cargando();
+            fgui.cargando(aux);
         else{
             aux=fa.validarAdmin(fieldUsuario.getText(),fieldContrasena.getText());
             if(aux!=null)
-                fgui.showAdmin();
+                fgui.showAdmin(aux);
             else labelNoExiste.setText("El usuario y/o contraseña no existe");
         }
     }

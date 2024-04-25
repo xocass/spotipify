@@ -1,6 +1,7 @@
 package gui;
 
 import aplicacion.FachadaAplicacion;
+import aplicacion.Oyente;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ public class FachadaGui extends Application {
     Stage entrarStage;
     Stage principalStage;
     FachadaAplicacion fa;
+    Oyente actual;
     @Override
     public void start(Stage stage) throws IOException {
         entrarStage=stage;
@@ -43,7 +45,8 @@ public class FachadaGui extends Application {
         entrarStage.setScene(scene);
         entrarStage.show();
     }
-    public void cargando() throws IOException {
+    public void cargando(Oyente aux) throws IOException {
+        actual=aux;
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vCargando.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
         cCargando controller = fxmlLoader.getController();
@@ -98,7 +101,8 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
-    public void showAdmin() throws IOException{
+    public void showAdmin(Oyente aux) throws IOException{
+        actual=aux;
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 518, 246);
         cAdmin controller = fxmlLoader.getController();

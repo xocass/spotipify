@@ -22,7 +22,7 @@ public class daoUsuarios extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmUsuario=con.prepareStatement("select nombre, contraseña "+
+            stmUsuario=con.prepareStatement("select nombre, contraseña, email, fechanacimiento "+
                     "from Oyente "+
                     "where nombre = ? and contraseña = ?");
             stmUsuario.setString(1, usuario);
@@ -30,7 +30,7 @@ public class daoUsuarios extends AbstractDAO{
             rsUsuario=stmUsuario.executeQuery();
             if (rsUsuario.next())
             {
-                resultado = new Oyente(rsUsuario.getString("nombre"), rsUsuario.getString("contraseña"));
+                resultado = new Oyente(rsUsuario.getString("nombre"), rsUsuario.getString("contraseña"), rsUsuario.getString("email"),rsUsuario.getString("fechanacimiento"));
 
             }
         } catch (SQLException e){
@@ -50,7 +50,7 @@ public class daoUsuarios extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmUsuario=con.prepareStatement("select nombre, contraseña "+
+            stmUsuario=con.prepareStatement("select nombre, contraseña, email, fechanacimiento "+
                     "from administrador "+
                     "where nombre = ? and contraseña = ?");
             stmUsuario.setString(1, usuario);
@@ -58,7 +58,7 @@ public class daoUsuarios extends AbstractDAO{
             rsUsuario=stmUsuario.executeQuery();
             if (rsUsuario.next())
             {
-                resultado = new Oyente(rsUsuario.getString("nombre"), rsUsuario.getString("contraseña"));
+                resultado = new Oyente(rsUsuario.getString("nombre"), rsUsuario.getString("contraseña"), rsUsuario.getString("email"),rsUsuario.getString("fechanacimiento"));
 
             }
         } catch (SQLException e){
