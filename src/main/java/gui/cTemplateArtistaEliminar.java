@@ -2,13 +2,16 @@ package gui;
 
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 
 public class cTemplateArtistaEliminar {
     @FXML
-    private Label labelNombre;
+    private Label labelNombreArtistico;
     @FXML
-    private Label labelEmail;
+    private Label labelPaisNacimiento;
+    @FXML
+    private CheckBox tickVerificado;
 
     private FachadaGui fgui;
     private FachadaAplicacion fa;
@@ -18,6 +21,7 @@ public class cTemplateArtistaEliminar {
         this.fa = fa;
     }
 
-    public void setLabelNombre(String nombre){labelNombre.setText(nombre);}
-    public void setLabelEmail(String email){labelEmail.setText(email);}
+    public void setLabelNombreArtistico(String nombre){labelNombreArtistico.setText(nombre);}
+    public void setLabelPaisNacimiento(String paisNacimiento){labelPaisNacimiento.setText(paisNacimiento);}
+    public void setTickVerificado(Boolean verificado){tickVerificado.setSelected(verificado);}
 }

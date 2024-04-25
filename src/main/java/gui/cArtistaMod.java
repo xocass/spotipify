@@ -40,10 +40,12 @@ public class cArtistaMod {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaEliminar.fxml"));
                 vboxBuscar.getChildren().add(loader.load());
 
-                cTemplateUsuarioEliminar controller = loader.getController();
+                cTemplateArtistaEliminar controller = loader.getController();
 
-                controller.setLabelNombre(aux.getNombre());
-                controller.setLabelEmail(aux.getContrasena());
+                controller.setLabelNombreArtistico(aux.getNombreArtistico());
+                controller.setTickVerificado(aux.getVerificado());
+                controller.setLabelPaisNacimiento(aux.getPaisNacimiento());
+
 
                 controller.setFachadas(this.fgui,this.fa);
             }

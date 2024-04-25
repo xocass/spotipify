@@ -56,6 +56,7 @@ public class daoArtista extends AbstractDAO{
                     "from artista "+
                     "where nombreartistico like ? or nombre like ?");
             stmArtista.setString(1, "%"+busqueda+"%");
+            stmArtista.setString(2, "%"+busqueda+"%");
             rsArtista=stmArtista.executeQuery();
             while (rsArtista.next())
             {
