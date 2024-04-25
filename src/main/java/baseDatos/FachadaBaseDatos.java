@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import aplicacion.Cancion;
 import aplicacion.Contenido;
 import aplicacion.Oyente;
 import aplicacion.Playlist;
@@ -19,6 +20,7 @@ public class FachadaBaseDatos {
     private daoAlbumes daoAlbumes;
     private daoPrograma daoPrograma;
     private daoPlaylist daoPlaylist;
+    private daoCanciones daoCanciones;
 
     public FachadaBaseDatos (aplicacion.FachadaAplicacion fa){
         Properties configuracion = new Properties();
@@ -48,6 +50,7 @@ public class FachadaBaseDatos {
             this.daoAlbumes = new daoAlbumes(conexion,fa);
             this.daoPrograma = new daoPrograma(conexion,fa);
             this.daoPlaylist = new daoPlaylist(conexion,fa);
+            this.daoCanciones = new daoCanciones(conexion,fa);
 
 
         } catch (FileNotFoundException f){
@@ -118,5 +121,6 @@ public class FachadaBaseDatos {
     }
     public ArrayList<Playlist> playlistDefecto(){return daoPlaylist.playlistDefecto();}
     public ArrayList<Oyente> verificados(){return daoArtista.verificados();}
+    public ArrayList<Cancion> topCanciones(){return daoCanciones.topCanciones();}
 
 }

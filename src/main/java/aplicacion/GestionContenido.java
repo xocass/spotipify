@@ -17,5 +17,6 @@ public class GestionContenido {
         return fbd.buscar(buscar);
     }
     public ArrayList<Playlist> playlistDefecto(){return fbd.playlistDefecto();}
+    public ArrayList<Cancion> topCanciones(){return fbd.topCanciones();}
 
 }
