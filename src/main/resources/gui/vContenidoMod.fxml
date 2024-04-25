@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="640.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="640.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cContenidoMod">
    <children>
       <AnchorPane layoutX="-7.0" layoutY="-13.0" prefHeight="124.0" prefWidth="652.0" style="-fx-background-color: #01D856;">
          <children>
             <ImageView fitHeight="66.0" fitWidth="68.0" layoutX="28.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@SpotifyLogoPequeno.jpeg" />
+                  <Image url="@../spoti/SpotifyLogoPequeno.jpeg" />
                </image>
             </ImageView>
             <Label layoutX="169.0" layoutY="41.0" prefHeight="50.0" prefWidth="314.0" text="ADMINISTAR CONTENIDO" textFill="WHITE">
@@ -26,7 +26,7 @@
             </Label>
             <ImageView fitHeight="50.0" fitWidth="52.0" layoutX="525.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icons8-ajustes-50.png" />
+                  <Image url="@../spoti/icons8-ajustes-50.png" />
                </image>
             </ImageView>
          </children>
@@ -35,7 +35,7 @@
          <children>
             <ImageView fitHeight="37.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@lupa.png" />
+                  <Image url="@../spoti/lupa.png" />
                </image>
             </ImageView>
             <TextField fx:id="fieldBuscar" prefHeight="32.0" prefWidth="463.0" promptText="BUSCAR" style="-fx-background-radius: 20;" />
@@ -46,9 +46,9 @@
             <VBox prefHeight="241.0" prefWidth="540.0" />
          </content>
       </ScrollPane>
-      <ImageView fx:id="btnAtras" fitHeight="50.0" fitWidth="46.0" layoutX="550.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnAtras" fitHeight="50.0" fitWidth="46.0" layoutX="550.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#irAtras">
          <image>
-            <Image url="@icons8-flecha-responder-50.png" />
+            <Image url="@../spoti/icons8-flecha-responder-50.png" />
          </image>
       </ImageView>
    </children>

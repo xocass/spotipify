@@ -14,9 +14,9 @@ public class cPrincipal {
     FachadaGui fgui;
     FachadaAplicacion fa;
 
-    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa) {
-        this.fgui = fgui;
-        this.fa = fa;
+    public void setFachadas (FachadaGui fgui, FachadaAplicacion fa){
+        this.fgui=fgui;
+        this.fa=fa;
     }
 
     @FXML
@@ -29,48 +29,33 @@ public class cPrincipal {
     private HBox boxAjustes;
     @FXML
     private HBox playlistBox;
-    @FXML
-    private HBox artistaBox;
 
     @FXML
     public void clickUsuario() throws IOException {
         fgui.showUsuario();
     }
-
     @FXML
-    public void clickBuscar() throws IOException {
+    public void clickBuscar() throws IOException{
         fgui.showBuscar();
     }
-
     @FXML
-    public void clickBiblioteca() throws IOException {
+    public void clickBiblioteca() throws IOException{
         fgui.showBiblioteca();
     }
-
     @FXML
-    public void clickAjustes() throws IOException {
+    public void clickAjustes() throws IOException{
         fgui.showAjustes();
     }
 
-    public void iniciar() throws IOException {
-        ArrayList<Playlist> defecto;
-        defecto = fa.playlistDefecto();
-        for (Playlist aux : defecto) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateCancion.fxml"));
-            playlistBox.getChildren().add(loader.load());
-            cTemplateCancion controller = loader.getController();
-            controller.setLabelUsuario(aux.getNombre());
-            controller.setFachadas(this.fgui, this.fa);
-        }
-
-        ArrayList<Oyente> verificados;
-        defecto = fa.verificados();
-        for (Oyente aux : verificados) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
-            playlistBox.getChildren().add(loader.load());
-            cTemplateCancion controller = loader.getController();
-            controller.setLabelUsuario(aux.getNombre());
-            controller.setFachadas(this.fgui, this.fa);
-        }
-    }
+   public void iniciar() throws IOException {
+       ArrayList<Playlist> defecto = new ArrayList<>();
+       defecto = fa.playlistDefecto();
+       for (Playlist aux : defecto) {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("templateCancion.fxml"));
+           playlistBox.getChildren().add(loader.load());
+           cTemplateCancion controller = loader.getController();
+           controller.setLabelUsuario(aux.getNombre());
+           controller.setFachadas(this.fgui, this.fa);
+       }
+   }
 }

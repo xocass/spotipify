@@ -32,7 +32,7 @@
       </AnchorPane>
       <HBox layoutX="-5.0" layoutY="132.0" prefHeight="86.0" prefWidth="523.0" spacing="15.0">
          <children>
-            <AnchorPane fx:id="btnUuarios" prefHeight="86.0" prefWidth="150.0">
+            <AnchorPane fx:id="btnUsuarios" prefHeight="86.0" prefWidth="150.0" onMouseClicked="#clickUsuario">
                <styleClass>
                   <String fx:value="plan-cuadro" />
                   <String fx:value="dark-hover" />
@@ -45,7 +45,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="btnArtistas" prefHeight="50.0" prefWidth="150.0">
+            <AnchorPane fx:id="btnArtistas" prefHeight="50.0" prefWidth="150.0" onMouseClicked="#clickArtistas">
                <styleClass>
                   <String fx:value="plan-cuadro" />
                   <String fx:value="dark-hover" />
@@ -58,7 +58,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="btnContenido" prefHeight="86.0" prefWidth="150.0">
+            <AnchorPane fx:id="btnContenido" prefHeight="86.0" prefWidth="150.0" onMouseClicked="#clickContenido">
                <styleClass>
                   <String fx:value="plan-cuadro" />
                   <String fx:value="dark-hover" />

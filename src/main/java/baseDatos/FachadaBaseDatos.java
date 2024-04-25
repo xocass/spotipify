@@ -106,6 +106,16 @@ public class FachadaBaseDatos {
         }
         return resultado;
     }
+
+    public ArrayList<Oyente> buscarUsuario(String buscar){
+        ArrayList<Oyente> resultado = new ArrayList<>();
+        ArrayList<Oyente> aux;
+        aux=daoUsuarios.buscar(buscar);
+        if(!aux.isEmpty()) {
+            resultado.addAll(aux);
+        }
+        return resultado;
+    }
     public ArrayList<Playlist> playlistDefecto(){return daoPlaylist.playlistDefecto();}
 
 }

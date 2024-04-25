@@ -2,6 +2,8 @@ package gui;
 
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -15,23 +17,25 @@ public class cAdmin {
         this.fa=fa;
     }
     @FXML
-    private HBox boxUsuario;
+    private AnchorPane boxUsuario;
     @FXML
-    private HBox boxArtistas;
+    private AnchorPane boxArtistas;
     @FXML
-    private HBox boxContenido;
+    private AnchorPane boxContenido;
+
 
     @FXML
     public void clickUsuario() throws IOException {
-        fgui.showUsuarioMod();
+        fgui.showOyenteMod();
     }
     @FXML
     public void clickArtistas() throws IOException{
         fgui.showArtistasMod();
     }
     @FXML
-    public void clickContenidoMod() throws IOException{
+    public void clickContenido() throws IOException{
         fgui.showContenidoMod();
     }
+
 
 }
