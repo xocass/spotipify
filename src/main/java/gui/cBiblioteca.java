@@ -1,7 +1,9 @@
 package gui;
 
+import aplicacion.Contenido;
 import aplicacion.FachadaAplicacion;
 import aplicacion.Oyente;
+import aplicacion.Playlist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
@@ -13,11 +15,11 @@ public class cBiblioteca {
     FachadaGui fgui;
     FachadaAplicacion fa;
     @FXML
-    private HBox boxMusica;
+    private HBox boxArtista;
     @FXML
     private HBox boxPlaylist;
     @FXML
-    private HBox boxAmigos;
+    private HBox boxSiguiendo;
 
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui;
@@ -43,12 +45,35 @@ public class cBiblioteca {
     }
     public void iniciar() throws IOException {
         ArrayList<String> aux;
+        ArrayList<Playlist> auxc;
         aux = fa.siguiendo(fgui.getActual().getNombre());
-        for (int i=0;i<aux.size();i++) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
-            boxAmigos.getChildren().add(loader.load());
-            cTemplateArtistaInicio controller = loader.getController();
-            controller.setLabelUsuario(aux.get(i));
+        if(!aux.isEmpty()) {
+            for (int i = 0; i < aux.size(); i++) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
+                boxSiguiendo.getChildren().add(loader.load());
+                cTemplateArtistaInicio controller = loader.getController();
+                controller.setLabelUsuario(aux.get(i));
+                controller.setFachadas(this.fgui, this.fa);
+            }
+        }
+        aux=fa.siguiendoArtista(fgui.getActual().getNombre());
+        if (!aux.isEmpty()) {
+            for (int i = 0; i < aux.size();i++) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
+                boxArtista.getChildren().add(loader.load());
+                cTemplateArtistaInicio controller = loader.getController();
+                controller.setTam(200,230);
+                controller.setLabelUsuario(aux.get(i));
+                controller.setFachadas(this.fgui, this.fa);
+            }
+        }
+        auxc=fa.tusPlaylist(fgui.getActual().getNombre());
+        for(Playlist playlist: auxc){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateCancion.fxml"));
+            boxPlaylist.getChildren().add(loader.load());
+            cTemplateCancion controller = loader.getController();
+            controller.setLabelUsuario(playlist.getNombre());
+            controller.setIdplaylist(playlist.getId());
             controller.setFachadas(this.fgui, this.fa);
         }
     }

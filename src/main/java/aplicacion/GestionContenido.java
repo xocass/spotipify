@@ -22,5 +22,6 @@ public class GestionContenido {
     public ArrayList<Playlist> playlistDefecto(){return fbd.playlistDefecto();}
     public ArrayList<Cancion> topCanciones(){return fbd.topCanciones();}
     public void crearFavoritos(String user){fbd.crearFavoritos(user);}
+    public ArrayList<Playlist> tusPlaylist(String nombre){return fbd.tusPlaylist(nombre);}
 
 }

@@ -3,6 +3,8 @@ package gui;
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class cTemplateBuscar {
     @FXML
@@ -11,6 +13,8 @@ public class cTemplateBuscar {
     private Label labelTipo;
     @FXML
     private Label labelArtista;
+    @FXML
+    private ImageView imagen;
 
     private FachadaGui fgui;
     private FachadaAplicacion fa;
@@ -37,6 +41,12 @@ public class cTemplateBuscar {
     public void setLabelArtista(String artista){
         labelArtista.setText(labelArtista.getText() + artista);
     }
+
+    public void setImagen() {
+        Image userImage = new Image(getClass().getResource("/spoti/icons8-usuario-90.png").toExternalForm());
+        imagen.setImage(userImage);
+    }
+
     @FXML
     public void clickEntrar(){
         switch (this.tipo){
