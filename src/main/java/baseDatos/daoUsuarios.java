@@ -36,7 +36,6 @@ public class daoUsuarios extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            //this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }

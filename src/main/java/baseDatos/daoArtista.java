@@ -74,13 +74,13 @@ public class daoArtista extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmArtista=con.prepareStatement("select nombre, nombreartistico, verificado "+
+            stmArtista=con.prepareStatement("select nombre, nombreartistico, verificado, paisnacimiento "+
                     "from artista "+
                     "where verificado is TRUE");
             rsArtista=stmArtista.executeQuery();
             while (rsArtista.next())
             {
-                resultado.add(new Artista(rsArtista.getString("nombre"), rsArtista.getString("nombreartistico"),rsArtista.getBoolean("verificado")));
+                resultado.add(new Artista(rsArtista.getString("nombre"), rsArtista.getString("nombreartistico"),rsArtista.getBoolean("verificado"), rsArtista.getString("paisnacimiento")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
