@@ -204,7 +204,7 @@ public class daoUsuarios extends AbstractDAO{
 
         try {
             stmSiguiendo=con.prepareStatement("select idoyente2 "+
-                    "from seramigo "+
+                    "from seguir "+
                     "where idoyente1 = ?");
             stmSiguiendo.setString(1,nombre);
             rsSiguiendo=stmSiguiendo.executeQuery();

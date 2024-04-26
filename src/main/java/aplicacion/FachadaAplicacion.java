@@ -31,6 +31,7 @@ public class FachadaAplicacion {
 
     public void registrarUsuario(String usuario, String contrasena, String email, String nacimiento){
         gu.registrarUsuario(usuario,contrasena,email,nacimiento);
+        gc.crearFavoritos(usuario);
     }
     public ArrayList<Playlist> playlistDefecto(){return gc.playlistDefecto();}
     public ArrayList<Contenido> buscar(String buscar){
