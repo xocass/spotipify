@@ -126,12 +126,18 @@
       </Label>
       <ScrollPane hbarPolicy="NEVER" layoutX="400.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="321.0" prefWidth="226.0" />
+            <VBox prefHeight="321.0" prefWidth="226.0" spacing="10.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
       <ScrollPane hbarPolicy="NEVER" layoutX="655.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="318.0" prefWidth="225.0" />
+            <VBox prefHeight="318.0" prefWidth="225.0" spacing="10.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
       <Label layoutX="420.0" layoutY="233.0" text="SUS ALBUMES">
@@ -141,7 +147,10 @@
       </Label>
       <ScrollPane hbarPolicy="NEVER" layoutX="909.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="200.0" prefWidth="225.0" />
+            <VBox prefHeight="200.0" prefWidth="225.0" spacing="10.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
       <Label layoutX="684.0" layoutY="231.0" text="SUS PODCAST">
