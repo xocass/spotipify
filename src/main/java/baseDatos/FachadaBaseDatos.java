@@ -128,10 +128,11 @@ public class FachadaBaseDatos {
         if (!aux.isEmpty()){
             resultado.addAll(aux);
         }
+
         int tam=resultado.size();
         for (int i=0;i<tam;i++) {
             for(int j=i+1;j<tam;j++){
-                if(resultado.get(i).getNombre().equals(resultado.get(j).getNombre())){
+                if(resultado.get(i).getNombre().equals(resultado.get(j).getNombre()) && !resultado.get(i).getCreador().contains(resultado.get(j).getCreador().get(0))){
                     resultado.get(i).getCreador().add(resultado.get(j).getCreador().get(0));
                     resultado.remove(j);
                     tam--;

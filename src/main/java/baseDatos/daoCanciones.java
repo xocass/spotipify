@@ -49,7 +49,7 @@ public class daoCanciones extends AbstractDAO {
         con=this.getConexion();
 
         try {
-            stmCancion=con.prepareStatement("select ca.nombre as nombre, ca.idalbum as caidalbum, c.idalbum as cidalbum, c.idartista as cidartista, ar.nombre as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
+            stmCancion=con.prepareStatement("select ca.nombre as nombre, ca.idalbum as caidalbum, c.idalbum as cidalbum, c.idartista as cidartista, ar.nombreartistico as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
                     "from cancion ca, componer c, artista ar "+
                     "where ca.nombre like ? and ca.idalbum=c.idalbum and c.idartista=ar.nombre");
             stmCancion.setString(1, "%"+busqueda+"%");
