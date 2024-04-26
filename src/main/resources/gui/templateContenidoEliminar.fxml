@@ -10,27 +10,27 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="540.0" spacing="15.0" styleClass="plan-cuadro" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="540.0" spacing="15.0" styleClass="plan-cuadro" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cTemplateContenidoEliminar">
    <children>
       <ImageView fitHeight="50.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../spoti/unnamed.jpg" />
          </image>
       </ImageView>
-      <Label text="NOMBRE CONTENIDO" textFill="WHITE">
+      <Label fx:id="labelNombre" prefHeight="19.0" prefWidth="185.0" text="NOMBRE CONTENIDO" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label prefHeight="20.0" prefWidth="56.0" text="3:14" textFill="WHITE">
+      <Label fx:id="labelDuracion" prefHeight="20.0" prefWidth="51.0" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font size="13.0" />
          </font>
       </Label>
-      <CheckBox mnemonicParsing="false" text="Explícito" />
-      <Button mnemonicParsing="false" text="ELIMINAR">
+      <CheckBox fx:id="tickExplicito" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Explícito" />
+      <Button fx:id="btnEliminar" mnemonicParsing="false" onMouseClicked="#clickEliminar" text="ELIMINAR">
          <HBox.margin>
-            <Insets left="70.0" />
+            <Insets left="20.0" />
          </HBox.margin>
          <styleClass>
             <String fx:value="button-style-gray" />

@@ -1,5 +1,7 @@
 package gui;
 
+import aplicacion.Cancion;
+import aplicacion.Contenido;
 import aplicacion.FachadaAplicacion;
 import aplicacion.Oyente;
 import javafx.application.Application;
@@ -7,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
 
@@ -139,10 +142,31 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
-    public void showContenidoMod() throws IOException{
+    public void showContenidoMod(Contenido contenido) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vContenidoMod.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 566);
         cContenidoMod controller = fxmlLoader.getController();
+
+        if(contenido!=null){
+            controller.clickEntrar(contenido);
+        }
+        controller.setFachadas(this, fa);
+        principalStage.setScene(scene);
+        principalStage.show();
+
+    }
+    public void showContenidoEliminarMod(Contenido contenido) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("templateContenidoEliminar.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 640, 566);
+        cTemplateContenidoEliminar controller = fxmlLoader.getController();
+
+        controller.setLabelNombre(contenido.getNombre());
+        if(contenido.getTipo()>2){
+            controller.setLabelDuracion(contenido.getDuracion().toString());
+            controller.setTickExplicito(contenido.getExplicito());
+        }
+
+
         controller.setFachadas(this,fa);
         principalStage.setScene(scene);
         principalStage.show();

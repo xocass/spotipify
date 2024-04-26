@@ -1,19 +1,24 @@
 package gui;
 
+import aplicacion.Contenido;
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
+import java.util.ArrayList;
 public class cTemplateContenidoEntrar {
+    private Contenido contenido;
     @FXML
     private Label labelNombre;
     @FXML
     private Label labelTipo;
     @FXML
-    private Label labelDuracion;
+    private Label labelCreadores;
     @FXML
-    private CheckBox tickExplicito;
+    private Button btnEntrar;
 
     private FachadaGui fgui;
     private FachadaAplicacion fa;
@@ -24,7 +29,22 @@ public class cTemplateContenidoEntrar {
     }
 
     public void setLabelNombre(String nombre){labelNombre.setText(nombre);}
-    public void setLabelTipo(String tipo){labelTipo.setText(tipo);}
-    public void setLabelDuracion(String duracion){labelDuracion.setText(duracion);}
-    public void setTickExplicito(Boolean explicito){tickExplicito.setSelected(explicito);}
+    public void setLabelTipo(int tipo){
+        if(tipo==1){
+            labelTipo.setText("Álbum");
+        }else if(tipo==2){
+            labelTipo.setText("Podcast");
+        }else if(tipo==3){
+            labelTipo.setText("Canción");
+        }else{
+            labelTipo.setText("Capítulo");
+        }
+    }
+    public void setLabelCreadores(ArrayList<String> creadores){labelCreadores.setText(labelCreadores.getText() + creadores);}
+
+    public void setContenido(Contenido contenido){
+        this.contenido=contenido;}
+    public void clickEntrar() throws IOException {
+         fgui.showContenidoMod(contenido);
+    }
 }

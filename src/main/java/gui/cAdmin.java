@@ -34,7 +34,7 @@ public class cAdmin {
     }
     @FXML
     public void clickContenido() throws IOException{
-        fgui.showContenidoMod();
+        fgui.showContenidoMod(null);
     }
 
 

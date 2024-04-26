@@ -35,7 +35,7 @@ public class cContenidoMod {
         vboxBuscar.getChildren().clear();
         ArrayList<Contenido> resultado;
         if (!fieldBuscar.getText().isEmpty()) {
-            resultado = fa.buscar(fieldBuscar.getText());
+            resultado = fa.buscarContenidoMod(fieldBuscar.getText());
             for (Contenido aux : resultado) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEntrar.fxml"));
                 vboxBuscar.getChildren().add(loader.load());
@@ -43,10 +43,27 @@ public class cContenidoMod {
                 cTemplateContenidoEntrar controller = loader.getController();
 
                 controller.setLabelNombre(aux.getNombre());
-                controller.setLabelDuracion(aux.getDuracion().toString());
+                controller.setLabelCreadores(aux.getCreador());
+                controller.setLabelTipo(aux.getTipo());
 
+                controller.setContenido(aux);
                 controller.setFachadas(this.fgui,this.fa);
             }
         }
+    }
+
+    public void clickEntrar(Contenido contenido) throws IOException{
+        vboxBuscar.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEliminar.fxml"));
+        vboxBuscar.getChildren().add(loader.load());
+
+        cTemplateContenidoEliminar controller = loader.getController();
+
+        controller.setLabelNombre(contenido.getNombre());
+        if(contenido.getTipo()>2){
+            controller.setLabelDuracion(contenido.getDuracion().toString());
+            controller.setTickExplicito(contenido.getExplicito());
+        }
+        controller.setFachadas(this.fgui,this.fa);
     }
 }
