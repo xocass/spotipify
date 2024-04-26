@@ -31,8 +31,8 @@ public class cTemplateBuscar {
         this.fgui = fgui;
         this.fa = fa;
     }
-    public void setVerified(boolean option){
-        verified.setVisible(option);
+    public void setVerified(){
+        verified.setVisible(true);
     }
 
     public void setLabelNombre(String nombre){
@@ -46,7 +46,6 @@ public class cTemplateBuscar {
     public void setImagen() {
         Image userImage = new Image(getClass().getResource("/spoti/icons8-usuario-90.png").toExternalForm());
         imagen.setImage(userImage);
-        verified.setVisible(false);
     }
     @FXML
     public void clickEntrar() throws IOException {
