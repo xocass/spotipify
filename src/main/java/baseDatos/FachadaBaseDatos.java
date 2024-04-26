@@ -166,4 +166,5 @@ public class FachadaBaseDatos {
     public ArrayList<Cancion> topCanciones(){return daoCanciones.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return daoUsuarios.siguiendo(nombre);}
     public void crearFavoritos(String user){daoPlaylist.crearFavoritos(user);}
+    public ArrayList<String> siguiendoArtista(String nombre){return daoArtista.siguiendoArtista(nombre);}
 }
