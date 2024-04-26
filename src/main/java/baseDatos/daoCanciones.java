@@ -67,15 +67,15 @@ public class daoCanciones extends AbstractDAO {
         }
         return resultado;
     }
-    public void eliminar(Cancion eliminar){
+    public void eliminar(int eliminar){
         Connection con;
         PreparedStatement stmCancion=null;
         ResultSet rsCancion;
 
         con=this.getConexion();
         try {
-            stmCancion=con.prepareStatement("delete from cancion where nombre = ? ");
-            stmCancion.setString(1, eliminar.getNombre());
+            stmCancion=con.prepareStatement("delete from cancion where idcancion = ? ");
+            stmCancion.setString(1, "%"+eliminar+"%");
             stmCancion.execute();
 
         } catch (SQLException e){

@@ -43,7 +43,7 @@ public class daoCapitulos extends AbstractDAO{
         return resultado;
     }
 
-    public void eliminar(Capitulo capitulo){
+    public void eliminar(int capitulo){
 
     }
 }

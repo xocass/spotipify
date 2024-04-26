@@ -141,16 +141,16 @@ public class FachadaBaseDatos {
     public void eliminarContenido(Contenido contenido){
         if(contenido instanceof Album album) {
             if(album instanceof Cancion cancion){
-                daoCanciones.eliminar(cancion);
+                daoCanciones.eliminar(cancion.getIdCancion());
             }else {
-                daoAlbumes.eliminar(album);
+                daoAlbumes.eliminar(album.getIdAlbum());
             }
         }else{
             if(contenido instanceof Capitulo capitulo){
-                daoCapitulos.eliminar(capitulo);
+                daoCapitulos.eliminar(capitulo.getIdCapitulo());
             }else{
                 Podcast podcast= (Podcast)contenido;
-                daoPodcast.eliminar(podcast);
+                daoPodcast.eliminar(podcast.getIdPodcast());
             }
         }
 

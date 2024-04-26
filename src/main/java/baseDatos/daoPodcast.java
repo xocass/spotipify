@@ -41,7 +41,7 @@ public class daoPodcast extends AbstractDAO{
         return resultado;
     }
 
-    public void eliminar(Podcast podcast){
+    public void eliminar(int podcast){
 
     }
 }

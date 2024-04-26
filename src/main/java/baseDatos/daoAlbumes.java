@@ -43,7 +43,7 @@ public class daoAlbumes extends AbstractDAO{
         return resultado;
     }
 
-    public void eliminar(Album album){
+    public void eliminar(int album){
 
     }
 }
