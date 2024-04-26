@@ -22,9 +22,9 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ImageView fx:id="verified" fitHeight="32.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="verified" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../spoti/icons8-cuenta-verificada-32.png" />
+            <Image url="@../spoti/icons8-insignia-verificada-48.png" />
          </image>
       </ImageView>
       <Label fx:id="labelTipo" prefHeight="18.0" prefWidth="81.0" textFill="WHITE" />
