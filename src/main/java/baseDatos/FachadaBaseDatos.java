@@ -22,6 +22,7 @@ public class FachadaBaseDatos {
     private daoPrograma daoPrograma;
     private daoPlaylist daoPlaylist;
     private daoCanciones daoCanciones;
+    private daoCapitulos daoCapitulos;
 
     public FachadaBaseDatos (aplicacion.FachadaAplicacion fa){
         Properties configuracion = new Properties();
@@ -52,7 +53,7 @@ public class FachadaBaseDatos {
             this.daoPrograma = new daoPrograma(conexion,fa);
             this.daoPlaylist = new daoPlaylist(conexion,fa);
             this.daoCanciones = new daoCanciones(conexion,fa);
-
+            this.daoCapitulos= new daoCapitulos(conexion, fa);
 
         } catch (FileNotFoundException f){
             System.out.println(f.getMessage());
@@ -111,6 +112,34 @@ public class FachadaBaseDatos {
     public ArrayList<Contenido> buscarMod(String buscar){
         ArrayList<Contenido> resultado = new ArrayList<>();
         ArrayList<Contenido> aux;
+        aux=daoAlbumes.buscar(buscar);
+        if(!aux.isEmpty()) {
+            resultado.addAll(aux);
+        }
+        aux=daoPrograma.buscar(buscar);
+        if(!aux.isEmpty()){
+            resultado.addAll(aux);
+        }
+        aux = daoCanciones.buscar(buscar);
+        if (!aux.isEmpty()){
+            resultado.addAll(aux);
+        }
+        aux = daoCapitulos.buscar(buscar);
+        if (!aux.isEmpty()){
+            resultado.addAll(aux);
+        }
+        int tam=resultado.size();
+        for (int i=0;i<tam;i++) {
+            for(int j=i+1;j<tam;j++){
+                if(resultado.get(i).getNombre().equals(resultado.get(j).getNombre())){
+                    resultado.get(i).getCreador().add(resultado.get(j).getCreador().get(0));
+                    resultado.remove(j);
+                    tam--;
+                    j--;
+                }
+            }
+        }
+
         return resultado;
     }
 

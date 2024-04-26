@@ -22,10 +22,12 @@ public class Contenido {
         if(tipo>0)this.creador.add(creador);
         this.tipo=tipo;
     }
-    public Contenido(String nombre, Time duracion, Boolean explicito, int tipo){
+    public Contenido(String nombre, String creador, Time duracion, Boolean explicito, int tipo){
         this.nombre=nombre;
         this.duracion=duracion;
         this.explicito=explicito;
+        this.creador=new ArrayList<>();
+        if(tipo>0)this.creador.add(creador);
         this.tipo=tipo;
     }
 
