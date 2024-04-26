@@ -15,6 +15,7 @@ public class cTemplateUsuarioEliminar {
     @FXML
     private Button btnEliminar;
 
+
     private FachadaGui fgui;
     private FachadaAplicacion fa;
 
