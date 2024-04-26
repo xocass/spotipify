@@ -87,7 +87,7 @@ public class daoUsuarios extends AbstractDAO{
             rsUsuario=stmUsuario.executeQuery();
             if (rsUsuario.next())
             {
-                resultado = new Oyente(rsUsuario.getString("nombre"), null);
+                resultado = new Oyente(rsUsuario.getString("nombre"), null,null,null);
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -113,7 +113,7 @@ public class daoUsuarios extends AbstractDAO{
             rsUsuario=stmUsuario.executeQuery();
             if (rsUsuario.next())
             {
-                resultado = new Oyente(rsUsuario.getString("nombre"), null);
+                resultado = new Oyente(rsUsuario.getString("nombre"), null, null,null);
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -196,14 +196,14 @@ public class daoUsuarios extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmOyente=con.prepareStatement("select oy.nombre as nombre, oy.email as email "+
-                    "from oyente oy "+
-                    "where oy.nombre like ? ");
+            stmOyente=con.prepareStatement("select *  "+
+                    "from oyente "+
+                    "where nombre like ?");
             stmOyente.setString(1, "%"+busqueda+"%");
             rsOyente=stmOyente.executeQuery();
             while (rsOyente.next())
             {
-                resultado.add(new Oyente(rsOyente.getString("nombre"), rsOyente.getString("email")));
+                resultado.add(new Oyente(rsOyente.getString("nombre"),rsOyente.getString("contrasena"), rsOyente.getString("email"), rsOyente.getString("fecha")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

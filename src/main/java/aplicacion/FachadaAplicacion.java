@@ -37,13 +37,16 @@ public class FachadaAplicacion {
     public ArrayList<Contenido> buscar(String buscar){
         return gc.buscar(buscar);
     }
+    public ArrayList<Usuario> buscarU(String buscar){
+        return gu.buscarU(buscar);
+    }
     public ArrayList<Contenido> buscarContenidoMod(String buscar){return gc.buscarMod(buscar);}
     public ArrayList<Oyente> buscarOyente(String buscar){return gu.buscarOyente(buscar);}
     public ArrayList<Artista> buscarArtista(String buscar){return gu.buscarArtista(buscar);}
     public void eliminarOyente(String nombre){gu.eliminarOyente(nombre);}
     public void eliminarArtista(String nombre){gu.eliminarArtista(nombre);}
     public void eliminarContenido(Contenido contenido){gc.eliminar(contenido);}
-    public ArrayList<Oyente> verificados(){return gu.verificados();}
+    public ArrayList<Artista> verificados(){return gu.verificados();}
     public ArrayList<Cancion> topCanciones(){return gc.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return gu.siguiendo(nombre);}
     public ArrayList<String> siguiendoArtista(String nombre){return gu.siguiendoArtista(nombre);}

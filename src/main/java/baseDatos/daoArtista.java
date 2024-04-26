@@ -65,8 +65,8 @@ public class daoArtista extends AbstractDAO{
         }
 
     }
-    public ArrayList<Oyente> verificados(){
-        ArrayList<Oyente> resultado = new ArrayList<>();
+    public ArrayList<Artista> verificados(){
+        ArrayList<Artista> resultado = new ArrayList<>();
         Connection con;
         PreparedStatement stmArtista=null;
         ResultSet rsArtista;
@@ -74,13 +74,13 @@ public class daoArtista extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmArtista=con.prepareStatement("select nombre, nombreartistico "+
+            stmArtista=con.prepareStatement("select nombre, nombreartistico, verificado "+
                     "from artista "+
                     "where verificado is TRUE");
             rsArtista=stmArtista.executeQuery();
             while (rsArtista.next())
             {
-                resultado.add(new Oyente(rsArtista.getString("nombre"), rsArtista.getString("nombreartistico")));
+                resultado.add(new Artista(rsArtista.getString("nombre"), rsArtista.getString("nombreartistico"),rsArtista.getBoolean("verificado")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

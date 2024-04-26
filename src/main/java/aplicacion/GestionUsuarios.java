@@ -29,9 +29,13 @@ public class GestionUsuarios {
     public ArrayList<Artista> buscarArtista(String buscar){return fbd.buscarArtista(buscar);}
     public void eliminarOyente(String nombre){fbd.eliminarOyente(nombre);}
     public void eliminarArtista(String nombre){fbd.eliminarArtista(nombre);}
-    public ArrayList<Oyente> verificados(){return fbd.verificados();}
+    public ArrayList<Artista> verificados(){return fbd.verificados();}
     public ArrayList<String> siguiendo(String nombre){return fbd.siguiendo(nombre);}
     public ArrayList<String> siguiendoArtista(String nombre){return fbd.siguiendoArtista(nombre);}
     public ArrayList<String> getGeneros(String nombre){return fbd.getGeneros(nombre);}
+    public ArrayList<Usuario> buscarU(String buscar){
+        return fbd.buscarU(buscar);
+    }
+
 
 }

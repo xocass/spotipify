@@ -24,6 +24,7 @@ public class Album extends Contenido{
 
     public int getIdAlbum(){return idAlbum;}
     public void setTipoA(String tipo) {this.tipo = tipo;}
+
     public String getTipoA(){return tipo;}
     public void setAnhoLanzamiento(int anho) {this.anhoLanzamiento = anho;}
     public int getAnhoLanzamiento(){return anhoLanzamiento;}

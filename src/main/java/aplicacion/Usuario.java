@@ -12,6 +12,9 @@ public abstract class Usuario {
         this.email= email;
         this.fechanac= fechanac;
     }
+    public Usuario(String nombre){
+        this.nombre=nombre;
+    }
     public String getNombre(){return nombre;}
     public void setNombre(){this.nombre=nombre;}
     public String getContrasena(){return contrasena;}

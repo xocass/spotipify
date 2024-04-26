@@ -96,10 +96,12 @@ public class FachadaBaseDatos {
                 }
             }
         }
-        aux = daoArtista.buscar(buscar);
-        if (!aux.isEmpty()){
-            resultado.addAll(aux);
-        }
+        return resultado;
+    }
+    public ArrayList<Usuario> buscarU(String buscar){
+        ArrayList<Usuario> resultado = new ArrayList<>();
+        resultado.addAll(daoArtista.buscar(buscar));
+        resultado.addAll(daoUsuarios.buscar(buscar));
         return resultado;
     }
     public ArrayList<Contenido> buscarMod(String buscar){
@@ -174,7 +176,7 @@ public class FachadaBaseDatos {
         return resultado;
     }
     public ArrayList<Playlist> playlistDefecto(){return daoPlaylist.playlistDefecto();}
-    public ArrayList<Oyente> verificados(){return daoArtista.verificados();}
+    public ArrayList<Artista> verificados(){return daoArtista.verificados();}
     public ArrayList<Cancion> topCanciones(){return daoCanciones.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return daoUsuarios.siguiendo(nombre);}
     public void crearFavoritos(String user){daoPlaylist.crearFavoritos(user);}
