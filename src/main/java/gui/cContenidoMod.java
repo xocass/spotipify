@@ -1,11 +1,9 @@
 package gui;
 
-import aplicacion.Cancion;
-import aplicacion.Capitulo;
-import aplicacion.FachadaAplicacion;
-import aplicacion.Contenido;
+import aplicacion.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -39,12 +37,26 @@ public class cContenidoMod {
         if (!fieldBuscar.getText().isEmpty()) {
             resultado = fa.buscarContenidoMod(fieldBuscar.getText());
             for (Contenido aux : resultado) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEntrar.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEliminar.fxml"));
                 vboxBuscar.getChildren().add(loader.load());
 
-                cTemplateContenidoEntrar controller = loader.getController();
+                cTemplateContenidoEliminar controller = loader.getController();
+                controller.setFachadas(this.fgui,this.fa);
 
+                controller.setContenido(aux);
                 controller.setLabelNombre(aux.getNombre());
+                if(aux instanceof Cancion cancion){
+                    controller.setLabelDuracion(cancion.getDuracion().toString());
+                    controller.setTickExplicito(cancion.getExplicito());
+                }if(aux instanceof Capitulo capitulo){
+                    controller.setLabelDuracion(capitulo.getDuracion().toString());
+                    controller.setTickExplicito(capitulo.getExplicito());
+                }else{
+                    controller.ocultarExplicito();
+                }
+
+
+                /*controller.setLabelNombre(aux.getNombre());
                 controller.setLabelTipo(aux);
                 for (int i = 0; i < aux.getCreador().size(); i++) {
                     if (i != 0) controller.setLabelCreadores(", ");
@@ -52,12 +64,12 @@ public class cContenidoMod {
                 }
 
                 controller.setContenido(aux);
-                controller.setFachadas(this.fgui,this.fa);
+                controller.setFachadas(this.fgui,this.fa);*/
             }
 
         }
     }
-
+    /*
     public void clickEntrar(Contenido contenido) throws IOException{
         vboxBuscar.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEliminar.fxml"));
@@ -78,5 +90,5 @@ public class cContenidoMod {
             controller.ocultarExplicito();
         }
 
-    }
+    }*/
 }
