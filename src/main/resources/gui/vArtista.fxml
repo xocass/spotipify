@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cArtista">
    <children>
       <AnchorPane layoutX="-6.0" layoutY="-21.0" prefHeight="735.0" prefWidth="330.0" style="-fx-background-color: #01D856;">
          <children>
@@ -21,7 +21,7 @@
             </ImageView>
             <VBox layoutX="3.0" layoutY="208.0" prefHeight="200.0" prefWidth="337.0">
                <children>
-                  <HBox id="btnInicio" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                  <HBox id="btnInicio" fx:id="boxInicio" alignment="CENTER_LEFT" onMouseClicked="#clickInicio" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -38,7 +38,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </HBox>
-                  <HBox id="btnBuscar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                  <HBox id="btnBuscar" fx:id="boxBuscar" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickBuscar" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -55,7 +55,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                  <HBox fx:id="boxBiblioteca" alignment="CENTER_LEFT" onMouseClicked="#clickBiblioteca" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -76,7 +76,7 @@
             </VBox>
             <VBox layoutX="3.0" layoutY="589.0" prefHeight="100.0" prefWidth="337.0">
                <children>
-                  <HBox id="btnUsuario" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                  <HBox id="btnUsuario" fx:id="boxUsuario" alignment="CENTER_LEFT" onMouseClicked="#clickUsuario" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -93,7 +93,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </HBox>
-                  <HBox id="btnAjustes" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                  <HBox id="btnAjustes" fx:id="boxAjustes" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickAjustes" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -139,7 +139,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="labelGeneros" layoutX="675.0" layoutY="143.0" prefHeight="18.0" prefWidth="316.0" text="Pop, Rock, Urban Latino">
+      <Label fx:id="labelGeneros" layoutX="675.0" layoutY="143.0" prefHeight="18.0" prefWidth="316.0">
          <font>
             <Font size="24.0" />
          </font>

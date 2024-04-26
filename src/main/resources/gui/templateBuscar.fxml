@@ -24,7 +24,7 @@
       </Label>
       <Label fx:id="labelTipo" prefHeight="18.0" prefWidth="81.0" textFill="WHITE" />
       <Label fx:id="labelArtista" prefHeight="18.0" prefWidth="206.0" textFill="WHITE" />
-      <ImageView fitHeight="41.0" fitWidth="37.0">
+      <ImageView fx:id="btnEntrar" fitHeight="41.0" fitWidth="37.0" onMouseClicked="#clickEntrar">
          <image>
             <Image url="@../spoti/icons8-flecha-adelante-50.png" />
          </image>

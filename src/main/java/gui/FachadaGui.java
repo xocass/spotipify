@@ -55,11 +55,9 @@ public class FachadaGui extends Application {
         actual=aux;
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vCargando.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
-        cCargando controller = fxmlLoader.getController();
         entrarStage.setTitle("Cargando...");
         entrarStage.setScene(scene);
         entrarStage.show();
-        controller.barraCargando();
         principal();
         principalStage.setTitle("Spotipify");
         entrarStage.close();
@@ -83,10 +81,12 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
-    public void showArtista() throws IOException{
+    public void showArtista(String nombre) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtista.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         cArtista controller = fxmlLoader.getController();
+        controller.setLabelGeneros(fa.getGeneros(nombre));
+        controller.setLabelArtista(nombre);
         controller.setFachadas(this,fa);
         principalStage.setScene(scene);
         principalStage.show();
@@ -151,6 +151,16 @@ public class FachadaGui extends Application {
         if(contenido!=null){
             controller.clickEntrar(contenido);
         }
+        controller.setFachadas(this, fa);
+        principalStage.setScene(scene);
+        principalStage.show();
+
+    }
+    public void showPlaylist() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vPlaylist.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 640, 566);
+        cPlaylist controller = fxmlLoader.getController();
+
         controller.setFachadas(this, fa);
         principalStage.setScene(scene);
         principalStage.show();

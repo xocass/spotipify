@@ -32,5 +32,6 @@ public class GestionUsuarios {
     public ArrayList<Oyente> verificados(){return fbd.verificados();}
     public ArrayList<String> siguiendo(String nombre){return fbd.siguiendo(nombre);}
     public ArrayList<String> siguiendoArtista(String nombre){return fbd.siguiendoArtista(nombre);}
+    public ArrayList<String> getGeneros(String nombre){return fbd.getGeneros(nombre);}
 
 }
