@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
+
 public class cTemplateBuscar {
     @FXML
     private Label labelNombre;
@@ -22,6 +24,7 @@ public class cTemplateBuscar {
     private int tipo; //ARTISTA= 0;
                         //ALBUM = 1;
                         //PODCAST = 2;
+                        //PERFIL=3
 
     public void setTipo(int tipo){
         this.tipo = tipo;
@@ -48,16 +51,19 @@ public class cTemplateBuscar {
     }
 
     @FXML
-    public void clickEntrar(){
+    public void clickEntrar() throws IOException {
         switch (this.tipo){
             case 0: //ARTISTA
-
+                fgui.showArtista(this.labelNombre.getText());
                 break;
             case 1: //ALBUM
 
                 break;
 
             case 2: //PODCAST
+
+                break;
+            case 3: //PERFIL
 
                 break;
 

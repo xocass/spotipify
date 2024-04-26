@@ -1,5 +1,7 @@
 package aplicacion;
 
+import java.util.ArrayList;
+
 public class Artista {
     private String nombre;
     private String contrasena;
@@ -8,8 +10,9 @@ public class Artista {
     private String nombreArtistico;
     private String paisNacimiento;
     private boolean verificado;
+    private ArrayList<String> generos;
 
-    public Artista(String nombre, String contrasena, String email, String fechanac, String nombreArtistico, String paisNacimiento, boolean verificado){
+    public Artista(String nombre, String contrasena, String email, String fechanac, String nombreArtistico, String paisNacimiento, boolean verificado, ArrayList<String> generos){
         this.nombre=nombre;
         this.contrasena=contrasena;
         this.email=email;
@@ -17,11 +20,17 @@ public class Artista {
         this.nombreArtistico= nombreArtistico;
         this.paisNacimiento= paisNacimiento;
         this.verificado=verificado;
+        this.generos=generos;
     }
     public Artista(String nombreArtistico, String paisNacimiento, boolean verificado){
         this.nombreArtistico= nombreArtistico;
         this.paisNacimiento= paisNacimiento;
         this.verificado=verificado;
+    }
+    public Artista(String nombre, String nombreArtistico, ArrayList<String> generos){
+        this.nombre=nombre;
+        this.nombreArtistico=nombreArtistico;
+        this.generos=generos;
     }
 
     public String getNombre(){return nombre;}
@@ -44,5 +53,6 @@ public class Artista {
     public void setPaisNacimiento(String paisNacimiento) {this.paisNacimiento = paisNacimiento;}
     public Boolean getVerificado(){return verificado;}
     public void setVerificado(String paisNacimiento) {this.verificado = verificado;}
+    public void setGeneros(ArrayList<String> generos){this.generos=generos;}
 
 }

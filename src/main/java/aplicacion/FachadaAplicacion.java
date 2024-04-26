@@ -46,5 +46,6 @@ public class FachadaAplicacion {
     public ArrayList<String> siguiendo(String nombre){return gu.siguiendo(nombre);}
     public ArrayList<String> siguiendoArtista(String nombre){return gu.siguiendoArtista(nombre);}
     public ArrayList<Playlist> tusPlaylist(String nombre){return gc.tusPlaylist(nombre);}
+    public ArrayList<String> getGeneros(String nombre){return gu.getGeneros(nombre);}
 
 }

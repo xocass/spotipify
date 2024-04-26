@@ -8,47 +8,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.util.Duration;
 
+import static java.lang.Thread.sleep;
+
 
 public class cCargando {
-
-    @FXML
-    private ProgressBar barraCarga;
-
-
-
-    public void barraCargando() {
-        barraCarga.setProgress(0.1);
+    public void Cargando(){
         try {
-            Thread.sleep(1000);
+            sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        barraCarga.setProgress(0.35);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        barraCarga.setProgress(0.67);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        barraCarga.setProgress(0.84);
-        try {
-            Thread.sleep(900);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        barraCarga.setProgress(0.95);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        barraCarga.setProgress(1.0);
-
-
     }
 }
