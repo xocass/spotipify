@@ -138,6 +138,7 @@ public class daoArtista extends AbstractDAO{
             while (rsGeneros.next())
             {
                 resultado.add(rsGeneros.getString("nombregenero"));
+                System.out.println(rsGeneros.getString("nombregenero"));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

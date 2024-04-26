@@ -155,6 +155,16 @@ public class FachadaGui extends Application {
         principalStage.show();
 
     }
+    public void showPlaylist() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vPlaylist.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 640, 566);
+        cPlaylist controller = fxmlLoader.getController();
+
+        controller.setFachadas(this, fa);
+        principalStage.setScene(scene);
+        principalStage.show();
+
+    }
     public void irAtrasMod() throws IOException{showAdmin();}
     public static void main(String[] args) {
         launch();

@@ -14,7 +14,7 @@ import static java.lang.Thread.sleep;
 public class cCargando {
     public void Cargando(){
         try {
-            sleep(3000);
+            sleep(6000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
