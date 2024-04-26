@@ -133,7 +133,31 @@ public class daoArtista extends AbstractDAO{
             while (rsGeneros.next())
             {
                 resultado.add(rsGeneros.getString("nombregenero"));
-                System.out.println(rsGeneros.getString("nombregenero"));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmGeneros.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
+    public int getSeguidores(String nombre){
+        int resultado=666666;
+        Connection con;
+        PreparedStatement stmGeneros=null;
+        ResultSet rsGeneros;
+
+        con=this.getConexion();
+        try {
+            stmGeneros=con.prepareStatement("select count(*) as seguidores "+
+                    "from seguirartista " +
+                    "where idartista = ?");
+            stmGeneros.setString(1,nombre);
+            rsGeneros=stmGeneros.executeQuery();
+            while (rsGeneros.next())
+            {
+                resultado=rsGeneros.getInt("seguidores");
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

@@ -54,6 +54,8 @@ public class cTemplateBuscar {
             case 'a':
                 fgui.showArtista(new Artista(this.idUser,this.labelNombre.getText(),this.verified.isVisible(),this.labelTipo.getText()));
                 break;
+            case 'b':
+                fgui.showUsuario();
         }
     }
 
