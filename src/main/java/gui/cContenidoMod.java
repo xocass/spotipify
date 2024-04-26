@@ -1,5 +1,7 @@
 package gui;
 
+import aplicacion.Cancion;
+import aplicacion.Capitulo;
 import aplicacion.FachadaAplicacion;
 import aplicacion.Contenido;
 import javafx.fxml.FXML;
@@ -43,7 +45,7 @@ public class cContenidoMod {
                 cTemplateContenidoEntrar controller = loader.getController();
 
                 controller.setLabelNombre(aux.getNombre());
-                controller.setLabelTipo(aux.getTipo());
+                controller.setLabelTipo(aux);
                 for (int i = 0; i < aux.getCreador().size(); i++) {
                     if (i != 0) controller.setLabelCreadores(", ");
                     controller.setLabelCreadores(aux.getCreador().get(i));
@@ -62,10 +64,14 @@ public class cContenidoMod {
 
         cTemplateContenidoEliminar controller = loader.getController();
 
+        controller.setContenido(contenido);
         controller.setLabelNombre(contenido.getNombre());
-        if(contenido.getTipo()>2){
-            controller.setLabelDuracion(contenido.getDuracion().toString());
-            controller.setTickExplicito(contenido.getExplicito());
+        if(contenido instanceof Cancion cancion){
+            controller.setLabelDuracion(cancion.getDuracion().toString());
+            controller.setTickExplicito(cancion.getExplicito());
+        }if(contenido instanceof Capitulo capitulo){
+            controller.setLabelDuracion(capitulo.getDuracion().toString());
+            controller.setTickExplicito(capitulo.getExplicito());
         }else{
             controller.ocultarExplicito();
         }

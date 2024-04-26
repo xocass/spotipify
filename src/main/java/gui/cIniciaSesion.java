@@ -12,8 +12,9 @@ import javafx.scene.Scene;
 
 
 public class cIniciaSesion {
-    FachadaGui fgui;
-    FachadaAplicacion fa;
+    private FachadaGui fgui;
+    private FachadaAplicacion fa;
+    private HostServices hostServices;
 
     @FXML
     private Button btnEntrar;
@@ -26,7 +27,7 @@ public class cIniciaSesion {
     @FXML
     private Label labelOlvidado;
 
-    private HostServices hostServices;
+
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui; this.fa=fa;
     }

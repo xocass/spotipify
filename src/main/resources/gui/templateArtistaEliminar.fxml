@@ -31,7 +31,7 @@
          </font>
       </CheckBox>
       <Label fx:id="labelPaisNacimiento" prefHeight="17.0" prefWidth="125.0" text="Label" textFill="WHITE" />
-      <Button mnemonicParsing="false" text="ELIMINAR">
+      <Button fx:id="btnEliminar" mnemonicParsing="false" text="ELIMINAR" onMouseClicked="#clickEliminar">
          <HBox.margin>
             <Insets />
          </HBox.margin>

@@ -9,13 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class cPrincipal {
-    FachadaGui fgui;
-    FachadaAplicacion fa;
-
-    public void setFachadas (FachadaGui fgui, FachadaAplicacion fa){
-        this.fgui=fgui;
-        this.fa=fa;
-    }
+    private FachadaGui fgui;
+    private FachadaAplicacion fa;
 
     @FXML
     private HBox boxBuscar;
@@ -32,6 +27,11 @@ public class cPrincipal {
     @FXML
     private HBox cancionBox;
 
+
+    public void setFachadas (FachadaGui fgui, FachadaAplicacion fa){
+        this.fgui=fgui;
+        this.fa=fa;
+    }
     @FXML
     public void clickUsuario() throws IOException {
         fgui.showUsuario();
@@ -48,7 +48,6 @@ public class cPrincipal {
     public void clickAjustes() throws IOException{
         fgui.showAjustes();
     }
-
    public void iniciar() throws IOException {
        ArrayList<Playlist> defecto;
        defecto = fa.playlistDefecto();

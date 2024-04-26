@@ -1,7 +1,7 @@
 package baseDatos;
 
 import aplicacion.Contenido;
-import aplicacion.Oyente;
+import aplicacion.Album;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,14 +24,15 @@ public class daoAlbumes extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmAlbum=con.prepareStatement("select al.nombre as nombre, al.tipo as tipo, ar.nombreartistico as creador "+
+            stmAlbum=con.prepareStatement("select al.nombre as nombre, al.idalbum as idalbum, al.tipo as tipo, ar.nombreartistico as creador "+
                     "from album al, componer c, artista ar "+
                     "where al.nombre like ? and al.idalbum=c.idalbum and c.idartista=ar.nombre");
             stmAlbum.setString(1, "%"+busqueda+"%");
             rsAlbum=stmAlbum.executeQuery();
             while (rsAlbum.next())
             {
-                resultado.add(new Contenido(rsAlbum.getString("nombre"), rsAlbum.getString("tipo"),rsAlbum.getString("creador"),1));
+                resultado.add(new Album(rsAlbum.getString("nombre"), rsAlbum.getString("creador"),
+                        rsAlbum.getInt("idalbum"), rsAlbum.getString("tipo")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -42,6 +43,9 @@ public class daoAlbumes extends AbstractDAO{
         return resultado;
     }
 
+    public void eliminar(Album album){
+
+    }
 }
 
 

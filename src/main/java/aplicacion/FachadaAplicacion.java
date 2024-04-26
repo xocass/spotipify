@@ -6,10 +6,10 @@ import gui.*;
 import java.util.ArrayList;
 
 public class FachadaAplicacion {
-    FachadaGui fgui;
-    FachadaBaseDatos fbd;
-    GestionUsuarios gu;
-    GestionContenido gc;
+    private FachadaGui fgui;
+    private FachadaBaseDatos fbd;
+    private  GestionUsuarios gu;
+    private GestionContenido gc;
 
     public FachadaAplicacion(FachadaGui fgui){
         this.fgui=fgui;
@@ -41,6 +41,8 @@ public class FachadaAplicacion {
     public ArrayList<Oyente> buscarOyente(String buscar){return gu.buscarOyente(buscar);}
     public ArrayList<Artista> buscarArtista(String buscar){return gu.buscarArtista(buscar);}
     public void eliminarOyente(String nombre){gu.eliminarOyente(nombre);}
+    public void eliminarArtista(String nombre){gu.eliminarArtista(nombre);}
+    public void eliminarContenido(Contenido contenido){gc.eliminar(contenido);}
     public ArrayList<Oyente> verificados(){return gu.verificados();}
     public ArrayList<Cancion> topCanciones(){return gc.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return gu.siguiendo(nombre);}

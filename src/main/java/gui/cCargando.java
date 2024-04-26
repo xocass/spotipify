@@ -10,10 +10,8 @@ import javafx.util.Duration;
 
 
 public class cCargando {
-
     @FXML
     private ProgressBar barraCarga;
-
 
 
     public void barraCargando() {

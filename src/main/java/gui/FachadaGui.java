@@ -14,12 +14,13 @@ import java.util.ArrayList;
 import static java.lang.Thread.sleep;
 
 public class FachadaGui extends Application {
-    Stage entrarStage;
-    Stage principalStage;
-    FachadaAplicacion fa;
-    Oyente actual;
-    public Oyente getActual() {return actual;}
+    private Stage entrarStage;
+    private Stage principalStage;
+    private FachadaAplicacion fa;
+    private Oyente actual;
 
+
+    public Oyente getActual() {return actual;}
     @Override
     public void start(Stage stage) throws IOException {
         entrarStage=stage;

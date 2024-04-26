@@ -18,15 +18,6 @@ public class cUsuario {
     private FachadaGui fgui;
     private FachadaAplicacion fa;
 
-    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa, Oyente oyente){
-        this.fgui=fgui;
-        this.fa=fa;
-        fieldContraseña.setText(oyente.getContrasena());
-        fieldCorreo.setText(oyente.getEmail());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        fechaNacimiento.setValue(LocalDate.parse(oyente.getFechanac(), formatter));
-    }
-
     @FXML
     private HBox boxInicio;
     @FXML
@@ -43,6 +34,17 @@ public class cUsuario {
     private TextField fieldCorreo;
     @FXML
     private DatePicker fechaNacimiento;
+
+    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa, Oyente oyente){
+        this.fgui=fgui;
+        this.fa=fa;
+        fieldContraseña.setText(oyente.getContrasena());
+        fieldCorreo.setText(oyente.getEmail());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        fechaNacimiento.setValue(LocalDate.parse(oyente.getFechanac(), formatter));
+    }
+
+
     @FXML
     public void clickInicio() throws IOException {
 

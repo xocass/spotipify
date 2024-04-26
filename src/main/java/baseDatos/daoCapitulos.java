@@ -1,6 +1,6 @@
 package baseDatos;
 
-import aplicacion.Cancion;
+import aplicacion.Capitulo;
 import aplicacion.Contenido;
 
 import java.sql.Connection;
@@ -23,14 +23,16 @@ public class daoCapitulos extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmCapitulo=con.prepareStatement("select ca.nombre as nombre, ca.idpodcast as caidpodcast, p.idpodcast as idpodcast, p.idartista as pidartista, ar.nombre as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
+            stmCapitulo=con.prepareStatement("select ca.nombre as nombre, ca.idpodcast as caidpodcast, ca.idcapitulo as idcapitulo, p.idartista as pidartista, ar.nombre as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
                     "from capitulo ca, participarpodcast p, artista ar "+
                     "where ca.nombre like ? and ca.idpodcast=p.idpodcast and p.idartista=ar.nombre");
             stmCapitulo.setString(1, "%"+busqueda+"%");
             rsCapitulo=stmCapitulo.executeQuery();
             while (rsCapitulo.next())
             {
-                resultado.add(new Contenido(rsCapitulo.getString("nombre"), rsCapitulo.getString("arnombre"),rsCapitulo.getTime("duracion"),rsCapitulo.getBoolean("explicito"),4));
+                resultado.add(new Capitulo(rsCapitulo.getString("nombre"), rsCapitulo.getInt("idpodcast"),
+                        rsCapitulo.getString("arnombre"), rsCapitulo.getInt("idcapitulo"),
+                        rsCapitulo.getTime("duracion"),rsCapitulo.getBoolean("explicito")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -39,5 +41,9 @@ public class daoCapitulos extends AbstractDAO{
             try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
+    }
+
+    public void eliminar(Capitulo capitulo){
+
     }
 }

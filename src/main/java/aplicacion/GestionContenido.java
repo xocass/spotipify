@@ -6,8 +6,9 @@ import gui.FachadaGui;
 import java.util.ArrayList;
 
 public class GestionContenido {
-    FachadaGui fgui;
-    FachadaBaseDatos fbd;
+    private FachadaGui fgui;
+    private FachadaBaseDatos fbd;
+
     public GestionContenido(FachadaGui fgui, FachadaBaseDatos fbd){
         this.fgui=fgui;
         this.fbd=fbd;
@@ -19,6 +20,7 @@ public class GestionContenido {
     public ArrayList<Contenido> buscarMod(String buscar){
         return fbd.buscarMod(buscar);
     }
+    public void eliminar(Contenido contenido){fbd.eliminarContenido(contenido);}
     public ArrayList<Playlist> playlistDefecto(){return fbd.playlistDefecto();}
     public ArrayList<Cancion> topCanciones(){return fbd.topCanciones();}
     public void crearFavoritos(String user){fbd.crearFavoritos(user);}

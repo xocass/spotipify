@@ -1,5 +1,6 @@
 package baseDatos;
 import aplicacion.Contenido;
+import aplicacion.Podcast;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,14 +23,14 @@ public class daoPrograma extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmPrograma=con.prepareStatement("select p.nombre as nombre, a.nombreartistico as creador "+
+            stmPrograma=con.prepareStatement("select p.nombre as nombre, a.nombreartistico as creador, p.idpodcast as idpodcast "+
                     "from podcast p, participarpodcast pp, artista a "+
                     "where p.nombre like ? and p.idpodcast = pp.idpodcast and pp.idartista = a.nombre");
             stmPrograma.setString(1, "%"+busqueda+"%");
             rsPrograma=stmPrograma.executeQuery();
             while (rsPrograma.next())
             {
-                resultado.add(new Contenido(rsPrograma.getString("nombre"), "Podcast",rsPrograma.getString("creador"),2));
+                resultado.add(new Podcast(rsPrograma.getString("nombre"), rsPrograma.getString("creador"),rsPrograma.getInt("idpodcast")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -38,5 +39,9 @@ public class daoPrograma extends AbstractDAO{
             try {stmPrograma.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
+    }
+
+    public void eliminar(Podcast podcast){
+
     }
 }

@@ -16,6 +16,7 @@ import java.io.IOException;
 public class cRegistrarse {
     private FachadaAplicacion fa;
     private FachadaGui fgui;
+
     @FXML
     private ImageView btnAtras;
     @FXML
@@ -30,6 +31,8 @@ public class cRegistrarse {
     private DatePicker fechaNacimiento;
     @FXML
     private Label labelVacio;
+
+
     public void setFgui(FachadaGui fgui, FachadaAplicacion fa) {
         this.fgui = fgui;
         this.fa=fa;

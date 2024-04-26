@@ -1,6 +1,7 @@
 package gui;
 
 import aplicacion.Contenido;
+import aplicacion.Usuario;
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +19,6 @@ public class cBuscar {
     private FachadaGui fgui;
     private FachadaAplicacion fa;
 
-    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa) {
-        this.fgui = fgui;
-        this.fa = fa;
-    }
-
     @FXML
     private ImageView btnBuscar;
     @FXML
@@ -38,6 +34,10 @@ public class cBuscar {
     @FXML
     private VBox vboxBuscar;
 
+    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa) {
+        this.fgui = fgui;
+        this.fa = fa;
+    }
     @FXML
     public void clickInicio() throws IOException {
         fgui.principal();
@@ -60,23 +60,28 @@ public class cBuscar {
         ArrayList<Contenido> resultado;
         if (!fieldBuscar.getText().isEmpty()) {
             resultado = fa.buscar(fieldBuscar.getText());
-            for (Contenido aux : resultado) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("templateBuscar.fxml"));
-                vboxBuscar.getChildren().add(loader.load());
-                cTemplateBuscar controller = loader.getController();
-                controller.setLabelNombre(aux.getNombre());
-                controller.setLabelTipo(aux.getPais_tipoalbum());
-                if(aux.getTipo()==0)controller.setImagen();
-                controller.setFachadas(this.fgui,this.fa);
-                controller.setTipo(aux.getTipo());
+            if(!resultado.isEmpty()) {
+                for (Contenido aux : resultado) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("templateBuscar.fxml"));
+                    vboxBuscar.getChildren().add(loader.load());
+                    cTemplateBuscar controller = loader.getController();
 
-                if (aux.getTipo() > 0) {
+                    controller.setLabelNombre(aux.getNombre());
+                    controller.setLabelTipo(aux.getPais_tipoalbum());
+
+                    if (aux.getTipo() == 0) controller.setImagen();
+
+                    controller.setFachadas(this.fgui, this.fa);
+                    controller.setTipo(aux.getTipo());
+
                     for (int i = 0; i < aux.getCreador().size(); i++) {
                         if (i != 0) controller.setLabelArtista(", ");
                         controller.setLabelArtista(aux.getCreador().get(i));
                     }
+
                 }
             }
+
         }
     }
 

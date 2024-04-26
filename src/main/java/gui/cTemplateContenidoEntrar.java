@@ -1,6 +1,10 @@
 package gui;
 
+import aplicacion.Album;
 import aplicacion.Contenido;
+import aplicacion.Cancion;
+import aplicacion.Podcast;
+import aplicacion.Capitulo;
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,15 +33,20 @@ public class cTemplateContenidoEntrar {
     }
 
     public void setLabelNombre(String nombre){labelNombre.setText(nombre);}
-    public void setLabelTipo(int tipo){
-        if(tipo==1){
-            labelTipo.setText("Álbum");
-        }else if(tipo==2){
-            labelTipo.setText("Podcast");
-        }else if(tipo==3){
-            labelTipo.setText("Canción");
-        }else{
-            labelTipo.setText("Capítulo");
+    public void setLabelTipo(Contenido contenido){
+        if(contenido instanceof Album album){
+            if(album instanceof Cancion){
+                labelTipo.setText("Canción");
+            }else{
+                labelTipo.setText("Álbum");
+            }
+        }else if(contenido instanceof Podcast podcast){
+            if(podcast instanceof Capitulo){
+                labelTipo.setText("Capítulo");
+            }else{
+                labelTipo.setText("Podcast");
+            }
+
         }
     }
     public void setLabelCreadores(String creadores){labelCreadores.setText(labelCreadores.getText() + creadores);}

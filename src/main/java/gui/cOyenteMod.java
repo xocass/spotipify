@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class cOyenteMod {
     private FachadaGui fgui;
     private FachadaAplicacion fa;
+
     @FXML
     private ImageView btnAtras;
     @FXML
@@ -24,11 +25,11 @@ public class cOyenteMod {
     @FXML
     private TextField fieldBuscar;
 
+
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui;
         this.fa=fa;
     }
-
     @FXML
     public void irAtras() throws IOException{
         fgui.irAtrasMod();

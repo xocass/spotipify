@@ -16,8 +16,8 @@ public class daoArtista extends AbstractDAO{
         super.setFachadaAplicacion(fa);
     }
 
-    public ArrayList<Contenido> buscar(String busqueda){
-        ArrayList<Contenido> resultado = new ArrayList<>();
+    public ArrayList<Artista> buscar(String busqueda){
+        ArrayList<Artista> resultado = new ArrayList<>();
         Connection con;
         PreparedStatement stmArtista=null;
         ResultSet rsArtista;
@@ -25,14 +25,17 @@ public class daoArtista extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmArtista=con.prepareStatement("select nombreartistico, paisnacimiento "+
+            stmArtista=con.prepareStatement("select * "+
                     "from artista "+
                     "where nombreartistico like ?");
             stmArtista.setString(1, "%"+busqueda+"%");
             rsArtista=stmArtista.executeQuery();
             while (rsArtista.next())
             {
-                resultado.add(new Contenido(rsArtista.getString("nombreartistico"), rsArtista.getString("paisnacimiento"),null,0));
+                resultado.add(new Artista(rsArtista.getString("nombre"), rsArtista.getString("contraseña"),
+                        rsArtista.getString("email"), rsArtista.getDate("fechanacimiento").toString(),
+                        rsArtista.getString("nombreartistico"), rsArtista.getString("paisnacimiento"),
+                        rsArtista.getBoolean("verificado")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -43,32 +46,24 @@ public class daoArtista extends AbstractDAO{
         return resultado;
     }
 
-    public ArrayList<Artista> buscarMod(String busqueda){
-        ArrayList<Artista> resultado = new ArrayList<>();
+    public void eliminar(String eliminar){
         Connection con;
-        PreparedStatement stmArtista=null;
-        ResultSet rsArtista;
+        PreparedStatement stmOyente=null;
+        ResultSet rsOyente;
 
         con=this.getConexion();
-
         try {
-            stmArtista=con.prepareStatement("select nombreartistico, paisnacimiento, verificado "+
-                    "from artista "+
-                    "where nombreartistico like ? or nombre like ?");
-            stmArtista.setString(1, "%"+busqueda+"%");
-            stmArtista.setString(2, "%"+busqueda+"%");
-            rsArtista=stmArtista.executeQuery();
-            while (rsArtista.next())
-            {
-                resultado.add(new Artista(rsArtista.getString("nombreartistico"), rsArtista.getString("paisnacimiento"),rsArtista.getBoolean("verificado")));
-            }
+            stmOyente=con.prepareStatement("delete from artista where nombre = ? ");
+            stmOyente.setString(1, eliminar);
+            stmOyente.execute();
+
         } catch (SQLException e){
             System.out.println(e.getMessage());
             this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
-            try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+            try {stmOyente.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
-        return resultado;
+
     }
     public ArrayList<Oyente> verificados(){
         ArrayList<Oyente> resultado = new ArrayList<>();

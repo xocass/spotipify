@@ -12,8 +12,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class cBiblioteca {
-    FachadaGui fgui;
-    FachadaAplicacion fa;
+    private FachadaGui fgui;
+    private FachadaAplicacion fa;
+
     @FXML
     private HBox boxArtista;
     @FXML

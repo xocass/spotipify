@@ -24,13 +24,13 @@ public class daoCanciones extends AbstractDAO {
         con=this.getConexion();
 
         try {
-            stmCancion=con.prepareStatement("select nombre, idcancion "+
+            stmCancion=con.prepareStatement("select nombre, idcancion, idalbum "+
                     "from cancion "+
                     "order by visualizaciones limit 10");
             rsCancion=stmCancion.executeQuery();
             while (rsCancion.next())
             {
-                resultado.add(new Cancion(rsCancion.getInt("idcancion"),rsCancion.getString("nombre")));
+                resultado.add(new Cancion(rsCancion.getString("nombre"),null,rsCancion.getInt("idalbum"),rsCancion.getInt("idcancion")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -49,14 +49,15 @@ public class daoCanciones extends AbstractDAO {
         con=this.getConexion();
 
         try {
-            stmCancion=con.prepareStatement("select ca.nombre as nombre, ca.idalbum as caidalbum, c.idalbum as cidalbum, c.idartista as cidartista, ar.nombreartistico as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
+            stmCancion=con.prepareStatement("select ca.nombre as nombre, ca.idalbum as caidalbum, ca.idcancion as idcancion, ar.nombreartistico as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
                     "from cancion ca, componer c, artista ar "+
                     "where ca.nombre like ? and ca.idalbum=c.idalbum and c.idartista=ar.nombre");
             stmCancion.setString(1, "%"+busqueda+"%");
             rsCancion=stmCancion.executeQuery();
             while (rsCancion.next())
             {
-                resultado.add(new Contenido(rsCancion.getString("nombre"), rsCancion.getString("arnombre"),rsCancion.getTime("duracion"), rsCancion.getBoolean("explicito"),3));
+                resultado.add(new Cancion(rsCancion.getString("nombre"), rsCancion.getString("arnombre"), rsCancion.getInt("caidalbum"),
+                        rsCancion.getInt("idcancion"), rsCancion.getTime("duracion"), rsCancion.getBoolean("explicito")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -65,5 +66,8 @@ public class daoCanciones extends AbstractDAO {
             try {stmCancion.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
+    }
+    public void eliminar(Cancion cancion){
+
     }
 }

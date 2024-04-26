@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class cTemplateContenidoEliminar {
+    private Contenido contenido;
     @FXML
     private Label labelNombre;
     @FXML
@@ -28,14 +29,18 @@ public class cTemplateContenidoEliminar {
         this.fgui = fgui;
         this.fa = fa;
     }
-
+    public void setContenido(Contenido contenido){this.contenido=contenido;}
     public void setLabelNombre(String nombre){labelNombre.setText(nombre);}
     public void setLabelDuracion(String duracion){labelDuracion.setText(duracion);}
     public void setTickExplicito(boolean explicito){tickExplicito.setSelected(explicito);}
     public void ocultarExplicito(){tickExplicito.setVisible(false);}
-    public void clickExplicito(){
-    }
+    @FXML
+    public void clickExplicito() throws IOException{
 
+    }
+    @FXML
     public void clickEliminar() throws IOException {
+        fa.eliminarContenido(this.contenido);
+        fgui.showContenidoMod(null);
     }
 }

@@ -7,11 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import aplicacion.Cancion;
-import aplicacion.Contenido;
-import aplicacion.Oyente;
-import aplicacion.Artista;
-import aplicacion.Playlist;
+import aplicacion.*;
 
 public class FachadaBaseDatos {
     private aplicacion.FachadaAplicacion fa;
@@ -66,9 +62,6 @@ public class FachadaBaseDatos {
             System.out.println(e.getMessage());
             fa.muestraExcepcion(e.getMessage());
         }
-
-
-
     }
 
     public Oyente validarUsuario(String user, String pass){return daoUsuarios.validarUsuario(user,pass);}
@@ -143,10 +136,25 @@ public class FachadaBaseDatos {
 
         return resultado;
     }
-    public void eliminarOyente(String nombre){
-        daoUsuarios.eliminar(nombre);
-    }
+    public void eliminarOyente(String nombre){daoUsuarios.eliminar(nombre);}
+    public void eliminarArtista(String nombre){daoArtista.eliminar(nombre);}
+    public void eliminarContenido(Contenido contenido){
+        if(contenido instanceof Album album) {
+            if(album instanceof Cancion cancion){
+                daoCanciones.eliminar(cancion);
+            }else {
+                daoAlbumes.eliminar(album);
+            }
+        }else{
+            if(contenido instanceof Capitulo capitulo){
+                daoCapitulos.eliminar(capitulo);
+            }else{
+                Podcast podcast= (Podcast)contenido;
+                daoPrograma.eliminar(podcast);
+            }
+        }
 
+    }
     public ArrayList<Oyente> buscarOyente(String buscar){
         ArrayList<Oyente> resultado = new ArrayList<>();
         ArrayList<Oyente> aux;
@@ -159,7 +167,7 @@ public class FachadaBaseDatos {
     public ArrayList<Artista> buscarArtista(String buscar){
         ArrayList<Artista> resultado = new ArrayList<>();
         ArrayList<Artista> aux;
-        aux=daoArtista.buscarMod(buscar);
+        aux=daoArtista.buscar(buscar);
         if(!aux.isEmpty()) {
             resultado.addAll(aux);
         }

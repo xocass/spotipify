@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class cArtistaMod {
     private FachadaGui fgui;
     private FachadaAplicacion fa;
+
     @FXML
     private ImageView btnAtras;
     @FXML
@@ -42,6 +43,7 @@ public class cArtistaMod {
 
                 cTemplateArtistaEliminar controller = loader.getController();
 
+                controller.setNombre(aux.getNombre());
                 controller.setLabelNombreArtistico(aux.getNombreArtistico());
                 controller.setTickVerificado(aux.getVerificado());
                 controller.setLabelPaisNacimiento(aux.getPaisNacimiento());

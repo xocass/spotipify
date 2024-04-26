@@ -1,19 +1,49 @@
 package aplicacion;
 
-public class Cancion {
-    private int id;
-    private String nombre;
+import java.sql.Time;
+public class Cancion extends Album{
+    private int idCancion;
+    private Time duracion;
+    private String idioma;
+    private String nombreGenero;
+    private boolean letra;
+    private boolean explicito;
     private int visualizaciones;
-    public Cancion(int id, String nombre){
-        this.id=id;
-        this.nombre=nombre;
+
+
+    public Cancion(String nombre, String artista ,int idAlbum, Time duracion, String idioma, String nombreGenero,
+                   boolean letra, boolean explicito, int visualizaciones){
+        super(nombre, artista, idAlbum, null);
+        this.duracion= duracion;
+        this.idioma=idioma;
+        this.nombreGenero= nombreGenero;
+        this.letra= letra;
+        this.explicito= explicito;
+        this.visualizaciones= visualizaciones;
     }
 
-    public int getId() {
-        return id;
+    public Cancion(String nombre, String artista ,int idAlbum, int idCancion, Time duracion, boolean explicito){
+        super(nombre, artista, idAlbum, null);
+        this.idCancion= idCancion;
+        this.duracion= duracion;
+        this.explicito= explicito;
+
+    }
+    public Cancion(String nombre, String artista, int idAlbum, int idCancion){
+        super(nombre, artista, idAlbum, null);
+        this.idCancion= idCancion;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
+
+    public int getIdCancion(){return idCancion;}
+    public Time getDuracion(){return duracion;}
+    public boolean getExplicito(){return explicito;}
+    public void setExplicito(boolean explicito){this.explicito= explicito;}
+    public void setVisualizaciones(int visualizaciones){this.visualizaciones=visualizaciones;}
+    public int getVisualizaciones(){return visualizaciones;}
+    public void setIdioma(String idioma){this.idioma=idioma;}
+    public String getIdioma(){return idioma;}
+    public void setLetra(boolean letra){this.letra= letra;}
+    public boolean getLetra(){return letra;}
+    public  String getNombreGenero(){return nombreGenero;}
 }
