@@ -16,7 +16,7 @@ public class daoArtista extends AbstractDAO{
         super.setFachadaAplicacion(fa);
     }
 
-    public ArrayList<Artista> buscar(String busqueda){
+    public ArrayList<Artista> buscar(String busqueda) {
         ArrayList<Artista> resultado = new ArrayList<>();
         Connection con;
         PreparedStatement stmArtista=null;

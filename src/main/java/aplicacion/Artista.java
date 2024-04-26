@@ -25,8 +25,8 @@ public class Artista extends Usuario{
     public void setNombreArtistico(String nombreArtistico){this.nombreArtistico=nombreArtistico;}
     public String getPaisNacimiento(){return paisNacimiento;}
     public void setPaisNacimiento(String paisNacimiento) {this.paisNacimiento = paisNacimiento;}
-    public Boolean getVerificado(){return verificado;}
-    public void setVerificado(String paisNacimiento) {this.verificado = verificado;}
+    public boolean getVerificado(){return verificado;}
+    public void setVerificado(boolean verificado) {this.verificado = verificado;}
     public void setGeneros(ArrayList<String> generos){this.generos=generos;}
 
 }

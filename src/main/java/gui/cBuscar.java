@@ -101,7 +101,7 @@ public class cBuscar {
                         controller.setLabelNombre(((Artista)aux).getNombreArtistico());
                         controller.setLabelTipo(((Artista)aux).getPaisNacimiento());
                         controller.setUsuario(aux.getNombre(),'a');
-                        if(((Artista)aux).getVerificado())controller.setVerified(true);
+                        if(((Artista)aux).getVerificado())controller.setVerified();
                     }
                     controller.setImagen();
                     controller.setFachadas(this.fgui, this.fa);
