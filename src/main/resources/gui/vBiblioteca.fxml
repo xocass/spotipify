@@ -114,18 +114,18 @@
             </VBox>
          </children>
       </AnchorPane>
-      <ScrollPane layoutX="331.0" layoutY="-1.0" prefHeight="705.0" prefWidth="869.0">
+      <ScrollPane layoutX="331.0" layoutY="-1.0" prefHeight="700.0" prefWidth="869.0">
          <content>
             <VBox prefWidth="842.0" spacing="10.0">
                <children>
-                  <Label text="Tus playlist" textFill="#808b96">
+                  <Label prefHeight="27.0" prefWidth="168.0" text="Tus playlist" textFill="#808b96">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <ScrollPane prefHeight="160.0" prefWidth="830.0" vbarPolicy="NEVER">
+                  <ScrollPane prefHeight="273.0" prefWidth="834.0" vbarPolicy="NEVER">
                      <content>
-                        <HBox fx:id="boxPlaylist" prefHeight="162.0" prefWidth="501.0" />
+                        <HBox fx:id="boxPlaylist" prefHeight="147.0" prefWidth="502.0" />
                      </content>
                   </ScrollPane>
                   <Label text="Tus artistas" textFill="#808b96">
@@ -133,7 +133,7 @@
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <ScrollPane layoutX="10.0" layoutY="56.0" prefHeight="160.0" prefWidth="842.0" vbarPolicy="NEVER">
+                  <ScrollPane layoutX="10.0" layoutY="56.0" prefHeight="273.0" prefWidth="828.0" vbarPolicy="NEVER">
                      <content>
                         <HBox fx:id="boxArtista" prefHeight="162.0" prefWidth="718.0" />
                      </content>
@@ -143,19 +143,9 @@
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <ScrollPane layoutX="10.0" layoutY="269.0" prefHeight="160.0" prefWidth="842.0" vbarPolicy="NEVER">
+                  <ScrollPane layoutX="10.0" layoutY="269.0" prefHeight="273.0" prefWidth="842.0" vbarPolicy="NEVER">
                      <content>
                         <HBox fx:id="boxSiguiendo" prefHeight="166.0" prefWidth="513.0" />
-                     </content>
-                  </ScrollPane>
-                  <Label layoutX="10.0" layoutY="324.0" text="TUS PODCAST" textFill="#808b96">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <ScrollPane layoutX="10.0" layoutY="437.0" prefHeight="160.0" prefWidth="842.0" vbarPolicy="NEVER">
-                     <content>
-                        <HBox fx:id="boxPodcast" prefHeight="164.0" prefWidth="363.0" />
                      </content>
                   </ScrollPane>
                </children>

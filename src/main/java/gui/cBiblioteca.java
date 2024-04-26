@@ -62,6 +62,7 @@ public class cBiblioteca {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
                 boxArtista.getChildren().add(loader.load());
                 cTemplateArtistaInicio controller = loader.getController();
+                controller.setTam(200,230);
                 controller.setLabelUsuario(aux.get(i));
                 controller.setFachadas(this.fgui, this.fa);
             }

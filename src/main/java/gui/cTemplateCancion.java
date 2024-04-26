@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 public class cTemplateCancion {
     @FXML
     private Label labelUsuario;
+
     private FachadaGui fgui;
     private FachadaAplicacion fa;
 

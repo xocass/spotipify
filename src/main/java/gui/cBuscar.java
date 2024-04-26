@@ -63,12 +63,10 @@ public class cBuscar {
             for (Contenido aux : resultado) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("templateBuscar.fxml"));
                 vboxBuscar.getChildren().add(loader.load());
-
                 cTemplateBuscar controller = loader.getController();
-
                 controller.setLabelNombre(aux.getNombre());
                 controller.setLabelTipo(aux.getPais_tipoalbum());
-
+                if(aux.getTipo()==0)controller.setImagen();
                 controller.setFachadas(this.fgui,this.fa);
                 controller.setTipo(aux.getTipo());
 
