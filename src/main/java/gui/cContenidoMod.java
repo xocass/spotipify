@@ -43,8 +43,11 @@ public class cContenidoMod {
                 cTemplateContenidoEntrar controller = loader.getController();
 
                 controller.setLabelNombre(aux.getNombre());
-                controller.setLabelCreadores(aux.getCreador());
                 controller.setLabelTipo(aux.getTipo());
+                for (int i = 0; i < aux.getCreador().size(); i++) {
+                    if (i != 0) controller.setLabelCreadores(", ");
+                    controller.setLabelCreadores(aux.getCreador().get(i));
+                }
 
                 controller.setContenido(aux);
                 controller.setFachadas(this.fgui,this.fa);
@@ -63,6 +66,8 @@ public class cContenidoMod {
         if(contenido.getTipo()>2){
             controller.setLabelDuracion(contenido.getDuracion().toString());
             controller.setTickExplicito(contenido.getExplicito());
+        }else{
+            controller.ocultarExplicito();
         }
         controller.setFachadas(this.fgui,this.fa);
     }

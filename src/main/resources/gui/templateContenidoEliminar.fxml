@@ -27,7 +27,7 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <CheckBox fx:id="tickExplicito" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Explícito" />
+      <CheckBox fx:id="tickExplicito" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Explícito" onMouseClicked="#clickExplicito" />
       <Button fx:id="btnEliminar" mnemonicParsing="false" onMouseClicked="#clickEliminar" text="ELIMINAR">
          <HBox.margin>
             <Insets left="20.0" />

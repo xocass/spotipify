@@ -40,7 +40,7 @@ public class cTemplateContenidoEntrar {
             labelTipo.setText("Capítulo");
         }
     }
-    public void setLabelCreadores(ArrayList<String> creadores){labelCreadores.setText(labelCreadores.getText() + creadores);}
+    public void setLabelCreadores(String creadores){labelCreadores.setText(labelCreadores.getText() + creadores);}
 
     public void setContenido(Contenido contenido){
         this.contenido=contenido;}

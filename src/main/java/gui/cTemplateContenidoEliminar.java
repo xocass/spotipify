@@ -32,11 +32,10 @@ public class cTemplateContenidoEliminar {
     public void setLabelNombre(String nombre){labelNombre.setText(nombre);}
     public void setLabelDuracion(String duracion){labelDuracion.setText(duracion);}
     public void setTickExplicito(boolean explicito){tickExplicito.setSelected(explicito);}
-    public void cambiarExplicito(){
-
+    public void ocultarExplicito(){tickExplicito.setVisible(false);}
+    public void clickExplicito(){
     }
 
     public void clickEliminar() throws IOException {
-
     }
 }

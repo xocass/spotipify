@@ -16,17 +16,17 @@
             <Image url="@../spoti/unnamed.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="labelNombre" prefHeight="20.0" prefWidth="190.0" text="NOMBRE CONTENIDO" textFill="WHITE">
+      <Label fx:id="labelNombre" prefHeight="20.0" prefWidth="171.0" text="NOMBRE CONTENIDO" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="labelCreadores" prefHeight="19.0" prefWidth="114.0" text="creadores" textFill="WHITE">
+      <Label fx:id="labelCreadores" prefHeight="19.0" prefWidth="135.0" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="labelTipo" prefHeight="20.0" prefWidth="47.0" text="Capitulo" textFill="WHITE" />
+      <Label fx:id="labelTipo" prefHeight="20.0" prefWidth="47.0" textFill="WHITE" />
       <Button fx:id="btnEntrar" mnemonicParsing="false" onMouseClicked="#clickEntrar" text="ENTRAR">
          <HBox.margin>
             <Insets />
