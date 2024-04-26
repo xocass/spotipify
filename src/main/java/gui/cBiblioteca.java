@@ -1,7 +1,9 @@
 package gui;
 
+import aplicacion.Contenido;
 import aplicacion.FachadaAplicacion;
 import aplicacion.Oyente;
+import aplicacion.Playlist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
@@ -43,6 +45,7 @@ public class cBiblioteca {
     }
     public void iniciar() throws IOException {
         ArrayList<String> aux;
+        ArrayList<Playlist> auxc;
         aux = fa.siguiendo(fgui.getActual().getNombre());
         if(!aux.isEmpty()) {
             for (int i = 0; i < aux.size(); i++) {
@@ -62,6 +65,15 @@ public class cBiblioteca {
                 controller.setLabelUsuario(aux.get(i));
                 controller.setFachadas(this.fgui, this.fa);
             }
+        }
+        auxc=fa.tusPlaylist(fgui.getActual().getNombre());
+        for(Playlist playlist: auxc){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateCancion.fxml"));
+            boxPlaylist.getChildren().add(loader.load());
+            cTemplateCancion controller = loader.getController();
+            controller.setLabelUsuario(playlist.getNombre());
+            controller.setIdplaylist(playlist.getId());
+            controller.setFachadas(this.fgui, this.fa);
         }
     }
 }

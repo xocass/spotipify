@@ -35,7 +35,7 @@ public class daoPlaylist extends AbstractDAO{
             rsPlaylist=stmPlaylist.executeQuery();
             while (rsPlaylist.next())
             {
-                resultado.add(new Playlist(rsPlaylist.getString("nombreplaylist"),rsPlaylist.getString("idoyente")));
+                resultado.add(new Playlist(rsPlaylist.getString("nombreplaylist"),rsPlaylist.getString("idoyente"),rsPlaylist.getInt("idplaylist")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -46,7 +46,6 @@ public class daoPlaylist extends AbstractDAO{
         return resultado;
     }
     public void crearFavoritos(String user){
-        ArrayList<Playlist> resultado=new ArrayList<>();
         Connection con;
         PreparedStatement stmPlaylist=null;
         ResultSet rsPlaylist;
@@ -63,10 +62,6 @@ public class daoPlaylist extends AbstractDAO{
             stmPlaylist.setString(2,nombrePl);
             stmPlaylist.setString(3,user);
             rsPlaylist=stmPlaylist.executeQuery();
-            while (rsPlaylist.next())
-            {
-                resultado.add(new Playlist(rsPlaylist.getString("nombreplaylist"),rsPlaylist.getString("idoyente")));
-            }
         } catch (SQLException e){
             System.out.println(e.getMessage());
             this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
@@ -88,6 +83,32 @@ public class daoPlaylist extends AbstractDAO{
             consulta = stmPlaylist.executeQuery();
             if(consulta.next())
                 resultado=consulta.getInt("idmax");
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmPlaylist.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
+    public ArrayList<Playlist> tusPlaylist(String nombre){
+        ArrayList<Playlist> resultado=new ArrayList<>();
+        Connection con;
+        PreparedStatement stmPlaylist=null;
+        ResultSet rsPlaylist;
+
+        con=this.getConexion();
+
+        try {
+            stmPlaylist=con.prepareStatement("select * "+
+                    "from playlist "+
+                    "where idoyente=?");
+            stmPlaylist.setString(1,nombre);
+            rsPlaylist=stmPlaylist.executeQuery();
+            while (rsPlaylist.next())
+            {
+                resultado.add(new Playlist(rsPlaylist.getString("nombreplaylist"),rsPlaylist.getString("idoyente"),rsPlaylist.getInt("idplaylist")));
+            }
         } catch (SQLException e){
             System.out.println(e.getMessage());
             this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
