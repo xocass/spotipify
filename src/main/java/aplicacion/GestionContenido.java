@@ -16,6 +16,9 @@ public class GestionContenido {
     public ArrayList<Contenido> buscar(String buscar){
         return fbd.buscar(buscar);
     }
+    public ArrayList<Contenido> buscarMod(String buscar){
+        return fbd.buscarMod(buscar);
+    }
     public ArrayList<Playlist> playlistDefecto(){return fbd.playlistDefecto();}
     public ArrayList<Cancion> topCanciones(){return fbd.topCanciones();}
     public void crearFavoritos(String user){fbd.crearFavoritos(user);}

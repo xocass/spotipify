@@ -108,6 +108,11 @@ public class FachadaBaseDatos {
         }
         return resultado;
     }
+    public ArrayList<Contenido> buscarMod(String buscar){
+        ArrayList<Contenido> resultado = new ArrayList<>();
+        ArrayList<Contenido> aux;
+        return resultado;
+    }
 
     public ArrayList<Oyente> buscarOyente(String buscar){
         ArrayList<Oyente> resultado = new ArrayList<>();
