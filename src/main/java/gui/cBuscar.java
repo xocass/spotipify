@@ -1,7 +1,7 @@
 package gui;
 
 import aplicacion.Contenido;
-import aplicacion.Usuario;
+import aplicacion.Album;
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,12 +67,14 @@ public class cBuscar {
                     cTemplateBuscar controller = loader.getController();
 
                     controller.setLabelNombre(aux.getNombre());
-                    controller.setLabelTipo(aux.getPais_tipoalbum());
+                    if(aux instanceof Album album){
+                        controller.setLabelTipo(album.getTipoA());
+                    }
 
-                    if (aux.getTipo() == 0) controller.setImagen();
+
+                    //if (aux.getTipo() == 0) controller.setImagen();
 
                     controller.setFachadas(this.fgui, this.fa);
-                    controller.setTipo(aux.getTipo());
 
                     for (int i = 0; i < aux.getCreador().size(); i++) {
                         if (i != 0) controller.setLabelArtista(", ");

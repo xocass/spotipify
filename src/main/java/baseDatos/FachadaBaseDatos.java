@@ -15,7 +15,7 @@ public class FachadaBaseDatos {
     private daoUsuarios daoUsuarios;
     private daoArtista daoArtista;
     private daoAlbumes daoAlbumes;
-    private daoPrograma daoPrograma;
+    private daoPodcast daoPodcast;
     private daoPlaylist daoPlaylist;
     private daoCanciones daoCanciones;
     private daoCapitulos daoCapitulos;
@@ -46,7 +46,7 @@ public class FachadaBaseDatos {
             this.daoUsuarios = new daoUsuarios(conexion, fa);
             this.daoArtista = new daoArtista(conexion,fa);
             this.daoAlbumes = new daoAlbumes(conexion,fa);
-            this.daoPrograma = new daoPrograma(conexion,fa);
+            this.daoPodcast = new daoPodcast(conexion,fa);
             this.daoPlaylist = new daoPlaylist(conexion,fa);
             this.daoCanciones = new daoCanciones(conexion,fa);
             this.daoCapitulos= new daoCapitulos(conexion, fa);
@@ -81,7 +81,7 @@ public class FachadaBaseDatos {
         if(!aux.isEmpty()) {
             resultado.addAll(aux);
         }
-        aux=daoPrograma.buscar(buscar);
+        aux= daoPodcast.buscar(buscar);
         if(!aux.isEmpty()){
             resultado.addAll(aux);
         }
@@ -96,10 +96,10 @@ public class FachadaBaseDatos {
                 }
             }
         }
-        aux = daoArtista.buscar(buscar);
+        /*aux = daoArtista.buscar(buscar);
         if (!aux.isEmpty()){
             resultado.addAll(aux);
-        }
+        }*/
         return resultado;
     }
     public ArrayList<Contenido> buscarMod(String buscar){
@@ -109,7 +109,7 @@ public class FachadaBaseDatos {
         if(!aux.isEmpty()) {
             resultado.addAll(aux);
         }
-        aux=daoPrograma.buscar(buscar);
+        aux= daoPodcast.buscar(buscar);
         if(!aux.isEmpty()){
             resultado.addAll(aux);
         }
@@ -150,7 +150,7 @@ public class FachadaBaseDatos {
                 daoCapitulos.eliminar(capitulo);
             }else{
                 Podcast podcast= (Podcast)contenido;
-                daoPrograma.eliminar(podcast);
+                daoPodcast.eliminar(podcast);
             }
         }
 
@@ -174,7 +174,7 @@ public class FachadaBaseDatos {
         return resultado;
     }
     public ArrayList<Playlist> playlistDefecto(){return daoPlaylist.playlistDefecto();}
-    public ArrayList<Oyente> verificados(){return daoArtista.verificados();}
+    public ArrayList<Artista> verificados(){return daoArtista.verificados();}
     public ArrayList<Cancion> topCanciones(){return daoCanciones.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return daoUsuarios.siguiendo(nombre);}
     public void crearFavoritos(String user){daoPlaylist.crearFavoritos(user);}

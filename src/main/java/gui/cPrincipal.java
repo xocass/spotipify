@@ -58,9 +58,9 @@ public class cPrincipal {
            controller.setLabelUsuario(aux.getNombre());
            controller.setFachadas(this.fgui, this.fa);
        }
-       ArrayList<Oyente> verificado;
+       ArrayList<Artista> verificado;
        verificado = fa.verificados();
-       for (Oyente aux : verificado) {
+       for (Artista aux : verificado) {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
            artistaBox.getChildren().add(loader.load());
            cTemplateArtistaInicio controller = loader.getController();

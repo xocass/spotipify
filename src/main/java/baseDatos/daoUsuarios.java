@@ -1,7 +1,6 @@
 package baseDatos;
 
-import aplicacion.Contenido;
-import aplicacion.Oyente;
+import aplicacion.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -71,8 +70,8 @@ public class daoUsuarios extends AbstractDAO{
         }
         return resultado;
     }
-    public Oyente comprobarAdmin(String usuario){
-        Oyente resultado=null;
+    public Usuario comprobarAdmin(String usuario){
+        Usuario resultado=null;
         Connection con;
         PreparedStatement stmUsuario=null;
         ResultSet rsUsuario;
@@ -80,14 +79,15 @@ public class daoUsuarios extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmUsuario=con.prepareStatement("select nombre "+
+            stmUsuario=con.prepareStatement("select * "+
                     "from administrador "+
                     "where nombre = ?");
             stmUsuario.setString(1, usuario);
             rsUsuario=stmUsuario.executeQuery();
             if (rsUsuario.next())
             {
-                resultado = new Oyente(rsUsuario.getString("nombre"), null);
+                resultado = new Administrador(rsUsuario.getString("nombre"), rsUsuario.getString("contraseña"),
+                        rsUsuario.getString("email"), rsUsuario.getDate("fechanacimiento").toString());
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -97,8 +97,8 @@ public class daoUsuarios extends AbstractDAO{
         }
         return resultado;
     }
-    public Oyente comprobarArtista(String usuario){
-        Oyente resultado=null;
+    public Usuario comprobarArtista(String usuario){
+        Usuario resultado=null;
         Connection con;
         PreparedStatement stmUsuario=null;
         ResultSet rsUsuario;
@@ -106,14 +106,17 @@ public class daoUsuarios extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmUsuario=con.prepareStatement("select nombre "+
+            stmUsuario=con.prepareStatement("select * "+
                     "from artista "+
                     "where nombre = ?");
             stmUsuario.setString(1, usuario);
             rsUsuario=stmUsuario.executeQuery();
             if (rsUsuario.next())
             {
-                resultado = new Oyente(rsUsuario.getString("nombre"), null);
+                resultado = new Artista(rsUsuario.getString("nombre"), rsUsuario.getString("contraseña"),
+                        rsUsuario.getString("email"), rsUsuario.getDate("fechanacimiento").toString(),
+                        rsUsuario.getString("nombreartistico"), rsUsuario.getString("paisnacimiento"),
+                        rsUsuario.getBoolean("verificado"));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -196,14 +199,15 @@ public class daoUsuarios extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmOyente=con.prepareStatement("select oy.nombre as nombre, oy.email as email "+
-                    "from oyente oy "+
-                    "where oy.nombre like ? ");
+            stmOyente=con.prepareStatement("select nombre, email, contraseña, fechanacimiento "+
+                    "from oyente "+
+                    "where nombre like ? ");
             stmOyente.setString(1, "%"+busqueda+"%");
             rsOyente=stmOyente.executeQuery();
             while (rsOyente.next())
             {
-                resultado.add(new Oyente(rsOyente.getString("nombre"), rsOyente.getString("email")));
+                resultado.add(new Oyente(rsOyente.getString("nombre"), rsOyente.getString("contraseña"),
+                        rsOyente.getString("email"), rsOyente.getDate("fechanacimiento").toString()));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

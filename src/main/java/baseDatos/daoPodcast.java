@@ -8,8 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class daoPrograma extends AbstractDAO{
-    public daoPrograma(Connection conexion, aplicacion.FachadaAplicacion fa){
+public class daoPodcast extends AbstractDAO{
+    public daoPodcast(Connection conexion, aplicacion.FachadaAplicacion fa){
         super.setConexion(conexion);
         super.setFachadaAplicacion(fa);
     }

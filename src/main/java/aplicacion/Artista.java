@@ -1,5 +1,7 @@
 package aplicacion;
 
+import java.util.ArrayList;
+
 public class Artista extends Usuario{
     private String nombreArtistico;
     private String paisNacimiento;
@@ -12,16 +14,6 @@ public class Artista extends Usuario{
         this.paisNacimiento= paisNacimiento;
         this.verificado=verificado;
     }
-
-    public void setContrasena(String contrasena) {this.contrasena = contrasena;}
-
-    public String getFechanac(){return fechanac;}
-
-    public void setFechanac(String fechanac) {this.fechanac = fechanac;}
-
-    public String getEmail(){return email;}
-
-    public void setEmail(String email) {this.email = email;}
 
     public String getNombreArtistico(){return nombreArtistico;}
     public void setNombreArtistico(String nombreArtistico){this.nombreArtistico=nombreArtistico;}

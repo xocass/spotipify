@@ -43,7 +43,7 @@ public class FachadaAplicacion {
     public void eliminarOyente(String nombre){gu.eliminarOyente(nombre);}
     public void eliminarArtista(String nombre){gu.eliminarArtista(nombre);}
     public void eliminarContenido(Contenido contenido){gc.eliminar(contenido);}
-    public ArrayList<Oyente> verificados(){return gu.verificados();}
+    public ArrayList<Artista> verificados(){return gu.verificados();}
     public ArrayList<Cancion> topCanciones(){return gc.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return gu.siguiendo(nombre);}
     public ArrayList<String> siguiendoArtista(String nombre){return gu.siguiendoArtista(nombre);}
