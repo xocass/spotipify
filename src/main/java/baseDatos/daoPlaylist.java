@@ -86,7 +86,8 @@ public class daoPlaylist extends AbstractDAO{
             stmPlaylist=con.prepareStatement("select max(idplaylist) as idmax "+
                     "from playlist");
             consulta = stmPlaylist.executeQuery();
-            resultado=consulta.getInt("idmax");
+            if(consulta.next())
+                resultado=consulta.getInt("idmax");
         } catch (SQLException e){
             System.out.println(e.getMessage());
             this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
