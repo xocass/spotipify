@@ -147,9 +147,7 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
-    public void irAtrasMod() throws IOException{
-        showAdmin();
-    }
+    public void irAtrasMod() throws IOException{showAdmin();}
     public static void main(String[] args) {
         launch();
     }
