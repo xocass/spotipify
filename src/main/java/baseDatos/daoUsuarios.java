@@ -203,7 +203,7 @@ public class daoUsuarios extends AbstractDAO{
             rsOyente=stmOyente.executeQuery();
             while (rsOyente.next())
             {
-                resultado.add(new Oyente(rsOyente.getString("nombre"),rsOyente.getString("contrasena"), rsOyente.getString("email"), rsOyente.getString("fecha")));
+                resultado.add(new Oyente(rsOyente.getString("nombre"),rsOyente.getString("contraseña"), rsOyente.getString("email"), rsOyente.getString("fechanacimiento")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
