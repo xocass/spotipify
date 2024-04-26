@@ -155,22 +155,6 @@ public class FachadaGui extends Application {
         principalStage.show();
 
     }
-    public void showContenidoEliminarMod(Contenido contenido) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("templateContenidoEliminar.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 640, 566);
-        cTemplateContenidoEliminar controller = fxmlLoader.getController();
-
-        controller.setLabelNombre(contenido.getNombre());
-        if(contenido.getTipo()>2){
-            controller.setLabelDuracion(contenido.getDuracion().toString());
-            controller.setTickExplicito(contenido.getExplicito());
-        }
-
-
-        controller.setFachadas(this,fa);
-        principalStage.setScene(scene);
-        principalStage.show();
-    }
     public void irAtrasMod() throws IOException{showAdmin();}
     public static void main(String[] args) {
         launch();
