@@ -54,6 +54,7 @@ public class cContenidoMod {
                 controller.setContenido(aux);
                 controller.setFachadas(this.fgui,this.fa);
             }
+
         }
     }
 
@@ -63,6 +64,7 @@ public class cContenidoMod {
         vboxBuscar.getChildren().add(loader.load());
 
         cTemplateContenidoEliminar controller = loader.getController();
+        controller.setFachadas(this.fgui,this.fa);
 
         controller.setContenido(contenido);
         controller.setLabelNombre(contenido.getNombre());
@@ -75,6 +77,6 @@ public class cContenidoMod {
         }else{
             controller.ocultarExplicito();
         }
-        controller.setFachadas(this.fgui,this.fa);
+
     }
 }
