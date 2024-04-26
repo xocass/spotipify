@@ -1,13 +1,13 @@
 package aplicacion;
 
 public class Artista {
-    String nombre;
-    String contrasena;
-    String email;
-    String fechanac;
-    String nombreArtistico;
-    String paisNacimiento;
-    boolean verificado;
+    private String nombre;
+    private String contrasena;
+    private String email;
+    private String fechanac;
+    private String nombreArtistico;
+    private String paisNacimiento;
+    private boolean verificado;
 
     public Artista(String nombre, String contrasena, String email, String fechanac, String nombreArtistico, String paisNacimiento, boolean verificado){
         this.nombre=nombre;
