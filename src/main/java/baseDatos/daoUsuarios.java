@@ -199,15 +199,14 @@ public class daoUsuarios extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmOyente=con.prepareStatement("select nombre, email, contraseña, fechanacimiento "+
+            stmOyente=con.prepareStatement("select *  "+
                     "from oyente "+
-                    "where nombre like ? ");
+                    "where nombre like ?");
             stmOyente.setString(1, "%"+busqueda+"%");
             rsOyente=stmOyente.executeQuery();
             while (rsOyente.next())
             {
-                resultado.add(new Oyente(rsOyente.getString("nombre"), rsOyente.getString("contraseña"),
-                        rsOyente.getString("email"), rsOyente.getDate("fechanacimiento").toString()));
+                resultado.add(new Oyente(rsOyente.getString("nombre"),rsOyente.getString("contraseña"), rsOyente.getString("email"), rsOyente.getString("fechanacimiento")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

@@ -17,7 +17,9 @@ public class cTemplateBuscar {
     private Label labelArtista;
     @FXML
     private ImageView imagen;
-
+    char tipoResultado; //a=artista b=perfil c=album d=podcast
+    String idUser;
+    int idContenido;
     private FachadaGui fgui;
     private FachadaAplicacion fa;
 
@@ -31,13 +33,20 @@ public class cTemplateBuscar {
         labelNombre.setText(nombre);
     }
     public void setLabelTipo(String tipo){labelTipo.setText(tipo);}
-    public void setLabelArtista(String artista){
-        labelArtista.setText(labelArtista.getText() + artista);
-    }
+    public void setLabelArtista(String artista){labelArtista.setText(labelArtista.getText() + artista);}
+    public void setContenido(int id, char tipo){this.idContenido=id;this.tipoResultado=tipo;}
+    public void setUsuario(String id, char tipo){this.idUser=id;this.tipoResultado=tipo;}
 
     public void setImagen() {
         Image userImage = new Image(getClass().getResource("/spoti/icons8-usuario-90.png").toExternalForm());
         imagen.setImage(userImage);
+    }
+    @FXML
+    public void clickEntrar(){
+        switch(this.tipoResultado){
+            case 'a':
+                //fgui.showArtista();
+        }
     }
 
 }

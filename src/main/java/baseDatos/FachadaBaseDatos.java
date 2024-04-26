@@ -96,10 +96,12 @@ public class FachadaBaseDatos {
                 }
             }
         }
-        /*aux = daoArtista.buscar(buscar);
-        if (!aux.isEmpty()){
-            resultado.addAll(aux);
-        }*/
+        return resultado;
+    }
+    public ArrayList<Usuario> buscarU(String buscar){
+        ArrayList<Usuario> resultado = new ArrayList<>();
+        resultado.addAll(daoArtista.buscar(buscar));
+        resultado.addAll(daoUsuarios.buscar(buscar));
         return resultado;
     }
     public ArrayList<Contenido> buscarMod(String buscar){

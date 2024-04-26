@@ -37,6 +37,9 @@ public class FachadaAplicacion {
     public ArrayList<Contenido> buscar(String buscar){
         return gc.buscar(buscar);
     }
+    public ArrayList<Usuario> buscarU(String buscar){
+        return gu.buscarU(buscar);
+    }
     public ArrayList<Contenido> buscarContenidoMod(String buscar){return gc.buscarMod(buscar);}
     public ArrayList<Oyente> buscarOyente(String buscar){return gu.buscarOyente(buscar);}
     public ArrayList<Artista> buscarArtista(String buscar){return gu.buscarArtista(buscar);}

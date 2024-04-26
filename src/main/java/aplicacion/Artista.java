@@ -14,6 +14,11 @@ public class Artista extends Usuario{
         this.paisNacimiento= paisNacimiento;
         this.verificado=verificado;
     }
+    public Artista(String nombre, String nombreArtistico, boolean verificado){
+        super(nombre);
+        this.nombreArtistico=nombreArtistico;
+        this.verificado=verificado;
+    }
 
     public String getNombreArtistico(){return nombreArtistico;}
     public void setNombreArtistico(String nombreArtistico){this.nombreArtistico=nombreArtistico;}

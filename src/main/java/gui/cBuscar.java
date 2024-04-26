@@ -1,8 +1,6 @@
 package gui;
 
-import aplicacion.Contenido;
-import aplicacion.Album;
-import aplicacion.FachadaAplicacion;
+import aplicacion.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
@@ -67,14 +65,17 @@ public class cBuscar {
                     cTemplateBuscar controller = loader.getController();
 
                     controller.setLabelNombre(aux.getNombre());
-                    if(aux instanceof Album album){
-                        controller.setLabelTipo(album.getTipoA());
+                    if(aux instanceof Podcast){
+                        controller.setLabelTipo("Podcast");
+                        controller.setContenido(((Podcast) aux).getIdPodcast(),'d');
+                    }
+                    else {
+                        controller.setLabelTipo(((Album) aux).getTipoA());
+                        controller.setContenido(((Album) aux).getIdAlbum(),'c');
                     }
 
-
-                    //if (aux.getTipo() == 0) controller.setImagen();
-
                     controller.setFachadas(this.fgui, this.fa);
+
 
                     for (int i = 0; i < aux.getCreador().size(); i++) {
                         if (i != 0) controller.setLabelArtista(", ");
@@ -83,8 +84,32 @@ public class cBuscar {
 
                 }
             }
+            ArrayList<Usuario> resultado1 = fa.buscarU(fieldBuscar.getText());
+            if(!resultado1.isEmpty()) {
+                for (Usuario aux : resultado1) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("templateBuscar.fxml"));
+                    vboxBuscar.getChildren().add(loader.load());
+                    cTemplateBuscar controller = loader.getController();
+
+
+                    if(aux instanceof Oyente){
+                        controller.setLabelNombre(aux.getNombre());
+                        controller.setLabelTipo("");
+                        controller.setUsuario(aux.getNombre(),'b');
+                    }
+                    else {
+                        controller.setLabelNombre(((Artista)aux).getNombreArtistico());
+                        controller.setLabelTipo(((Artista)aux).getPaisNacimiento());
+                        controller.setUsuario(aux.getNombre(),'c');
+                    }
+                    controller.setImagen();
+                    controller.setFachadas(this.fgui, this.fa);
+
+                }
+            }
 
         }
+
     }
 
 }
