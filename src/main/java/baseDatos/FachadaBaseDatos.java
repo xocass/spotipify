@@ -143,6 +143,9 @@ public class FachadaBaseDatos {
 
         return resultado;
     }
+    public void eliminarOyente(String nombre){
+        daoUsuarios.eliminar(nombre);
+    }
 
     public ArrayList<Oyente> buscarOyente(String buscar){
         ArrayList<Oyente> resultado = new ArrayList<>();

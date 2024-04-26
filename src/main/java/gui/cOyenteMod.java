@@ -28,6 +28,7 @@ public class cOyenteMod {
         this.fgui=fgui;
         this.fa=fa;
     }
+
     @FXML
     public void irAtras() throws IOException{
         fgui.irAtrasMod();

@@ -168,6 +168,25 @@ public class daoUsuarios extends AbstractDAO{
         }
     }
 
+    public void eliminar(String eliminar){
+        Connection con;
+        PreparedStatement stmOyente=null;
+        ResultSet rsOyente;
+
+        con=this.getConexion();
+        try {
+            stmOyente=con.prepareStatement("delete from oyente where nombre = ? ");
+            stmOyente.setString(1, eliminar);
+            stmOyente.execute();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmOyente.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+
+    }
     public ArrayList<Oyente> buscar(String busqueda){
         ArrayList<Oyente> resultado = new ArrayList<>();
         Connection con;

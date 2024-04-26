@@ -25,7 +25,7 @@
          <HBox.margin>
             <Insets />
          </HBox.margin></Label>
-      <Button fx:id="btnEliminar" mnemonicParsing="false" text="ELIMINAR">
+      <Button fx:id="btnEliminar" mnemonicParsing="false" text="ELIMINAR" onMouseClicked="#clickEliminar">
          <HBox.margin>
             <Insets left="5.0" />
          </HBox.margin>
