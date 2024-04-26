@@ -1,9 +1,6 @@
 package gui;
 
-import aplicacion.Cancion;
-import aplicacion.Contenido;
-import aplicacion.FachadaAplicacion;
-import aplicacion.Oyente;
+import aplicacion.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -81,12 +78,12 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
-    public void showArtista(String nombre) throws IOException{
+    public void showArtista(Artista artista) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtista.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         cArtista controller = fxmlLoader.getController();
-        controller.setLabelGeneros(fa.getGeneros(nombre));
-        controller.setLabelArtista(nombre);
+        controller.setLabelGeneros(fa.getGeneros(artista.getNombre()));
+        controller.setLabelArtista(artista.getNombreArtistico());
         controller.setFachadas(this,fa);
         principalStage.setScene(scene);
         principalStage.show();
