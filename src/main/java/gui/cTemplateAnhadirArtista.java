@@ -10,4 +10,5 @@ public class cTemplateAnhadirArtista {
     public void setLabelTexto(String texto){
         labelTexto.setText(texto);
     }
+
 }
