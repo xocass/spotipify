@@ -253,6 +253,7 @@ public class FachadaGui extends Application {
                 controller.setLabelDuracion(fa.getDuracionPlaylist(id));
                 controller.setLabelNelementos(fa.nCancionesPlaylist(id));
                 controller.setLabelGeneros(fa.generoPlaylist(id));
+                controller.cargarCanciones();
                 break;
             case 'b':
                 Album contenido1=fa.getAlbumId(id);
@@ -261,6 +262,7 @@ public class FachadaGui extends Application {
                 controller.setLabelDuracion(fa.getDuracionAlbum(id));
                 controller.setLabelNelementos(fa.nCancionesAlbum(id));
                 controller.setLabelGeneros(fa.generoAlbum(id));
+                controller.cargarCanciones();
                 break;
             case'c':
                 Podcast contenido2=fa.getPodcastId(id);
@@ -268,6 +270,7 @@ public class FachadaGui extends Application {
                 controller.setLabelNombre(contenido2.getNombre());
                 controller.setLabelDuracion(fa.getDuracionPodcast(id));
                 controller.setLabelNelementos(fa.nCapitulosPodcast(id));
+                controller.cargarCanciones();
                 break;
         }
 

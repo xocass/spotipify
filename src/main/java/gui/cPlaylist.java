@@ -88,6 +88,8 @@ public class cPlaylist {
                     cTemplateElemento controller = loader.getController();
                     controller.setLabelNombre(aux.getNombre());
                     controller.setLabelTiempo(aux.getDuracion());
+                    controller.setExplicit(aux.getExplicito());
+                    controller.setOyenteIdOpcion(user,id,'a');
                 }
                 break;
             case'c':
@@ -98,7 +100,8 @@ public class cPlaylist {
                     cTemplateElemento controller = loader.getController();
                     controller.setLabelNombre(aux.getNombre());
                     controller.setLabelTiempo(aux.getDuracion());
-
+                    controller.setExplicit(aux.getExplicito());
+                    controller.setOyenteIdOpcion(user,id,'b');
                 }
                 break;
         }
