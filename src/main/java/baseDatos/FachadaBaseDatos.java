@@ -166,10 +166,11 @@ public class FachadaBaseDatos {
         if(contenido instanceof Album album) {
             if(album instanceof Cancion cancion){
                 daoCanciones.eliminar(cancion.getIdCancion());
+                daoAlbumes.checkAlbumesVacios(cancion.getIdAlbum());
             }else {
                 daoAlbumes.eliminar(album.getIdAlbum());
             }
-            daoArtista.checkGeneros(contenido.getCreador().get(0));
+            daoArtista.checkGeneros(contenido.getIdartista().get(0));
         }else{
             if(contenido instanceof Capitulo capitulo){
                 daoCapitulos.eliminar(capitulo.getIdCapitulo());
