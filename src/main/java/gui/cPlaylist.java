@@ -12,7 +12,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 public class cPlaylist {
-    private char opcion;//a album       b disco       c podcast
+    private char opcion;//a playlist       b disco       c podcast
     private int id;
     private Oyente user;
     private FachadaGui fgui;
@@ -52,8 +52,11 @@ public class cPlaylist {
     public void setLabelNombre(String nombre){
         labelNombre.setText(nombre);
     }
-    public void setLabelCreador(String creador){
-        labelCreador.setText(creador);
+    public void setLabelCreador(ArrayList<String> creador){
+        for(int i=0;i<creador.size();i++){
+            if(i!=0)labelCreador.setText(labelCreador+", ");
+            labelCreador.setText(labelCreador+creador.get(i));
+        }
     }
     public void setLabelDuracion(Time suma){
         labelDuracion.setText(suma.toString());

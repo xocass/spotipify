@@ -27,5 +27,8 @@ public class GestionContenido {
     public void crearFavoritos(String user){fbd.crearFavoritos(user);}
     public ArrayList<Playlist> tusPlaylist(String nombre){return fbd.tusPlaylist(nombre);}
     public ArrayList<Contenido> buscarContenidoArtista(String id){return fbd.buscarContenidoArtista(id);}
+    public Playlist getPlaylistId(int id){return fbd.getPlaylistId(id);}
+    public Album getAlbumId(int id){return fbd.getAlbumId(id);}
+    public Podcast getPodcastId(int id){return fbd.getPodcastId(id);}
 
 }

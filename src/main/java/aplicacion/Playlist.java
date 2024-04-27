@@ -19,4 +19,5 @@ public class Playlist {
         this.id=id;
     }
     public String getNombre(){return nombre;}
+    public String getCreador(){return creador;}
 }

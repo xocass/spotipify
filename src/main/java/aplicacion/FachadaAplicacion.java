@@ -72,4 +72,8 @@ public class FachadaAplicacion {
     public void actualizarEscuchando(String usuario, Contenido contenido){gu.actualizarEscuchando(usuario, contenido);}
 
     public void noEscuchando(String usuario){gu.noEscuchando(usuario);}
+
+    public Playlist getPlaylistId(int id){return gc.getPlaylistId(id);}
+    public Album getAlbumId(int id){return gc.getAlbumId(id);}
+    public Podcast getPodcastId(int id){return gc.getPodcastId(id);}
 }
