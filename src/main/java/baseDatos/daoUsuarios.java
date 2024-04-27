@@ -65,7 +65,6 @@ public class daoUsuarios extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            //this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -425,19 +424,13 @@ public class daoUsuarios extends AbstractDAO{
     public void noEscuchando(String usuario){
         Connection con;
         PreparedStatement stmUsuario=null;
-
         String valor;
 
-
-
         con=this.getConexion();
-
         try {
-
             stmUsuario = con.prepareStatement("update Oyente " +
                     "set cancion = null " +
                     "where nombre like ?");
-
             stmUsuario.setString(1, usuario);
             stmUsuario.executeQuery();
 
