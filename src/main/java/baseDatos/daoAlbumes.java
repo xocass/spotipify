@@ -69,15 +69,15 @@ public class daoAlbumes extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmAlbum=con.prepareStatement("select al.nombre as nombre, al.idalbum as idalbum, al.tipo as tipo "+
+            stmAlbum=con.prepareStatement("select al.nombre as nombre, al.idalbum as idalbum "+
                     "from album al, componer c "+
                     "where al.idalbum=c.idalbum and c.idartista=?");
-            stmAlbum.setString(1, "%"+id+"%");
+            stmAlbum.setString(1, id);
             rsAlbum=stmAlbum.executeQuery();
             while (rsAlbum.next())
             {
                 resultado.add(new Album(rsAlbum.getString("nombre"), null,
-                        rsAlbum.getInt("idalbum"), rsAlbum.getString("tipo")));
+                        rsAlbum.getInt("idalbum"),null));
                 System.out.println(rsAlbum.getString("nombre"));
             }
         } catch (SQLException e){

@@ -115,12 +115,12 @@
             </VBox>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="150.0" fitWidth="141.0" layoutX="350.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="141.0" layoutX="1030.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../spoti/usuario-de-perfil.png" />
          </image>
       </ImageView>
-      <Label id="labelUsuario" fx:id="labelArtista" layoutX="630.0" layoutY="33.0" prefHeight="54.0" prefWidth="359.0" text="NOMBRE ARTISTA">
+      <Label id="labelUsuario" fx:id="labelArtista" layoutX="400.0" layoutY="25.0" prefHeight="54.0" prefWidth="359.0" text="NOMBRE ARTISTA">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -141,12 +141,12 @@
                </padding></VBox>
          </content>
       </ScrollPane>
-      <Label layoutX="434.0" layoutY="233.0" text="SUS ALBUMES">
+      <Label layoutX="434.0" layoutY="250.0" text="SUS ALBUMES">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ScrollPane  hbarPolicy="NEVER" layoutX="909.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="909.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
             <VBox fx:id="boxSponsor" prefHeight="200.0" prefWidth="225.0" spacing="10.0">
                <padding>
@@ -154,17 +154,17 @@
                </padding></VBox>
          </content>
       </ScrollPane>
-      <Label layoutX="689.0" layoutY="233.0" text="SUS PODCAST">
+      <Label layoutX="689.0" layoutY="250.0" text="SUS PODCAST">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="935.0" layoutY="233.0" text="SUS SPONSORS">
+      <Label layoutX="935.0" layoutY="250.0" text="SUS SPONSORS">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <VBox layoutX="630.0" layoutY="95.0" prefHeight="126.0" prefWidth="470.0" spacing="15.0">
+      <VBox layoutX="400.0" layoutY="79.0" prefHeight="126.0" prefWidth="470.0" spacing="15.0">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
@@ -210,11 +210,11 @@
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="501.0" layoutY="142.0" mnemonicParsing="false" onAction="#seguir" prefHeight="32.0" prefWidth="75.0" styleClass="button-style" text="Seguir" />
       <ImageView fx:id="verified" layoutX="965.0" layoutY="36.0" visible="false">
          <image>
             <Image url="@../spoti/icons8-insignia-verificada-48.png" />
          </image>
       </ImageView>
+      <Button layoutX="1150.0" layoutY="336.0" mnemonicParsing="false" onAction="#seguir" prefHeight="32.0" prefWidth="75.0" styleClass="button-style" text="Seguir" />
    </children>
 </AnchorPane>

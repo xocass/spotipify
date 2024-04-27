@@ -71,7 +71,7 @@ public class daoPodcast extends AbstractDAO{
             stmAlbum=con.prepareStatement("select p.nombre as nombre, p.idpodcast as idpodcast "+
                     "from podcast p, participarpodcast pp "+
                     "where p.idpodcast=pp.idpodcast and pp.idartista=?");
-            stmAlbum.setString(1, "%"+id+"%");
+            stmAlbum.setString(1, id);
             rsAlbum=stmAlbum.executeQuery();
             while (rsAlbum.next())
             {

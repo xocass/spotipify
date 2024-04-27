@@ -189,7 +189,7 @@ public class FachadaBaseDatos {
     public void seguirArtista(String artista, String oyente){daoArtista.seguirArtista(artista,oyente);}
 
     public ArrayList<Contenido> buscarContenidoArtista(String id){
-        ArrayList<Contenido> resultado=new ArrayList<>(), aux=null;
+        ArrayList<Contenido> resultado=new ArrayList<>(), aux;
         aux=daoPodcast.getPodcastArtista(id);
         if(!aux.isEmpty())
             resultado.addAll(aux);
