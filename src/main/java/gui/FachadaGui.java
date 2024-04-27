@@ -84,6 +84,7 @@ public class FachadaGui extends Application {
         cArtista controller = fxmlLoader.getController();
         controller.setLabelGeneros(fa.getGeneros(artista.getNombre()));
         controller.setLabelArtista(artista.getNombreArtistico());
+        controller.setLabelPais(artista.getPaisNacimiento());
         controller.setLabelSeguidores(fa.getSeguidores(artista.getNombre()));
         controller.setFachadas(this,fa);
         principalStage.setScene(scene);
