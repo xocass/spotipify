@@ -57,4 +57,6 @@ public class GestionUsuarios {
     public void actualizarEscuchando(String usuario, Contenido contenido){fbd.actualizarEscuchando(usuario, contenido);}
 
     public void noEscuchando(String usuario){fbd.noEscuchando(usuario);}
+
+    public Artista getArtistaId(String idArtista){return fbd.getArtistaId(idArtista);}
 }

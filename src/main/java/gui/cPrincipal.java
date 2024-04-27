@@ -65,6 +65,7 @@ public class cPrincipal {
            artistaBox.getChildren().add(loader.load());
            cTemplateArtistaInicio controller = loader.getController();
            controller.setLabelUsuario(aux.getNombreArtistico());
+           controller.setIdArtista(aux.getNombre());
            controller.setFachadas(this.fgui, this.fa);
        }
        ArrayList<Cancion> topCanciones;
