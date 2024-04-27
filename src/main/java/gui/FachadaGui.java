@@ -214,15 +214,15 @@ public class FachadaGui extends Application {
         transaccionStage.show();
     }
 
-    public void showEscuchando() throws IOException{
+    public void showEscuchando(Contenido contenido) throws IOException{
 
         escuchandoStage = new Stage();
         escuchandoStage.setResizable(false);
         escuchandoStage.setTitle("Disfruta de tu música");
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vEscuchar.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 450,369);
-        cTransaccionCurso controller = fxmlLoader.getController();
-        controller.setFachadas(this,fa);
+        cEscuchar controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa,contenido);
         escuchandoStage.setScene(scene);
         escuchandoStage.show();
     }
