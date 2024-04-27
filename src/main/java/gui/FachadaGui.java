@@ -13,6 +13,7 @@ import static java.lang.Thread.sleep;
 public class FachadaGui extends Application {
     private Stage entrarStage;
     private Stage principalStage;
+    private Stage transaccionStage;
     private FachadaAplicacion fa;
     private Oyente actual;
 
@@ -181,16 +182,20 @@ public class FachadaGui extends Application {
 
     public void showTransaccionEnCurso(int tipo) throws IOException{
 
-        Stage aux = new Stage();
-        aux.setResizable(false);
-        aux.setTitle("Transaccion en curso");
+        transaccionStage = new Stage();
+        transaccionStage.setResizable(false);
+        transaccionStage.setTitle("Transaccion en curso");
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vTransaccionCurso.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 486,262);
         cTransaccionCurso controller = fxmlLoader.getController();
         controller.setFachadas(this,fa);
         controller.setTipo(tipo);
-        aux.setScene(scene);
-        aux.show();
+        transaccionStage.setScene(scene);
+        transaccionStage.show();
+    }
+
+    public void cerrarTransaccionEnCurso(){
+        transaccionStage.close();
     }
 
     public void irAtrasMod() throws IOException{showAdmin();}

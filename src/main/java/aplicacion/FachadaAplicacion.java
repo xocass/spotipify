@@ -59,4 +59,6 @@ public class FachadaAplicacion {
     public ArrayList<Contenido> buscarContenidoArtista(String id){return gc.buscarContenidoArtista(id);}
     public ArrayList<String> buscarSponsors(String id){return gu.buscarSponsors(id);}
 
+    public void actualizarPlanUsuario(String usuario, String plan, int tipo){gu.actualizarPlanUsuario(usuario, plan, tipo);}
+
 }

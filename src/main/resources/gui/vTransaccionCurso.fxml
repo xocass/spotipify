@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="gui.cTransaccionCurso" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="486.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="486.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cTransaccionCurso">
    <children>
       <AnchorPane layoutX="-25.0" layoutY="-14.0" prefHeight="116.0" prefWidth="514.0" style="-fx-background-color: #01D856;">
          <children>
@@ -30,13 +29,13 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnContinuar" layoutX="98.0" layoutY="196.0" mnemonicParsing="false" text="Continuar">
+      <Button fx:id="btnContinuar" layoutX="98.0" layoutY="196.0" mnemonicParsing="false" onMouseClicked="#cambiarPlan" text="Continuar">
          <styleClass>
             <String fx:value="button-style" />
             <String fx:value="dark-hover" />
          </styleClass>
       </Button>
-      <Button fx:id="btnCancelar" layoutX="307.0" layoutY="196.0" mnemonicParsing="false" text="Cancelar">
+      <Button fx:id="btnCancelar" layoutX="307.0" layoutY="196.0" mnemonicParsing="false" onMouseClicked="#clickCancelar" text="Cancelar">
          <styleClass>
             <String fx:value="button-style" />
             <String fx:value="dark-hover" />

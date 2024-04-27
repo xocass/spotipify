@@ -2,6 +2,7 @@ package gui;
 
 import aplicacion.FachadaAplicacion;
 import javafx.application.HostServices;
+import javafx.fxml.FXML;
 
 public class cTransaccionCurso {
 
@@ -18,7 +19,7 @@ public class cTransaccionCurso {
         this.fgui=fgui;
         this.fa=fa;
     }
-
+    @FXML
     public void cambiarPlan(){
 
         String plan;
@@ -36,14 +37,18 @@ public class cTransaccionCurso {
             case 3:
                 plan = "Anual";
                 break;
-
+            default:
+                plan = "Básico";
+                break;
         }
 
         //enviar plan y tipo
         //luego cerrar ventana
+        fa.actualizarPlanUsuario(fgui.getActual().getNombre(),plan,this.tipo);
+        fgui.cerrarTransaccionEnCurso();
     }
-
+    @FXML
     public void clickCancelar(){
-        //cerrar ventana
+        fgui.cerrarTransaccionEnCurso();
     }
 }

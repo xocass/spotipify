@@ -216,4 +216,5 @@ public class FachadaBaseDatos {
         return daoSponsor.getSponsor(id);
     }
 
+    public void actualizarPlanUsuario(String usuario, String plan, int tipo){daoUsuarios.actualizarPlanUsuario(usuario, plan, tipo);}
 }

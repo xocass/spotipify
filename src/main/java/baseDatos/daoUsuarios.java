@@ -247,16 +247,18 @@ public class daoUsuarios extends AbstractDAO{
         Connection con;
         PreparedStatement stmUsuario=null;
 
-        int valor=0;
+        String valor;
 
         switch (tipo){
             case 1:case 2:
-                valor = 30;
+                valor = "30";
                 break;
             case 3:
-                valor = 365;
+                valor = "365";
                 break;
-
+            default:
+                valor = "0";
+                break;
         }
 
         con=this.getConexion();
@@ -265,16 +267,16 @@ public class daoUsuarios extends AbstractDAO{
 
             if(tipo!=0) {
                 stmUsuario = con.prepareStatement("update Oyente " +
-                        "set tipoplan= ?,  fechapago = now(), fechavencimiento = now() +  interval '? days', " +
+                        "set tipoplan = ?,  fechapago = now(), fechavencimiento = now() +  interval ? DAY " +
                         "where nombre like ?");
                 stmUsuario.setString(1, plan);
-                stmUsuario.setInt(2, valor);
+                stmUsuario.setString(2, valor);
                 stmUsuario.setString(3, usuario);
                 stmUsuario.executeQuery();
             }
             else{
                 stmUsuario = con.prepareStatement("update Oyente " +
-                        "set tipoplan= ?,  fechapago = null, fechavencimiento = null, " +
+                        "set tipoplan= ?,  fechapago = null, fechavencimiento = null " +
                         "where nombre like ?");
                 stmUsuario.setString(1, plan);
                 stmUsuario.setString(2, usuario);
