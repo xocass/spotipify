@@ -127,7 +127,7 @@
       </Label>
       <ScrollPane hbarPolicy="NEVER" layoutX="400.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="321.0" prefWidth="226.0" spacing="10.0">
+            <VBox fx:id="boxAlbum" prefHeight="321.0" prefWidth="226.0" spacing="10.0">
                <padding>
                   <Insets top="5.0" />
                </padding></VBox>
@@ -135,31 +135,31 @@
       </ScrollPane>
       <ScrollPane hbarPolicy="NEVER" layoutX="655.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="318.0" prefWidth="225.0" spacing="10.0">
+            <VBox fx:id="boxPodcast" prefHeight="318.0" prefWidth="225.0" spacing="10.0">
                <padding>
                   <Insets top="5.0" />
                </padding></VBox>
          </content>
       </ScrollPane>
-      <Label layoutX="420.0" layoutY="233.0" text="SUS ALBUMES">
+      <Label layoutX="434.0" layoutY="233.0" text="SUS ALBUMES">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ScrollPane hbarPolicy="NEVER" layoutX="909.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
+      <ScrollPane  hbarPolicy="NEVER" layoutX="909.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="200.0" prefWidth="225.0" spacing="10.0">
+            <VBox fx:id="boxSponsor" prefHeight="200.0" prefWidth="225.0" spacing="10.0">
                <padding>
                   <Insets top="5.0" />
                </padding></VBox>
          </content>
       </ScrollPane>
-      <Label layoutX="684.0" layoutY="231.0" text="SUS PODCAST">
+      <Label layoutX="689.0" layoutY="233.0" text="SUS PODCAST">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="946.0" layoutY="231.0" text="SUS SPONSORS">
+      <Label layoutX="935.0" layoutY="233.0" text="SUS SPONSORS">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

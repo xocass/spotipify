@@ -53,6 +53,8 @@ public class FachadaAplicacion {
     public ArrayList<Playlist> tusPlaylist(String nombre){return gc.tusPlaylist(nombre);}
     public ArrayList<String> getGeneros(String nombre){return gu.getGeneros(nombre);}
     public int getSeguidores(String nombre){return gu.getSeguidores(nombre);}
-    public void seguirArtista(String artista, String oyente){fbd.seguirArtista(artista,oyente);}
+    public void seguirArtista(String artista, String oyente){gu.seguirArtista(artista,oyente);}
+    public ArrayList<Contenido> buscarContenidoArtista(String id){return gc.buscarContenidoArtista(id);}
+    public ArrayList<String> buscarSponsors(String id){return gu.buscarSponsors(id);}
 
 }
