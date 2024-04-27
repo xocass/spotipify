@@ -43,7 +43,21 @@ public class daoCapitulos extends AbstractDAO{
         return resultado;
     }
 
-    public void eliminar(int capitulo){
+    public void eliminar(int eliminar){
+        Connection con;
+        PreparedStatement stmCapitulo=null;
 
+        con=this.getConexion();
+        try {
+            stmCapitulo=con.prepareStatement("delete from capitulo where idcapitulo = ? ");
+            stmCapitulo.setInt(1, eliminar);
+            stmCapitulo.execute();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
     }
 }

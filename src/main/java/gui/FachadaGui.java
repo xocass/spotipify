@@ -145,7 +145,7 @@ public class FachadaGui extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 640, 566);
         cContenidoMod controller = fxmlLoader.getController();
 
-       /*a  a    if(contenido!=null){
+       /* if(contenido!=null){
             controller.clickEntrar(contenido);
         }*/
         controller.setFachadas(this, fa);
