@@ -59,6 +59,34 @@ public class daoAlbumes extends AbstractDAO{
             try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
+
+    public void checkAlbumesVacios(int album){
+        Connection con;
+        PreparedStatement stmAlbum=null;
+        ResultSet rsAlbum;
+        int numCancionesRestantes= 0;
+
+        con=this.getConexion();
+        try {
+            stmAlbum=con.prepareStatement("select count(*) as numCanciones "+
+                    "from cancion where idalbum = ? ");
+            stmAlbum.setInt(1, album);
+            rsAlbum=stmAlbum.executeQuery();
+            while (rsAlbum.next())
+            {
+                numCancionesRestantes= rsAlbum.getInt("numCanciones");
+            }
+            if (numCancionesRestantes == 0) {
+                eliminar(album);
+            }
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+    }
+
     public ArrayList<Contenido> getAlbumesArtista(String id){
         ArrayList<Contenido> resultado = new ArrayList<>();
         Connection con;
