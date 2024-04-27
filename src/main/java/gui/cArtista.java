@@ -28,6 +28,10 @@ public class cArtista {
     private Label labelArtista;
     @FXML
     private Label labelGeneros;
+    @FXML
+    private Label labelPais;
+    @FXML
+    private Label labelSeguidores;
 
 
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
@@ -42,6 +46,12 @@ public class cArtista {
             if(i!=0)labelGeneros.setText(labelGeneros.getText()+", ");
             labelGeneros.setText(labelGeneros.getText()+generos.get(i));
         }
+    }
+    public void setLabelPais(String pais){
+        labelPais.setText(pais);
+    }
+    public void setLabelSeguidores(int nseguidores){
+        labelSeguidores.setText(((Integer)nseguidores).toString());
     }
     @FXML
     public void clickInicio() throws IOException {
@@ -63,4 +73,5 @@ public class cArtista {
     public void clickBuscar() throws IOException {
         fgui.showBuscar();
     }
+
 }

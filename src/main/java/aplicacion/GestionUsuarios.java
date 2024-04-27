@@ -33,6 +33,7 @@ public class GestionUsuarios {
     public ArrayList<String> siguiendo(String nombre){return fbd.siguiendo(nombre);}
     public ArrayList<String> siguiendoArtista(String nombre){return fbd.siguiendoArtista(nombre);}
     public ArrayList<String> getGeneros(String nombre){return fbd.getGeneros(nombre);}
+    public int getSeguidores(String nombre){return fbd.getSeguidores(nombre);}
     public ArrayList<Usuario> buscarU(String buscar){
         return fbd.buscarU(buscar);
     }

@@ -119,31 +119,27 @@
             <Image url="@../spoti/usuario-de-perfil.png" />
          </image>
       </ImageView>
-      <Label id="labelUsuario" fx:id="labelArtista" layoutX="561.0" layoutY="84.0" prefHeight="54.0" prefWidth="359.0" text="NOMBRE ARTISTA">
+      <Label id="labelUsuario" fx:id="labelArtista" layoutX="568.0" layoutY="32.0" prefHeight="54.0" prefWidth="359.0" text="NOMBRE ARTISTA">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
       <ScrollPane hbarPolicy="NEVER" layoutX="400.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="321.0" prefWidth="226.0" />
+            <VBox prefHeight="321.0" prefWidth="226.0" spacing="10.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
-      <ScrollPane hbarPolicy="NEVER" layoutX="648.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="655.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="318.0" prefWidth="225.0" />
+            <VBox prefHeight="318.0" prefWidth="225.0" spacing="10.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
-      <Label layoutX="568.0" layoutY="143.0" text="Géneros:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelGeneros" layoutX="675.0" layoutY="143.0" prefHeight="18.0" prefWidth="316.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
       <Label layoutX="420.0" layoutY="233.0" text="SUS ALBUMES">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -151,7 +147,10 @@
       </Label>
       <ScrollPane hbarPolicy="NEVER" layoutX="909.0" layoutY="290.0" prefHeight="350.0" prefWidth="230.0">
          <content>
-            <VBox prefHeight="200.0" prefWidth="225.0" />
+            <VBox prefHeight="200.0" prefWidth="225.0" spacing="10.0">
+               <padding>
+                  <Insets top="5.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
       <Label layoutX="684.0" layoutY="231.0" text="SUS PODCAST">
@@ -159,10 +158,56 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="941.0" layoutY="229.0" text="SUS SPONSORS">
+      <Label layoutX="946.0" layoutY="231.0" text="SUS SPONSORS">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <VBox layoutX="564.0" layoutY="93.0" prefHeight="126.0" prefWidth="470.0" spacing="15.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Géneros:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelGeneros" prefHeight="35.0" prefWidth="294.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="País:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelPais" prefHeight="35.0" prefWidth="294.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Seguidores:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelSeguidores" prefHeight="35.0" prefWidth="294.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
