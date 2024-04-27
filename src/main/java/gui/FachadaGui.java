@@ -235,5 +235,17 @@ public class FachadaGui extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+    public void showLista(int id, char opcion) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vPlaylist.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        cPlaylist controller = fxmlLoader.getController();
+        controller.setOpcionIdUser(opcion,id,actual);
+        controller.setFachadas(this,fa);
+        controller.setImagen();
+
+        principalStage.setScene(scene);
+        principalStage.show();
+    }
 }
 
