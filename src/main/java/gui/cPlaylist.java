@@ -61,8 +61,8 @@ public class cPlaylist {
     public void setLabelDuracion(Time suma){
         labelDuracion.setText(suma.toString());
     }
-    public void setLabelNelementos(Integer n){
-        labelNelementos.setText(n.toString()+labelNelementos.getText());
+    public void setLabelNelementos(int n){
+        labelNelementos.setText(n+labelNelementos.getText());
     }
     public void setLabelGeneros(ArrayList<String> generos) {
         for (int i = 0; i < generos.size(); i++) {

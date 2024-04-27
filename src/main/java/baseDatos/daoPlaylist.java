@@ -163,4 +163,52 @@ public class daoPlaylist extends AbstractDAO{
         }
         return tiempo;
     }
+    public int nCancionesPlaylist(int id){
+        Connection con;
+        PreparedStatement stmPlaylist=null;
+        ResultSet rsPlaylist;
+        int cuenta= 0;
+
+        con=this.getConexion();
+        try {
+            stmPlaylist=con.prepareStatement("select count(*) as cuenta "+
+                    "from cancion c, formarparte f where c.idcancion=f.idcancion and f.idplaylist = ? ");
+            stmPlaylist.setInt(1, id);
+            rsPlaylist=stmPlaylist.executeQuery();
+            if (rsPlaylist.next())
+            {
+                cuenta= rsPlaylist.getInt("tiempo");
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmPlaylist.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return cuenta;
+    }
+    public ArrayList<String> generoPlaylist(int id){
+        ArrayList<String> resultado=new ArrayList<>();
+        Connection con;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
+
+        con=this.getConexion();
+
+        try {
+            stmUsuario=con.prepareStatement("select distinct c.nombregenero as genero "+
+                    "from formarparte f, cancion c "+
+                    "where f.idplaylist=? ");
+            stmUsuario.setInt(1, id);
+            rsUsuario=stmUsuario.executeQuery();
+            while (rsUsuario.next())
+            {
+                resultado.add(rsUsuario.getString("genero"));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }

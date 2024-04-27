@@ -34,5 +34,10 @@ public class GestionContenido {
     public Time getDuracionPlaylist(int id){return fbd.getDuracionPlaylist(id);}
     public Time getDuracionAlbum(int id){return fbd.getDuracionAlbum(id);}
     public Time getDuracionPodcast(int id){return fbd.getDuracionPodcast(id);}
+    public int nCancionesPlaylist(int id){return fbd.nCancionesPlaylist(id);}
+    public int nCancionesAlbum(int id){return fbd.nCancionesAlbum(id);}
+    public int nCapitulosPodcast(int id){return fbd.nCapitulosPodcast(id);}
+    public ArrayList<String> generoAlbum(int id){return fbd.generoAlbum(id);}
+    public ArrayList<String> generoPlaylist(int id){return fbd.generoPlaylist(id);}
 
 }

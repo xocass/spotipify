@@ -102,7 +102,6 @@ public class daoAlbumes extends AbstractDAO{
             {
                 resultado.add(new Album(rsAlbum.getString("nombre"), null,
                         rsAlbum.getString("idartista"), rsAlbum.getInt("idalbum"),null));
-                System.out.println(rsAlbum.getString("nombre"));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -166,6 +165,54 @@ public class daoAlbumes extends AbstractDAO{
        }
        return tiempo;
    }
+    public int nCancionesAlbum(int id){
+        Connection con;
+        PreparedStatement stmAlbum=null;
+        ResultSet rsAlbum;
+        int cuenta= 0;
+
+        con=this.getConexion();
+        try {
+            stmAlbum=con.prepareStatement("select count(*) as cuenta "+
+                    "from cancion where idalbum = ?");
+            stmAlbum.setInt(1, id);
+            rsAlbum=stmAlbum.executeQuery();
+            if (rsAlbum.next())
+            {
+                cuenta= rsAlbum.getInt("cuenta");
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return cuenta;
+    }
+    public ArrayList<String> generoAlbum(int idAlbum){
+        ArrayList<String> resultado=new ArrayList<>();
+        Connection con;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
+
+        con=this.getConexion();
+
+        try {
+            stmUsuario=con.prepareStatement("select distinct nombregenero "+
+                    "from cancion "+
+                    "where idalbum=?");
+            stmUsuario.setInt(1, idAlbum);
+            rsUsuario=stmUsuario.executeQuery();
+            while (rsUsuario.next())
+            {
+                resultado.add(rsUsuario.getString("nombregenero"));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }
 
 

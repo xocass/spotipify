@@ -133,4 +133,27 @@ public class daoPodcast extends AbstractDAO{
         }
         return tiempo;
     }
+    public int nCapitulosPodcast(int id){
+        Connection con;
+        PreparedStatement stmPodcast=null;
+        ResultSet rsPodcast;
+        int cuenta= 0;
+
+        con=this.getConexion();
+        try {
+            stmPodcast=con.prepareStatement("select count(*) as cuenta "+
+                    "from capitulo where idpodcast = ? ");
+            stmPodcast.setInt(1, id);
+            rsPodcast=stmPodcast.executeQuery();
+            if (rsPodcast.next())
+            {
+                cuenta= rsPodcast.getInt("cuenta");
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmPodcast.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return cuenta;
+    }
 }

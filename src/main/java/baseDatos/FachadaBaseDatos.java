@@ -234,4 +234,9 @@ public class FachadaBaseDatos {
     public Time getDuracionPlaylist(int id){return daoPlaylist.getDuracionPlaylist(id);}
     public Time getDuracionAlbum(int id){return daoAlbumes.getDuracionAlbum(id);}
     public Time getDuracionPodcast(int id){return daoPodcast.getDuracionPodcast(id);}
+    public int nCancionesPlaylist(int id){return daoPlaylist.nCancionesPlaylist(id);}
+    public int nCancionesAlbum(int id){return daoAlbumes.nCancionesAlbum(id);}
+    public int nCapitulosPodcast(int id){return daoPodcast.nCapitulosPodcast(id);}
+    public ArrayList<String> generoAlbum(int id){return daoAlbumes.generoAlbum(id);}
+    public ArrayList<String> generoPlaylist(int id){return daoPlaylist.generoPlaylist(id);}
 }

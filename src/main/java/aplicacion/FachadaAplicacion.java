@@ -80,4 +80,9 @@ public class FachadaAplicacion {
     public Time getDuracionPlaylist(int id){return gc.getDuracionPlaylist(id);}
     public Time getDuracionAlbum(int id){return gc.getDuracionAlbum(id);}
     public Time getDuracionPodcast(int id){return gc.getDuracionPodcast(id);}
+    public int nCancionesPlaylist(int id){return gc.nCancionesPlaylist(id);}
+    public int nCancionesAlbum(int id){return gc.nCancionesAlbum(id);}
+    public int nCapitulosPodcast(int id){return gc.nCapitulosPodcast(id);}
+    public ArrayList<String> generoAlbum(int id){return gc.generoAlbum(id);}
+    public ArrayList<String> generoPlaylist(int id){return gc.generoPlaylist(id);}
 }

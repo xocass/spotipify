@@ -251,18 +251,23 @@ public class FachadaGui extends Application {
                 controller.setLabelCreador(aux);
                 controller.setLabelNombre(contenido.getNombre());
                 controller.setLabelDuracion(fa.getDuracionPlaylist(id));
+                controller.setLabelNelementos(fa.nCancionesPlaylist(id));
+                controller.setLabelGeneros(fa.generoPlaylist(id));
                 break;
             case 'b':
                 Album contenido1=fa.getAlbumId(id);
                 controller.setLabelCreador(contenido1.getCreador());
                 controller.setLabelNombre(contenido1.getNombre());
                 controller.setLabelDuracion(fa.getDuracionAlbum(id));
+                controller.setLabelNelementos(fa.nCancionesAlbum(id));
+                controller.setLabelGeneros(fa.generoAlbum(id));
                 break;
             case'c':
                 Podcast contenido2=fa.getPodcastId(id);
                 controller.setLabelCreador(contenido2.getCreador());
                 controller.setLabelNombre(contenido2.getNombre());
                 controller.setLabelDuracion(fa.getDuracionPodcast(id));
+                controller.setLabelNelementos(fa.nCapitulosPodcast(id));
                 break;
         }
 

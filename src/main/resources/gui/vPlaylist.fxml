@@ -114,7 +114,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <Label id="labelUsuario" fx:id="labelNombre" layoutX="537.0" layoutY="80.0" prefHeight="54.0" prefWidth="333.0">
+      <Label id="labelUsuario" fx:id="labelNombre" layoutX="537.0" layoutY="80.0" prefHeight="54.0" prefWidth="605.0">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
