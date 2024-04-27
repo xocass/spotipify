@@ -43,8 +43,22 @@ public class daoAlbumes extends AbstractDAO{
         return resultado;
     }
 
-    public void eliminar(int album){
+    public void eliminar(int eliminar){
+        Connection con;
+        PreparedStatement stmAlbum=null;
 
+        con=this.getConexion();
+        try {
+            stmAlbum=con.prepareStatement("delete from album where idalbum = ? ");
+            stmAlbum.setInt(1, eliminar);
+            stmAlbum.execute();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
     }
 }
 

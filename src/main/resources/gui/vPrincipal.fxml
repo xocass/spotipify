@@ -143,7 +143,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="290.0" prefWidth="830.0">
+                  <ScrollPane prefHeight="290.0" prefWidth="830.0" vbarPolicy="NEVER">
                      <content>
                         <HBox fx:id="cancionBox" prefHeight="100.0" prefWidth="200.0" />
                      </content>

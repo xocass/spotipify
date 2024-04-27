@@ -168,12 +168,12 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="Géneros:">
+                  <Label prefHeight="40.0" prefWidth="62.0" text="Géneros:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelGeneros" prefHeight="35.0" prefWidth="294.0">
+                  <Label fx:id="labelGeneros" prefHeight="40.0" prefWidth="294.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -182,7 +182,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="País:">
+                  <Label prefHeight="40.0" text="País:">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -196,12 +196,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="Seguidores:">
+                  <Label prefHeight="40.0" text="Seguidores:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelSeguidores" prefHeight="35.0" prefWidth="294.0">
+                  <Label fx:id="labelSeguidores" prefHeight="40.0" prefWidth="294.0">
                      <font>
                         <Font size="16.0" />
                      </font>

@@ -41,7 +41,22 @@ public class daoPodcast extends AbstractDAO{
         return resultado;
     }
 
-    public void eliminar(int podcast){
+    public void eliminar(int eliminar){
+        Connection con;
+        PreparedStatement stmPodcast=null;
 
+        con=this.getConexion();
+        try {
+            stmPodcast=con.prepareStatement("delete from podcast where idpodcast = ? ");
+            stmPodcast.setInt(1, eliminar);
+            stmPodcast.execute();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmPodcast.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
     }
+
 }
