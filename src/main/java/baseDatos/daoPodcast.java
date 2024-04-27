@@ -85,7 +85,7 @@ public class daoPodcast extends AbstractDAO{
         return resultado;
     }
 
-    public ArrayList<Podcast> getPodcastID(int idAlbum){
+    /*public ArrayList<Podcast> getPodcastID(int idAlbum){
         ArrayList<Podcast> resultado=new ArrayList<>();
 
         Connection con;
@@ -95,7 +95,7 @@ public class daoPodcast extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmUsuario=con.prepareStatement("select p.nombre as nombrePodcast, a.nombreartistico as nombreArtista, a.nombre as idArtista, p.idpodcast "+
+            stmUsuario=con.prepareStatement("select p.nombre as nombrePodcast, a.nombre as nombreArtista, a.nombre as idArtista, p.idpodcast "+
                     "from podcast p,  participarpodcast pp, artista a "+
                     "where p.idpodcast = ? and pp.idartista= a.nombre and pp.idpodcast=p.idpodcast ");
             stmUsuario.setInt(1, idAlbum);
@@ -105,6 +105,34 @@ public class daoPodcast extends AbstractDAO{
                 resultado.add( new Podcast(rsUsuario.getString("nombrePodcast"),rsUsuario.getString("nombreArtistico"),
                         rsUsuario.getString("idArtista"),rsUsuario.getInt("p.idpodcast")));
 
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }*/
+    public Podcast getPodcastId(int idAlbum){
+        Podcast resultado=null;
+        int i=0;
+        Connection con;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
+
+        con=this.getConexion();
+
+        try {
+            stmUsuario=con.prepareStatement("select p.nombre as nombrePodcast, a.nombreartistico as nombreArtistico, a.nombre as idArtista, p.idpodcast as idpodcast "+
+                    "from podcast p,  participarpodcast pp, artista a "+
+                    "where p.idpodcast = ? and pp.idartista= a.nombre and pp.idpodcast=p.idpodcast ");
+            stmUsuario.setInt(1, idAlbum);
+            rsUsuario=stmUsuario.executeQuery();
+            while (rsUsuario.next())
+            {
+                if(i==0)resultado = new Podcast(rsUsuario.getString("nombrePodcast"),rsUsuario.getString("nombreArtistico"),
+                        rsUsuario.getString("idArtista"),rsUsuario.getInt("idpodcast"));
+                else resultado.getCreador().add(rsUsuario.getString("nombreArtistico"));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

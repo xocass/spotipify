@@ -54,8 +54,8 @@ public class cPlaylist {
     }
     public void setLabelCreador(ArrayList<String> creador){
         for(int i=0;i<creador.size();i++){
-            if(i!=0)labelCreador.setText(labelCreador+", ");
-            labelCreador.setText(labelCreador+creador.get(i));
+            if(i!=0)labelCreador.setText(labelCreador.getText()+", ");
+            labelCreador.setText(labelCreador.getText()+creador.get(i));
         }
     }
     public void setLabelDuracion(Time suma){

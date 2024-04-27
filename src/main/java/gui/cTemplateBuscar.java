@@ -65,8 +65,12 @@ public class cTemplateBuscar {
             case 'b':
                 fgui.showPerfil(idUser);
                 break;
-            case 'c', 'd':
-                fgui.showLista(idContenido,tipoResultado);
+            case 'c':
+                System.out.println(idContenido);
+                fgui.showLista(idContenido,'b');
+                break;
+            case 'd':
+                fgui.showLista(idContenido,'c');
                 break;
         }
     }

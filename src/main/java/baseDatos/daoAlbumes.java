@@ -87,7 +87,38 @@ public class daoAlbumes extends AbstractDAO{
         return resultado;
     }
 
-    public ArrayList<Album> getAlbumID(int idAlbum){
+    public Album getAlbumId(int idAlbum){
+        Album resultado=null;
+        int i=0;
+        Connection con;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
+
+        con=this.getConexion();
+
+        try {
+            stmUsuario=con.prepareStatement("select a.nombre as nombreAlbum, ar.nombreartistico as nombreArtistico, ar.nombre as idArtista, a.idalbum as id, a.tipo as tipo "+
+                    "from album a, componer c, artista ar "+
+                    "where a.idalbum = ? and c.idartista= ar.nombre and c.idalbum=a.idalbum ");
+            stmUsuario.setInt(1, idAlbum);
+            rsUsuario=stmUsuario.executeQuery();
+            while (rsUsuario.next())
+            {
+                if(i==0)resultado= new Album(rsUsuario.getString("nombreAlbum"),rsUsuario.getString("nombreArtistico"),
+                        rsUsuario.getString("idArtista"),rsUsuario.getInt("id"),
+                        rsUsuario.getString("tipo"),-1,
+                        -1);
+                else resultado.getCreador().add(rsUsuario.getString("nombreArtistico"));
+                i++;
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
+   /* public ArrayList<Album> getAlbumID(int idAlbum){
         ArrayList<Album> resultado=new ArrayList<>();
 
         Connection con;
@@ -97,7 +128,7 @@ public class daoAlbumes extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmUsuario=con.prepareStatement("select a.nombre as nombreAlbum,ar.nombreartistico as nombreArtista, ar.nombre as idArtista, a.idalbum, a.tipo, a.añolanzamiento, a.iddiscografica "+
+            stmUsuario=con.prepareStatement("select a.nombre as nombreAlbum, ar.nombreartistico as nombreArtista, ar.nombre as idArtista, a.idalbum, a.tipo, a.añolanzamiento, a.iddiscografica "+
                     "from album a, componer c, artista ar "+
                     "where a.idalbum = ? and c.idartista= ar.nombre and c.idalbum=a.idalbum ");
             stmUsuario.setInt(1, idAlbum);
@@ -116,7 +147,7 @@ public class daoAlbumes extends AbstractDAO{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
-    }
+    }*/
 }
 
 
