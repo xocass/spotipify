@@ -85,4 +85,6 @@ public class FachadaAplicacion {
     public int nCapitulosPodcast(int id){return gc.nCapitulosPodcast(id);}
     public ArrayList<String> generoAlbum(int id){return gc.generoAlbum(id);}
     public ArrayList<String> generoPlaylist(int id){return gc.generoPlaylist(id);}
+
+    public Artista getArtistaId(String idArtista){return gu.getArtistaId(idArtista);}
 }

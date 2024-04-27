@@ -3,6 +3,7 @@ package baseDatos;
 import aplicacion.Artista;
 import aplicacion.Contenido;
 import aplicacion.Oyente;
+import aplicacion.Podcast;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -254,5 +255,35 @@ public class daoArtista extends AbstractDAO{
         }finally{
             try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
+    }
+
+    public Artista getArtistaId(String idArtista){
+        Artista resultado=null;
+
+        Connection con;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
+
+        con=this.getConexion();
+
+        try {
+            stmUsuario=con.prepareStatement("select * "+
+                    "from artista "+
+                    "where nombre like ? ");
+            stmUsuario.setString(1, idArtista);
+            rsUsuario=stmUsuario.executeQuery();
+            if (rsUsuario.next())
+            {
+                resultado = new Artista(rsUsuario.getString("nombre"),rsUsuario.getString("contraseña"),
+                        rsUsuario.getString("email"),rsUsuario.getDate("fechanacimiento").toString(),
+                        rsUsuario.getString("nombreartistico"),rsUsuario.getString("paisnacimiento"),rsUsuario.getBoolean("verificado"));
+
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
     }
 }
