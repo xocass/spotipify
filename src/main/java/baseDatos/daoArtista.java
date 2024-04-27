@@ -143,7 +143,7 @@ public class daoArtista extends AbstractDAO{
         return resultado;
     }
     public int getSeguidores(String nombre){
-        int resultado=666666;
+        int resultado=0;
         Connection con;
         PreparedStatement stmGeneros=null;
         ResultSet rsGeneros;
@@ -166,5 +166,24 @@ public class daoArtista extends AbstractDAO{
             try {stmGeneros.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
+    }
+    public void seguirArtista(String artista,String oyente){
+        Connection con;
+        PreparedStatement stmGeneros=null;
+        ResultSet rsGeneros;
+
+        con=this.getConexion();
+        try {
+            stmGeneros=con.prepareStatement("insert into seguirartista "+
+                    "values (?,?)");
+            stmGeneros.setString(1,oyente);
+            stmGeneros.setString(2,artista);
+            rsGeneros=stmGeneros.executeQuery();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmGeneros.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
     }
 }

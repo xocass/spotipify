@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class cArtista {
-    private Artista artista;
     private FachadaGui fgui;
     private FachadaAplicacion fa;
     @FXML
@@ -32,7 +31,17 @@ public class cArtista {
     private Label labelPais;
     @FXML
     private Label labelSeguidores;
+    @FXML
+    private ImageView verified;
+    private String id;
+    private boolean isVerified;
 
+    public void setId(String id,boolean verified) {
+        this.id = id;
+        isVerified=verified;
+        if(verified)
+            this.verified.setVisible(true);
+    }
 
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui;
@@ -74,7 +83,8 @@ public class cArtista {
         fgui.showBuscar();
     }
     @FXML
-    public void seguir() {
-        fa.seguirArtista();
+    public void seguir() throws IOException {
+        fa.seguirArtista(id,fgui.getActual().getNombre());
+        fgui.showArtista(new Artista(id,labelArtista.getText(),isVerified,labelPais.getText()));
     }
 }

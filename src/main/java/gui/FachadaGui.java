@@ -82,6 +82,7 @@ public class FachadaGui extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtista.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         cArtista controller = fxmlLoader.getController();
+        controller.setId(artista.getNombre(), artista.getVerificado());
         controller.setLabelGeneros(fa.getGeneros(artista.getNombre()));
         controller.setLabelArtista(artista.getNombreArtistico());
         controller.setLabelPais(artista.getPaisNacimiento());

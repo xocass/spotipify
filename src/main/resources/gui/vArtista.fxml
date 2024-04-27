@@ -211,5 +211,10 @@
          </children>
       </VBox>
       <Button layoutX="501.0" layoutY="142.0" mnemonicParsing="false" onAction="#seguir" prefHeight="32.0" prefWidth="75.0" styleClass="button-style" text="Seguir" />
+      <ImageView fx:id="verified" layoutX="965.0" layoutY="36.0" visible="false">
+         <image>
+            <Image url="@../spoti/icons8-insignia-verificada-48.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
