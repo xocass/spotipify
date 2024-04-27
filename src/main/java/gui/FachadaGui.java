@@ -173,8 +173,23 @@ public class FachadaGui extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         cActualizarPlan controller = fxmlLoader.getController();
         controller.setFachadas(this,fa);
+        controller.setHostServices(getHostServices());
         principalStage.setScene(scene);
         principalStage.show();
+    }
+
+    public void showTransaccionEnCurso(int tipo) throws IOException{
+
+        Stage aux = new Stage();
+        aux.setResizable(false);
+        aux.setTitle("Transaccion en curso");
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vTransaccionCurso.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 486,262);
+        cTransaccionCurso controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        controller.setTipo(tipo);
+        aux.setScene(scene);
+        aux.show();
     }
 
     public void irAtrasMod() throws IOException{showAdmin();}

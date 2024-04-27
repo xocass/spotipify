@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:controller="gui.cActualizarPlan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cActualizarPlan">
    <children>
       <AnchorPane layoutX="-6.0" layoutY="-21.0" prefHeight="735.0" prefWidth="330.0" style="-fx-background-color: #01D856;">
          <children>
@@ -115,7 +115,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="btnBasico" layoutX="375.0" layoutY="50.0" prefHeight="218.0" prefWidth="352.0">
+      <AnchorPane fx:id="btnBasico" layoutX="375.0" layoutY="50.0" onMouseClicked="#clickNormal" prefHeight="218.0" prefWidth="352.0">
          <children>
             <HBox layoutX="30.0" layoutY="20.0" prefHeight="50.0" prefWidth="270.0" spacing="20.0">
                <children>
@@ -147,7 +147,7 @@
             <String fx:value="dark-hover" />
          </styleClass>
       </AnchorPane>
-      <AnchorPane fx:id="btnPremium" layoutX="800.0" layoutY="50.0" prefHeight="218.0" prefWidth="352.0">
+      <AnchorPane fx:id="btnPremium" layoutX="800.0" layoutY="50.0" onMouseClicked="#clickPremium" prefHeight="218.0" prefWidth="352.0">
          <children>
             <HBox layoutX="30.0" layoutY="20.0" prefHeight="62.0" prefWidth="309.0" spacing="20.0">
                <children>
@@ -179,7 +179,7 @@
             <String fx:value="dark-hover" />
          </styleClass>
       </AnchorPane>
-      <AnchorPane fx:id="btnEstudiante" layoutX="375.0" layoutY="325.0" prefHeight="218.0" prefWidth="352.0">
+      <AnchorPane fx:id="btnEstudiante" layoutX="375.0" layoutY="325.0" onMouseClicked="#clickEstudiante" prefHeight="218.0" prefWidth="352.0">
          <children>
             <HBox layoutX="13.0" layoutY="22.0" prefHeight="59.0" prefWidth="334.0" spacing="20.0">
                <children>
@@ -211,7 +211,7 @@
             <String fx:value="dark-hover" />
          </styleClass>
       </AnchorPane>
-      <AnchorPane fx:id="btnAnual" layoutX="800.0" layoutY="325.0" prefHeight="218.0" prefWidth="352.0">
+      <AnchorPane fx:id="btnAnual" layoutX="800.0" layoutY="325.0" onMouseClicked="#clickAnual" prefHeight="218.0" prefWidth="352.0">
          <children>
             <HBox layoutX="30.0" layoutY="20.0" prefHeight="62.0" prefWidth="285.0" spacing="20.0">
                <children>
@@ -243,7 +243,7 @@
             <String fx:value="dark-hover" />
          </styleClass>
       </AnchorPane>
-      <Label fx:id="labelInfo" layoutX="375.0" layoutY="597.0" prefHeight="50.0" prefWidth="791.0" text="¿No sabes que plan escoger? Pincha aquí para más info">
+      <Label fx:id="labelInfo" layoutX="375.0" layoutY="597.0" onMouseClicked="#clickInfo" prefHeight="50.0" prefWidth="791.0" text="¿No sabes que plan escoger? Pincha aquí para más info">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
