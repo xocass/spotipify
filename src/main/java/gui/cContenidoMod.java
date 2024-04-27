@@ -45,6 +45,9 @@ public class cContenidoMod {
                 controller.setFachadas(this.fgui, this.fa, this);
 
                 controller.setLabelNombre(aux.getNombre());
+                if(aux instanceof Cancion){
+                    controller.setLabelGenero(((Cancion) aux).getNombreGenero());
+                }
                 controller.setLabelTipo(aux);
                 for (int i = 0; i < aux.getCreador().size(); i++) {
                     if (i != 0) controller.setLabelCreadores(", ");

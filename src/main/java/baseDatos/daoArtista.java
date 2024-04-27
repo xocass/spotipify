@@ -209,13 +209,11 @@ public class daoArtista extends AbstractDAO{
         }
     }
     public void checkGeneros(String artista) {
-        ArrayList<Artista> resultado = new ArrayList<>();
         Connection con;
         PreparedStatement stmArtista=null;
 
         con=this.getConexion();
         try {
-            System.out.println("creador: "+ artista);
             stmArtista=con.prepareStatement("delete from participargenero "+
                     "where idartista = ? and nombregenero not in ( "+
                     "select distinct c.nombregenero from cancion c "+

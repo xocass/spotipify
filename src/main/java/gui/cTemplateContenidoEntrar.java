@@ -23,6 +23,8 @@ public class cTemplateContenidoEntrar {
     @FXML
     private Label labelCreadores;
     @FXML
+    private Label labelGenero;
+    @FXML
     private Button btnEntrar;
 
     private FachadaGui fgui;
@@ -36,6 +38,7 @@ public class cTemplateContenidoEntrar {
     }
 
     public void setLabelNombre(String nombre){labelNombre.setText(nombre);}
+    public void setLabelGenero(String genero){labelGenero.setText(genero);}
     public void setLabelTipo(Contenido contenido){
         if(contenido instanceof Album album){
             if(album instanceof Cancion){
@@ -59,20 +62,5 @@ public class cTemplateContenidoEntrar {
     @FXML
     public void clickEntrar() throws IOException {
         ccm.clickEntrar(contenido);
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEliminar.fxml"));
-        cTemplateContenidoEliminar controller = loader.getController();
-
-        controller.setFachadas(this.fgui,this.fa, this);
-
-        if(contenido instanceof Cancion cancion){
-            controller.setLabelDuracion(cancion.getDuracion().toString());
-            controller.setTickExplicito(cancion.getExplicito());
-        }if(contenido instanceof Capitulo capitulo){
-            controller.setLabelDuracion(capitulo.getDuracion().toString());
-            controller.setTickExplicito(capitulo.getExplicito());
-        }else{
-            controller.ocultarExplicito();
-        }*/
-        //fgui.showContenidoMod(contenido);
     }
 }

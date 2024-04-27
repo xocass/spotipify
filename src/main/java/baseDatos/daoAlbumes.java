@@ -70,7 +70,7 @@ public class daoAlbumes extends AbstractDAO{
         try {
             stmAlbum=con.prepareStatement("select al.nombre as nombre, al.idalbum as idalbum, c.idartista as idartista "+
                     "from album al, componer c "+
-                    "where al.idalbum=c.idalbum and c.idartista=?");
+                    "where al.idalbum= c.idalbum and c.idartista=?");
             stmAlbum.setString(1, id);
             rsAlbum=stmAlbum.executeQuery();
             while (rsAlbum.next())
