@@ -23,6 +23,10 @@ public class cTemplateCancion {
     public void setIdplaylist(int idplaylist) {
         this.idplaylist = idplaylist;
     }
+    @FXML
+    public void clickTemplate(){
+        //fgui.showLista();
+    }
 
 
 }
