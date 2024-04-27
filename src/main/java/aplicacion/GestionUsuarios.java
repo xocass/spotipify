@@ -38,5 +38,6 @@ public class GestionUsuarios {
         return fbd.buscarU(buscar);
     }
 
+    public void seguirArtista(String artista, String oyente){fbd.seguirArtista(artista,oyente);}
 
 }

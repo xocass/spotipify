@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class cArtista {
-    private Artista artista;
     private FachadaGui fgui;
     private FachadaAplicacion fa;
     @FXML
@@ -32,6 +31,7 @@ public class cArtista {
     private Label labelPais;
     @FXML
     private Label labelSeguidores;
+    private String id;
 
 
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
@@ -75,6 +75,6 @@ public class cArtista {
     }
     @FXML
     public void seguir() {
-        fa.seguirArtista();
+        fa.seguirArtista(new Artista,fgui.getActual());
     }
 }

@@ -184,5 +184,6 @@ public class FachadaBaseDatos {
     public ArrayList<Playlist> tusPlaylist(String nombre){return daoPlaylist.tusPlaylist(nombre);}
     public ArrayList<String> getGeneros(String nombre){return daoArtista.getGeneros(nombre);}
     public int getSeguidores(String nombre){return daoArtista.getSeguidores(nombre);}
+    public void seguirArtista(String artista, String oyente){daoArtista.seguirArtista(artista,oyente);}
 
 }
