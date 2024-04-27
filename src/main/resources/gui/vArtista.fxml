@@ -141,7 +141,7 @@
                </padding></VBox>
          </content>
       </ScrollPane>
-      <Label layoutX="434.0" layoutY="250.0" text="SUS ALBUMES">
+      <Label fx:id="label4" layoutX="434.0" layoutY="250.0" text="SUS ALBUMES">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -154,12 +154,12 @@
                </padding></VBox>
          </content>
       </ScrollPane>
-      <Label layoutX="689.0" layoutY="250.0" text="SUS PODCAST">
+      <Label fx:id="label5" layoutX="689.0" layoutY="250.0" text="SUS PODCAST">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="935.0" layoutY="250.0" text="SUS SPONSORS">
+      <Label fx:id="label6" layoutX="935.0" layoutY="250.0" text="SUS SPONSORS">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -168,26 +168,12 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label prefHeight="40.0" prefWidth="62.0" text="Géneros:">
+                  <Label fx:id="label1" prefHeight="40.0" prefWidth="62.0" text="Géneros:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelGeneros" prefHeight="40.0" prefWidth="294.0">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-               <children>
-                  <Label prefHeight="40.0" text="País:">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelPais" prefHeight="35.0" prefWidth="294.0">
+                  <Label fx:id="labelGeneros_Plan" prefHeight="40.0" prefWidth="294.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -196,7 +182,21 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label prefHeight="40.0" text="Seguidores:">
+                  <Label fx:id="label2" prefHeight="40.0" text="País:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelPais_Seguidos" prefHeight="35.0" prefWidth="294.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label fx:id="label3" prefHeight="40.0" text="Seguidores:">
                      <font>
                         <Font size="16.0" />
                      </font>

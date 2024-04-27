@@ -32,10 +32,12 @@ public class GestionUsuarios {
     public boolean cambiarVerificado(String nombre){return fbd.cambiarVerificado(nombre);}
     public ArrayList<Artista> verificados(){return fbd.verificados();}
     public ArrayList<String> siguiendo(String nombre){return fbd.siguiendo(nombre);}
+    public ArrayList<String> seguidores(String nombre){return fbd.seguidores(nombre);}
     public ArrayList<String> siguiendoArtista(String nombre){return fbd.siguiendoArtista(nombre);}
     public ArrayList<String> getGeneros(String nombre){return fbd.getGeneros(nombre);}
-    public int getSeguidores(String nombre){return fbd.getSeguidores(nombre);}
-    public int getSeguidoresU(String nombre){return fbd.getSeguidoresU(nombre);}
+    public int getnSeguidores(String nombre){return fbd.getnSeguidores(nombre);}
+    public int getnSeguidoresU(String nombre){return fbd.getnSeguidoresU(nombre);}
+    public int getnSeguidosU(String nombre){return fbd.getnSeguidosU(nombre);}
 
     public ArrayList<Usuario> buscarU(String buscar){
         return fbd.buscarU(buscar);
@@ -47,4 +49,6 @@ public class GestionUsuarios {
     public ArrayList<String> buscarSponsors(String id){return fbd.buscarSponsors(id);}
 
     public void actualizarPlanUsuario(String usuario, String plan, int tipo){fbd.actualizarPlanUsuario(usuario, plan, tipo);}
+    public String getPlan(String id){return fbd.getPlan(id);}
+
 }

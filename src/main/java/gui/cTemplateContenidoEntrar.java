@@ -56,9 +56,10 @@ public class cTemplateContenidoEntrar {
 
     public void setContenido(Contenido contenido){
         this.contenido=contenido;}
-   @FXML
+    @FXML
     public void clickEntrar() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEliminar.fxml"));
+        ccm.clickEntrar(contenido);
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEliminar.fxml"));
         cTemplateContenidoEliminar controller = loader.getController();
 
         controller.setFachadas(this.fgui,this.fa, this);
@@ -71,7 +72,7 @@ public class cTemplateContenidoEntrar {
             controller.setTickExplicito(capitulo.getExplicito());
         }else{
             controller.ocultarExplicito();
-        }
-         //fgui.showContenidoMod(contenido);
+        }*/
+        //fgui.showContenidoMod(contenido);
     }
 }

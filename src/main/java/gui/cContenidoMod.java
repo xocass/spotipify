@@ -21,6 +21,7 @@ public class cContenidoMod {
     @FXML
     private TextField fieldBuscar;
 
+
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui;
         this.fa=fa;
@@ -41,7 +42,7 @@ public class cContenidoMod {
                 vboxBuscar.getChildren().add(loader.load());
 
                 cTemplateContenidoEntrar controller = loader.getController();
-                controller.setFachadas(this.fgui,this.fa, this);
+                controller.setFachadas(this.fgui, this.fa, this);
 
                 controller.setLabelNombre(aux.getNombre());
                 controller.setLabelTipo(aux);
@@ -49,32 +50,29 @@ public class cContenidoMod {
                     if (i != 0) controller.setLabelCreadores(", ");
                     controller.setLabelCreadores(aux.getCreador().get(i));
                 }
-
                 controller.setContenido(aux);
             }
 
         }
     }
-    /*
     public void clickEntrar(Contenido contenido) throws IOException{
         vboxBuscar.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEliminar.fxml"));
         vboxBuscar.getChildren().add(loader.load());
 
         cTemplateContenidoEliminar controller = loader.getController();
-        controller.setFachadas(this.fgui,this.fa);
+        controller.setFachadas(this.fgui,this.fa, this);
 
         controller.setContenido(contenido);
         controller.setLabelNombre(contenido.getNombre());
-        if(contenido instanceof Cancion cancion){
+        if(contenido instanceof Album album && album instanceof Cancion cancion){
             controller.setLabelDuracion(cancion.getDuracion().toString());
             controller.setTickExplicito(cancion.getExplicito());
-        }if(contenido instanceof Capitulo capitulo){
+        }else if(contenido instanceof Podcast podcast && podcast instanceof Capitulo capitulo){
             controller.setLabelDuracion(capitulo.getDuracion().toString());
             controller.setTickExplicito(capitulo.getExplicito());
         }else{
             controller.ocultarExplicito();
         }
-
-    }*/
+    }
 }

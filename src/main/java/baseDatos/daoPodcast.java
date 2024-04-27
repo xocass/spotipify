@@ -31,11 +31,10 @@ public class daoPodcast extends AbstractDAO{
             rsPrograma=stmPrograma.executeQuery();
             while (rsPrograma.next())
             {
-                resultado.add(new Podcast(rsPrograma.getString("nombre"), rsPrograma.getString("creador"),rsPrograma.getInt("idpodcast")));
+                resultado.add(new Podcast(rsPrograma.getString("nombre"), rsPrograma.getString("creador"), rsPrograma.getInt("idpodcast")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmPrograma.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -54,7 +53,6 @@ public class daoPodcast extends AbstractDAO{
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmPodcast.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -80,7 +78,6 @@ public class daoPodcast extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }

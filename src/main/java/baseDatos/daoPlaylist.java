@@ -39,7 +39,6 @@ public class daoPlaylist extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmPlaylist.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -64,7 +63,6 @@ public class daoPlaylist extends AbstractDAO{
             rsPlaylist=stmPlaylist.executeQuery();
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmPlaylist.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -85,7 +83,6 @@ public class daoPlaylist extends AbstractDAO{
                 resultado=consulta.getInt("idmax");
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmPlaylist.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -111,7 +108,6 @@ public class daoPlaylist extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmPlaylist.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }

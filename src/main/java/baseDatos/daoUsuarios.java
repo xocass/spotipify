@@ -142,7 +142,6 @@ public class daoUsuarios extends AbstractDAO{
             stmUsuario.executeQuery();
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -164,7 +163,6 @@ public class daoUsuarios extends AbstractDAO{
             stmUsuario.executeQuery();
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -183,7 +181,6 @@ public class daoUsuarios extends AbstractDAO{
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmOyente.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -209,7 +206,6 @@ public class daoUsuarios extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmOyente.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -232,13 +228,36 @@ public class daoUsuarios extends AbstractDAO{
             while (rsSiguiendo.next())
             {
                 resultado.add(rsSiguiendo.getString("idoyente2"));
-                System.out.println(rsSiguiendo.getString("idoyente2"));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmSiguiendo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
+    public ArrayList<String> seguidores(String nombre){
+        ArrayList<String> resultado = new ArrayList<>();
+        Connection con;
+        PreparedStatement stmSeguidores=null;
+        ResultSet rsSeguidores;
+
+        con=this.getConexion();
+
+        try {
+            stmSeguidores=con.prepareStatement("select idoyente1 "+
+                    "from seguir "+
+                    "where idoyente2 = ?");
+            stmSeguidores.setString(1,nombre);
+            rsSeguidores=stmSeguidores.executeQuery();
+            while (rsSeguidores.next())
+            {
+                resultado.add(rsSeguidores.getString("idoyente1"));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmSeguidores.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
     }
@@ -283,52 +302,95 @@ public class daoUsuarios extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
-    public int getSeguidoresU(String nombre){
+    public int getnSeguidoresU(String nombre){
         int resultado=0;
         Connection con;
-        PreparedStatement stmArtista=null;
-        ResultSet rsArtista;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
 
         con=this.getConexion();
         try {
-            stmArtista=con.prepareStatement("select count(*) as seguidores "+
+            stmUsuario=con.prepareStatement("select count(*) as seguidores "+
                     "from seguir " +
                     "where idoyente2 = ?");
-            stmArtista.setString(1,nombre);
-            rsArtista=stmArtista.executeQuery();
-            while (rsArtista.next())
+            stmUsuario.setString(1,nombre);
+            rsUsuario=stmUsuario.executeQuery();
+            while (rsUsuario.next())
             {
-                resultado=rsArtista.getInt("seguidores");
+                resultado=rsUsuario.getInt("seguidores");
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
-            try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
     }
-    public void seguirPerfil(String seguido,String seguidor){
+    public int getnSeguidosU(String nombre){
+        int resultado=0;
         Connection con;
-        PreparedStatement stmArtista=null;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
 
         con=this.getConexion();
         try {
-            stmArtista=con.prepareStatement("insert into seguir "+
-                    "values (?,?)");
-            stmArtista.setString(1,seguidor);
-            stmArtista.setString(2,seguido);
-            stmArtista.executeQuery();
+            stmUsuario=con.prepareStatement("select count(*) as seguidos "+
+                    "from seguir " +
+                    "where idoyente1 = ?");
+            stmUsuario.setString(1,nombre);
+            rsUsuario=stmUsuario.executeQuery();
+            while (rsUsuario.next())
+            {
+                resultado=rsUsuario.getInt("seguidos");
+            }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
-            try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
+        return resultado;
+    }
+
+    public void seguirPerfil(String seguido,String seguidor){
+        Connection con;
+        PreparedStatement stmUsuario=null;
+
+        con=this.getConexion();
+        try {
+            stmUsuario=con.prepareStatement("insert into seguir "+
+                    "values (?,?)");
+            stmUsuario.setString(1,seguidor);
+            stmUsuario.setString(2,seguido);
+            stmUsuario.executeQuery();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+    }
+    public String getPlan(String id){
+        Connection con;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
+        con=this.getConexion();
+        String resultado=null;
+        try {
+            stmUsuario=con.prepareStatement("select tipoplan" +
+                    " from Oyente where nombre=?");
+            stmUsuario.setString(1,id);
+            rsUsuario=stmUsuario.executeQuery();
+            if(rsUsuario.next()){
+                resultado= rsUsuario.getString("tipoplan");
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
     }
 }

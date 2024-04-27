@@ -34,7 +34,6 @@ public class daoCanciones extends AbstractDAO {
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmCancion.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -61,7 +60,6 @@ public class daoCanciones extends AbstractDAO {
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmCancion.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -79,7 +77,6 @@ public class daoCanciones extends AbstractDAO {
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmCancion.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -99,18 +96,17 @@ public class daoCanciones extends AbstractDAO {
             stmCancion.setInt(1, idcancion);
             rsCancion=stmCancion.executeQuery();
             rsCancion.next();
-            explicito= !rsCancion.getBoolean("verificado");
+            explicito= !rsCancion.getBoolean("explicito");
 
             stmCancion=con.prepareStatement("update cancion "+
                     "set explicito = ? "+
-                    "where cancion.idcancion like ?");
+                    "where cancion.idcancion = ?");
             stmCancion.setBoolean(1, explicito);
             stmCancion.setInt(2, idcancion);
             stmCancion.execute();
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmCancion.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }

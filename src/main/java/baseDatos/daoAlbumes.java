@@ -36,7 +36,6 @@ public class daoAlbumes extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -55,7 +54,6 @@ public class daoAlbumes extends AbstractDAO{
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -82,7 +80,6 @@ public class daoAlbumes extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }

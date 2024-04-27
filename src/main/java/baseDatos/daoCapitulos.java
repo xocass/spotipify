@@ -21,9 +21,8 @@ public class daoCapitulos extends AbstractDAO{
         ResultSet rsCapitulo;
 
         con=this.getConexion();
-
         try {
-            stmCapitulo=con.prepareStatement("select ca.nombre as nombre, ca.idpodcast as caidpodcast, ca.idcapitulo as idcapitulo, p.idartista as pidartista, ar.nombre as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
+            stmCapitulo=con.prepareStatement("select ca.nombre as nombre, ca.idpodcast as idpodcast, ca.idcapitulo as idcapitulo, p.idartista as pidartista, ar.nombre as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
                     "from capitulo ca, participarpodcast p, artista ar "+
                     "where ca.nombre like ? and ca.idpodcast=p.idpodcast and p.idartista=ar.nombre");
             stmCapitulo.setString(1, "%"+busqueda+"%");
@@ -36,7 +35,6 @@ public class daoCapitulos extends AbstractDAO{
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -55,7 +53,6 @@ public class daoCapitulos extends AbstractDAO{
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
@@ -74,18 +71,17 @@ public class daoCapitulos extends AbstractDAO{
             stmCapitulo.setInt(1, idcapitulo);
             rsCapitulo=stmCapitulo.executeQuery();
             rsCapitulo.next();
-            explicito= !rsCapitulo.getBoolean("verificado");
+            explicito= !rsCapitulo.getBoolean("explicito");
 
             stmCapitulo=con.prepareStatement("update capitulo "+
                     "set explicito = ? "+
-                    "where capitulo.idcapitulo like ?");
+                    "where capitulo.idcapitulo = ?");
             stmCapitulo.setBoolean(1, explicito);
             stmCapitulo.setInt(2, idcapitulo);
             stmCapitulo.execute();
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
-            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
             try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }

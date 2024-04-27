@@ -28,7 +28,6 @@ public class FachadaGui extends Application {
         fa= new FachadaAplicacion(this);
         iniciarSesion();
     }
-    public void muestraExcepcion(String txtExcepcion){}
 
     public void registrar() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vRegistrarse.fxml"));
@@ -82,14 +81,17 @@ public class FachadaGui extends Application {
     public void showPerfil(String id) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtista.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        ArrayList<String> plan = new ArrayList<>();
+        plan.add(fa.getPlan(id));
         cArtista controller = fxmlLoader.getController();
         controller.setFachadas(this,fa,false);
         controller.setId(id, false);
         controller.setLabelArtista(id);
+        controller.setLabelPais_Seguidos(((Integer)fa.getnSeguidosU(id)).toString());
+        controller.setLabelGeneros_Plan(plan);
+        controller.iniciarP();
 
-        controller.iniciar();
-
-        controller.setLabelSeguidores(fa.getSeguidoresU(id));
+        controller.setLabelSeguidores(fa.getnSeguidoresU(id));
         principalStage.setScene(scene);
         principalStage.show();
     }
@@ -100,10 +102,10 @@ public class FachadaGui extends Application {
         controller.setFachadas(this,fa,true);
         controller.setId(artista.getNombre(), artista.getVerificado());
         controller.iniciar();
-        controller.setLabelGeneros(fa.getGeneros(artista.getNombre()));
+        controller.setLabelGeneros_Plan(fa.getGeneros(artista.getNombre()));
         controller.setLabelArtista(artista.getNombreArtistico());
-        controller.setLabelPais(artista.getPaisNacimiento());
-        controller.setLabelSeguidores(fa.getSeguidores(artista.getNombre()));
+        controller.setLabelPais_Seguidos(artista.getPaisNacimiento());
+        controller.setLabelSeguidores(fa.getnSeguidores(artista.getNombre()));
         principalStage.setScene(scene);
         principalStage.show();
     }

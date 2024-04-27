@@ -17,9 +17,7 @@ public class FachadaAplicacion {
         gu=new GestionUsuarios(fgui,fbd);
         gc= new GestionContenido(fgui,fbd);
     }
-    public void muestraExcepcion(String e){
-        fgui.muestraExcepcion(e);
-    }
+
 
     public Oyente validarUsuario(String user, String pass) {
         return gu.validarUsuario(user,pass);
@@ -51,11 +49,14 @@ public class FachadaAplicacion {
     public ArrayList<Artista> verificados(){return gu.verificados();}
     public ArrayList<Cancion> topCanciones(){return gc.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return gu.siguiendo(nombre);}
+    public ArrayList<String> seguidores(String nombre){return gu.seguidores(nombre);}
+
     public ArrayList<String> siguiendoArtista(String nombre){return gu.siguiendoArtista(nombre);}
     public ArrayList<Playlist> tusPlaylist(String nombre){return gc.tusPlaylist(nombre);}
     public ArrayList<String> getGeneros(String nombre){return gu.getGeneros(nombre);}
-    public int getSeguidores(String nombre){return gu.getSeguidores(nombre);}
-    public int getSeguidoresU(String nombre){return gu.getSeguidoresU(nombre);}
+    public int getnSeguidores(String nombre){return gu.getnSeguidores(nombre);}
+    public int getnSeguidoresU(String nombre){return gu.getnSeguidoresU(nombre);}
+    public int getnSeguidosU(String nombre){return gu.getnSeguidosU(nombre);}
 
     public void seguirArtista(String artista, String oyente){gu.seguirArtista(artista,oyente);}
     public void seguirPerfil(String seguido, String seguidor){gu.seguirPerfil(seguido,seguidor);}
@@ -64,5 +65,5 @@ public class FachadaAplicacion {
     public ArrayList<String> buscarSponsors(String id){return gu.buscarSponsors(id);}
 
     public void actualizarPlanUsuario(String usuario, String plan, int tipo){gu.actualizarPlanUsuario(usuario, plan, tipo);}
-
+    public String getPlan(String id){return gu.getPlan(id);}
 }

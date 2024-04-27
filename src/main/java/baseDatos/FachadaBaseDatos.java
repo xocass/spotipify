@@ -55,14 +55,11 @@ public class FachadaBaseDatos {
 
         } catch (FileNotFoundException f){
             System.out.println(f.getMessage());
-            fa.muestraExcepcion(f.getMessage());
         } catch (IOException i){
             System.out.println(i.getMessage());
-            fa.muestraExcepcion(i.getMessage());
         }
         catch (SQLException e){
             System.out.println(e.getMessage());
-            fa.muestraExcepcion(e.getMessage());
         }
     }
 
@@ -125,7 +122,6 @@ public class FachadaBaseDatos {
         if (!aux.isEmpty()){
             resultado.addAll(aux);
         }
-
         int tam=resultado.size();
         for (int i=0;i<tam;i++) {
             for(int j=i+1;j<tam;j++){
@@ -149,6 +145,7 @@ public class FachadaBaseDatos {
             }else {
                 daoAlbumes.eliminar(album.getIdAlbum());
             }
+
         }else{
             if(contenido instanceof Capitulo capitulo){
                 daoCapitulos.eliminar(capitulo.getIdCapitulo());
@@ -180,14 +177,10 @@ public class FachadaBaseDatos {
     public boolean cambiarVerificado(String nombre){return daoArtista.cambiarVerificado(nombre);}
     public boolean cambiarExplicito(Contenido contenido) {
         boolean explicito= false;
-        if (contenido instanceof Album album) {
-            if (album instanceof Cancion cancion) {
-                explicito= daoCanciones.cambiarExplicito(cancion.getIdCancion());
-            }
-        } else if (contenido instanceof Podcast podcast) {
-            if (podcast instanceof Capitulo capitulo) {
-                explicito= daoCapitulos.cambiarExplicito(capitulo.getIdCapitulo());
-            }
+        if (contenido instanceof Album album && album instanceof Cancion cancion) {
+            explicito= daoCanciones.cambiarExplicito(cancion.getIdCancion());
+        } else if (contenido instanceof Podcast podcast && podcast instanceof Capitulo capitulo) {
+            explicito= daoCapitulos.cambiarExplicito(capitulo.getIdCapitulo());
         }
         return explicito;
     }
@@ -195,13 +188,15 @@ public class FachadaBaseDatos {
     public ArrayList<Artista> verificados(){return daoArtista.verificados();}
     public ArrayList<Cancion> topCanciones(){return daoCanciones.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return daoUsuarios.siguiendo(nombre);}
+    public ArrayList<String> seguidores(String nombre){return daoUsuarios.seguidores(nombre);}
+
     public void crearFavoritos(String user){daoPlaylist.crearFavoritos(user);}
     public ArrayList<String> siguiendoArtista(String nombre){return daoArtista.siguiendoArtista(nombre);}
     public ArrayList<Playlist> tusPlaylist(String nombre){return daoPlaylist.tusPlaylist(nombre);}
     public ArrayList<String> getGeneros(String nombre){return daoArtista.getGeneros(nombre);}
-    public int getSeguidores(String nombre){return daoArtista.getSeguidores(nombre);}
-    public int getSeguidoresU(String nombre){return daoUsuarios.getSeguidoresU(nombre);}
-
+    public int getnSeguidores(String nombre){return daoArtista.getnSeguidores(nombre);}
+    public int getnSeguidoresU(String nombre){return daoUsuarios.getnSeguidoresU(nombre);}
+    public int getnSeguidosU(String nombre){return daoUsuarios.getnSeguidosU(nombre);}
     public void seguirArtista(String artista, String oyente){daoArtista.seguirArtista(artista,oyente);}
     public void seguirPerfil(String seguido, String seguidor){daoUsuarios.seguirPerfil(seguido,seguidor);}
 
@@ -221,4 +216,6 @@ public class FachadaBaseDatos {
     }
 
     public void actualizarPlanUsuario(String usuario, String plan, int tipo){daoUsuarios.actualizarPlanUsuario(usuario, plan, tipo);}
+    public String getPlan(String id){return daoUsuarios.getPlan(id);}
+
 }
