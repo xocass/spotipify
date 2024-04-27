@@ -81,11 +81,14 @@ public class cUsuario {
     }
     @FXML
     public void clickActualizar(){
+
         if(fieldContraseña.getText().isEmpty()||fieldCorreo.getText().isEmpty()||fechaNacimiento.getValue()==null){
             labelError.setText("¡INTRODUZCA TODOS LOS CAMPOS!");
         }else{
             labelError.setText("");
-            fa.actualizarUsuario(fgui.getActual().getNombre(),fieldContraseña.getText(),fieldCorreo.getText(),fechaNacimiento.getValue().toString());
+            Oyente aux = fa.actualizarUsuario(fgui.getActual().getNombre(),fieldContraseña.getText(),fieldCorreo.getText(),fechaNacimiento.getValue().toString());
+
+            fgui.setActual(aux);
         }
 
     }

@@ -67,5 +67,5 @@ public class FachadaAplicacion {
     public void actualizarPlanUsuario(String usuario, String plan, int tipo){gu.actualizarPlanUsuario(usuario, plan, tipo);}
     public String getPlan(String id){return gu.getPlan(id);}
 
-    public void actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){fbd.actualizarUsuario(usuario, contrasena, email, nacimiento);}
+    public Oyente actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){return gu.actualizarUsuario(usuario, contrasena, email, nacimiento);}
 }

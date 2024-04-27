@@ -19,6 +19,9 @@ public class FachadaGui extends Application {
 
 
     public Oyente getActual() {return actual;}
+
+    public void setActual(Oyente aux){this.actual = aux;};
+
     @Override
     public void start(Stage stage) throws IOException {
         entrarStage=stage;

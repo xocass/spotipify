@@ -148,9 +148,15 @@ public class daoUsuarios extends AbstractDAO{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
-    public void actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){
+    public Oyente actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){
+
+
+        Oyente resultado = new Oyente(usuario,contrasena,email,nacimiento);
+
+
         Connection con;
         PreparedStatement stmUsuario=null;
+
 
         con=this.getConexion();
 
@@ -168,11 +174,15 @@ public class daoUsuarios extends AbstractDAO{
             stmUsuario.setDate(3, fechaNacimiento);
             stmUsuario.setString(4, usuario);
             stmUsuario.executeQuery();
+
+
+
         } catch (SQLException | ParseException e){
             System.out.println(e.getMessage());
         } finally{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
+        return resultado;
     }
 
     public void eliminar(String eliminar){
