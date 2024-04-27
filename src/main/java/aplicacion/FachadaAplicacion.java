@@ -3,6 +3,7 @@ package aplicacion;
 import baseDatos.*;
 import gui.*;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class FachadaAplicacion {
@@ -76,4 +77,7 @@ public class FachadaAplicacion {
     public Playlist getPlaylistId(int id){return gc.getPlaylistId(id);}
     public Album getAlbumId(int id){return gc.getAlbumId(id);}
     public Podcast getPodcastId(int id){return gc.getPodcastId(id);}
+    public Time getDuracionPlaylist(int id){return gc.getDuracionPlaylist(id);}
+    public Time getDuracionAlbum(int id){return gc.getDuracionAlbum(id);}
+    public Time getDuracionPodcast(int id){return gc.getDuracionPodcast(id);}
 }

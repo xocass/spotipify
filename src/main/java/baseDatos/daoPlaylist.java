@@ -1,14 +1,11 @@
 package baseDatos;
 
-import aplicacion.Album;
+import aplicacion.Playlist;
 import aplicacion.Contenido;
 import aplicacion.FachadaAplicacion;
 import aplicacion.Playlist;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class daoPlaylist extends AbstractDAO{
@@ -142,5 +139,28 @@ public class daoPlaylist extends AbstractDAO{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
+    }
+    public Time getDuracionPlaylist(int id){
+        Connection con;
+        PreparedStatement stmPlaylist=null;
+        ResultSet rsPlaylist;
+        Time tiempo= null;
+
+        con=this.getConexion();
+        try {
+            stmPlaylist=con.prepareStatement("select sum(c.duracion) as tiempo "+
+                    "from cancion c, formarparte f where c.idcancion=f.idcancion and f.idplaylist = ? ");
+            stmPlaylist.setInt(1, id);
+            rsPlaylist=stmPlaylist.executeQuery();
+            if (rsPlaylist.next())
+            {
+                tiempo= rsPlaylist.getTime("tiempo");
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmPlaylist.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return tiempo;
     }
 }

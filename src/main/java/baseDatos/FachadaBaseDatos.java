@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -137,29 +138,6 @@ public class FachadaBaseDatos {
         return resultado;
     }
 
-    /*public Contenido unificarContenido(int id, int tipo){
-        System.out.println(((Integer)id).toString());
-        ArrayList<Contenido> resultado = new ArrayList<>();
-        ArrayList<Contenido> aux;
-        switch (tipo){
-
-            case 0: //ALBUM
-                resultado.addAll(daoAlbumes.getAlbumID(id));
-                break;
-            case 1: //PODCAST
-                resultado.addAll(daoPodcast.getPodcastID(id));
-                break;
-        }
-
-        int tam=resultado.size();
-        for (int i=1;i<tam;i++) {
-                if(resultado.get(0).getNombre().equals(resultado.get(i).getNombre())){
-                    resultado.get(0).getCreador().add(resultado.get(i).getCreador().get(0));
-                }
-        }
-
-        return resultado.get(0);
-    }*/
     public void eliminarOyente(String nombre){daoUsuarios.eliminar(nombre);}
     public void eliminarArtista(String nombre){daoArtista.eliminar(nombre);}
     public void eliminarContenido(Contenido contenido){
@@ -216,7 +194,8 @@ public class FachadaBaseDatos {
     public ArrayList<String> seguidores(String nombre){return daoUsuarios.seguidores(nombre);}
 
     public void crearFavoritos(String user){daoPlaylist.crearFavoritos(user);}
-    public ArrayList<String> siguiendoArtista(String nombre){return daoArtista.siguiendoArtista(nombre);}
+    public ArrayList<String> siguiendoArtistaNombreArtistico(String nombre){return daoArtista.siguiendoArtistaNombreArtistico(nombre);}
+    public ArrayList<String> siguiendoArtistaID(String nombre){return daoArtista.siguiendoArtistaID(nombre);}
     public ArrayList<Playlist> tusPlaylist(String nombre){return daoPlaylist.tusPlaylist(nombre);}
     public ArrayList<String> getGeneros(String nombre){return daoArtista.getGeneros(nombre);}
     public int getnSeguidores(String nombre){return daoArtista.getnSeguidores(nombre);}
@@ -251,5 +230,8 @@ public class FachadaBaseDatos {
 
     public Playlist getPlaylistId(int id){return daoPlaylist.getPlaylistID(id);}
     public Album getAlbumId(int id){return daoAlbumes.getAlbumId(id);}
-    public Podcast getPodcastId(int id){return (Podcast) daoPodcast.getPodcastId(id);}
+    public Podcast getPodcastId(int id){return daoPodcast.getPodcastId(id);}
+    public Time getDuracionPlaylist(int id){return daoPlaylist.getDuracionPlaylist(id);}
+    public Time getDuracionAlbum(int id){return daoAlbumes.getDuracionAlbum(id);}
+    public Time getDuracionPodcast(int id){return daoPodcast.getDuracionPodcast(id);}
 }

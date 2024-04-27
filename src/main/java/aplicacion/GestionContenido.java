@@ -3,6 +3,7 @@ package aplicacion;
 import baseDatos.FachadaBaseDatos;
 import gui.FachadaGui;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class GestionContenido {
@@ -30,5 +31,8 @@ public class GestionContenido {
     public Playlist getPlaylistId(int id){return fbd.getPlaylistId(id);}
     public Album getAlbumId(int id){return fbd.getAlbumId(id);}
     public Podcast getPodcastId(int id){return fbd.getPodcastId(id);}
+    public Time getDuracionPlaylist(int id){return fbd.getDuracionPlaylist(id);}
+    public Time getDuracionAlbum(int id){return fbd.getDuracionAlbum(id);}
+    public Time getDuracionPodcast(int id){return fbd.getDuracionPodcast(id);}
 
 }

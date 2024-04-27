@@ -1,12 +1,9 @@
 package baseDatos;
-import aplicacion.Album;
+import aplicacion.Podcast;
 import aplicacion.Contenido;
 import aplicacion.Podcast;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class daoPodcast extends AbstractDAO{
@@ -61,59 +58,31 @@ public class daoPodcast extends AbstractDAO{
     public ArrayList<Contenido> getPodcastArtista(String id){
         ArrayList<Contenido> resultado = new ArrayList<>();
         Connection con;
-        PreparedStatement stmAlbum=null;
-        ResultSet rsAlbum;
+        PreparedStatement stmPodcast=null;
+        ResultSet rsPodcast;
 
         con=this.getConexion();
 
         try {
-            stmAlbum=con.prepareStatement("select p.nombre as nombre, p.idpodcast as idpodcast, pp.idartista as idartista "+
+            stmPodcast=con.prepareStatement("select p.nombre as nombre, p.idpodcast as idpodcast, pp.idartista as idartista "+
                     "from podcast p, participarpodcast pp "+
                     "where p.idpodcast=pp.idpodcast and pp.idartista=?");
-            stmAlbum.setString(1, id);
-            rsAlbum=stmAlbum.executeQuery();
-            while (rsAlbum.next())
+            stmPodcast.setString(1, id);
+            rsPodcast=stmPodcast.executeQuery();
+            while (rsPodcast.next())
             {
-                resultado.add(new Podcast(rsAlbum.getString("nombre"), null, rsAlbum.getString("idartista"),
-                        rsAlbum.getInt("idpodcast")));
+                resultado.add(new Podcast(rsPodcast.getString("nombre"), null, rsPodcast.getString("idartista"),
+                        rsPodcast.getInt("idpodcast")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }finally{
-            try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+            try {stmPodcast.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
     }
 
-    /*public ArrayList<Podcast> getPodcastID(int idAlbum){
-        ArrayList<Podcast> resultado=new ArrayList<>();
-
-        Connection con;
-        PreparedStatement stmUsuario=null;
-        ResultSet rsUsuario;
-
-        con=this.getConexion();
-
-        try {
-            stmUsuario=con.prepareStatement("select p.nombre as nombrePodcast, a.nombre as nombreArtista, a.nombre as idArtista, p.idpodcast "+
-                    "from podcast p,  participarpodcast pp, artista a "+
-                    "where p.idpodcast = ? and pp.idartista= a.nombre and pp.idpodcast=p.idpodcast ");
-            stmUsuario.setInt(1, idAlbum);
-            rsUsuario=stmUsuario.executeQuery();
-            while (rsUsuario.next())
-            {
-                resultado.add( new Podcast(rsUsuario.getString("nombrePodcast"),rsUsuario.getString("nombreArtistico"),
-                        rsUsuario.getString("idArtista"),rsUsuario.getInt("p.idpodcast")));
-
-            }
-        } catch (SQLException e){
-            System.out.println(e.getMessage());
-        }finally{
-            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
-        }
-        return resultado;
-    }*/
-    public Podcast getPodcastId(int idAlbum){
+    public Podcast getPodcastId(int idPodcast){
         Podcast resultado=null;
         int i=0;
         Connection con;
@@ -126,7 +95,7 @@ public class daoPodcast extends AbstractDAO{
             stmUsuario=con.prepareStatement("select p.nombre as nombrePodcast, a.nombreartistico as nombreArtistico, a.nombre as idArtista, p.idpodcast as idpodcast "+
                     "from podcast p,  participarpodcast pp, artista a "+
                     "where p.idpodcast = ? and pp.idartista= a.nombre and pp.idpodcast=p.idpodcast ");
-            stmUsuario.setInt(1, idAlbum);
+            stmUsuario.setInt(1, idPodcast);
             rsUsuario=stmUsuario.executeQuery();
             while (rsUsuario.next())
             {
@@ -140,5 +109,28 @@ public class daoPodcast extends AbstractDAO{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
+    }
+    public Time getDuracionPodcast(int id){
+        Connection con;
+        PreparedStatement stmPodcast=null;
+        ResultSet rsPodcast;
+        Time tiempo= null;
+
+        con=this.getConexion();
+        try {
+            stmPodcast=con.prepareStatement("select sum(duracion) as tiempo "+
+                    "from capitulo where idpodcast = ? ");
+            stmPodcast.setInt(1, id);
+            rsPodcast=stmPodcast.executeQuery();
+            if (rsPodcast.next())
+            {
+                tiempo= rsPodcast.getTime("tiempo");
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmPodcast.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return tiempo;
     }
 }

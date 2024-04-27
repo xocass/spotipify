@@ -33,7 +33,8 @@ public class GestionUsuarios {
     public ArrayList<Artista> verificados(){return fbd.verificados();}
     public ArrayList<String> siguiendo(String nombre){return fbd.siguiendo(nombre);}
     public ArrayList<String> seguidores(String nombre){return fbd.seguidores(nombre);}
-    public ArrayList<String> siguiendoArtista(String nombre){return fbd.siguiendoArtista(nombre);}
+    public ArrayList<String> siguiendoArtistaNombreArtistico(String nombre){return fbd.siguiendoArtistaNombreArtistico(nombre);}
+    public ArrayList<String> siguiendoArtistaID(String nombre){return fbd.siguiendoArtistaID(nombre);}
     public ArrayList<String> getGeneros(String nombre){return fbd.getGeneros(nombre);}
     public int getnSeguidores(String nombre){return fbd.getnSeguidores(nombre);}
     public int getnSeguidoresU(String nombre){return fbd.getnSeguidoresU(nombre);}
