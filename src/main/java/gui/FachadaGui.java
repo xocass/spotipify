@@ -165,6 +165,17 @@ public class FachadaGui extends Application {
         principalStage.show();
 
     }
+
+
+    public void showActualizarPlan() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vActualizarPlan.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        cActualizarPlan controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        principalStage.setScene(scene);
+        principalStage.show();
+    }
+
     public void irAtrasMod() throws IOException{showAdmin();}
     public static void main(String[] args) {
         launch();

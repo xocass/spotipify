@@ -29,6 +29,8 @@ public class cUsuario {
     @FXML
     private Button btnActualizar;
     @FXML
+    private HBox btnPlan;
+    @FXML
     private TextField fieldContraseña;
     @FXML
     private TextField fieldCorreo;
@@ -47,7 +49,7 @@ public class cUsuario {
 
     @FXML
     public void clickInicio() throws IOException {
-
+        fgui.principal();
     }
     public void iniciar(){
         fieldCorreo.setText("");
@@ -69,5 +71,9 @@ public class cUsuario {
     public void clickActualizar(){
         if(fieldContraseña.getText().isEmpty()||fieldCorreo.getText().isEmpty()||fechaNacimiento.getValue()==null);
 
+    }
+    @FXML
+    public void clickActualizarPlan() throws IOException{
+        fgui.showActualizarPlan();
     }
 }
