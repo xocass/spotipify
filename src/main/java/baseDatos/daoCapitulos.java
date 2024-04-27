@@ -1,6 +1,7 @@
 package baseDatos;
 
 import aplicacion.Capitulo;
+import aplicacion.Capitulo;
 import aplicacion.Contenido;
 
 import java.sql.Connection;
@@ -86,5 +87,29 @@ public class daoCapitulos extends AbstractDAO{
             try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return explicito;
+    }
+    public ArrayList<Capitulo> getCapitulosPodcast(int id){
+        ArrayList<Capitulo> resultado=new ArrayList<Capitulo>();
+        Connection con;
+        PreparedStatement stmCapitulo=null;
+        ResultSet rsCapitulo;
+
+        con=this.getConexion();
+        try {
+            stmCapitulo=con.prepareStatement("select nombre, idCapitulo, explicito, duracion "+
+                    "from Capitulo  "+
+                    "where idpodcast = ?");
+
+            stmCapitulo.setInt(1, id);
+            rsCapitulo=stmCapitulo.executeQuery();
+            while(rsCapitulo.next()){
+                resultado.add(new Capitulo(rsCapitulo.getString("nombre"),id, null,null, rsCapitulo.getInt("idCapitulo"), rsCapitulo.getTime("duracion"),rsCapitulo.getBoolean("explicito")));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
     }
 }

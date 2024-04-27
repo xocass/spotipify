@@ -40,6 +40,12 @@ public class Cancion extends Album{
         super(nombre, artista, idartista, idAlbum, null);
         this.idCancion= idCancion;
     }
+    public Cancion(String nombre, String artista, String idartista, int idAlbum, int idCancion, boolean explicito, Time duracion){
+        super(nombre, artista, idartista, idAlbum, null);
+        this.idCancion= idCancion;
+        this.explicito=explicito;
+        this.duracion=duracion;
+    }
 
 
     public int getIdCancion(){return idCancion;}

@@ -241,4 +241,6 @@ public class FachadaBaseDatos {
     public ArrayList<String> generoPlaylist(int id){return daoPlaylist.generoPlaylist(id);}
 
     public Artista getArtistaId(String idArtista){return daoArtista.getArtistaId(idArtista);}
+    public ArrayList<Cancion> getCancionesAP(int id, char opcion){return daoCanciones.getCancionesAP(id,opcion);}
+    public ArrayList<Capitulo> getCapitulosPodcast(int id){return daoCapitulos.getCapitulosPodcast(id);}
 }
