@@ -24,7 +24,7 @@ public class daoAlbumes extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmAlbum=con.prepareStatement("select al.nombre as nombre, al.idalbum as idalbum, al.tipo as tipo, ar.nombreartistico as creador "+
+            stmAlbum=con.prepareStatement("select al.nombre as nombre, al.idalbum as idalbum, al.tipo as tipo, ar.nombreartistico as creador, ar.nombre as idartista "+
                     "from album al, componer c, artista ar "+
                     "where al.nombre like ? and al.idalbum=c.idalbum and c.idartista=ar.nombre");
             stmAlbum.setString(1, "%"+busqueda+"%");
@@ -32,7 +32,7 @@ public class daoAlbumes extends AbstractDAO{
             while (rsAlbum.next())
             {
                 resultado.add(new Album(rsAlbum.getString("nombre"), rsAlbum.getString("creador"),
-                        rsAlbum.getInt("idalbum"), rsAlbum.getString("tipo")));
+                        rsAlbum.getString("idartista"), rsAlbum.getInt("idalbum"), rsAlbum.getString("tipo")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -67,7 +67,7 @@ public class daoAlbumes extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmAlbum=con.prepareStatement("select al.nombre as nombre, al.idalbum as idalbum "+
+            stmAlbum=con.prepareStatement("select al.nombre as nombre, al.idalbum as idalbum, c.idartista as idartista "+
                     "from album al, componer c "+
                     "where al.idalbum=c.idalbum and c.idartista=?");
             stmAlbum.setString(1, id);
@@ -75,7 +75,7 @@ public class daoAlbumes extends AbstractDAO{
             while (rsAlbum.next())
             {
                 resultado.add(new Album(rsAlbum.getString("nombre"), null,
-                        rsAlbum.getInt("idalbum"),null));
+                        rsAlbum.getString("idartista"), rsAlbum.getInt("idalbum"),null));
                 System.out.println(rsAlbum.getString("nombre"));
             }
         } catch (SQLException e){

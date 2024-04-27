@@ -8,19 +8,19 @@ public class Album extends Contenido{
     private int anhoLanzamiento;
     private int idDiscografica;
 
-    public Album(String nombre, String artista, int idAlbum, String tipo, int anhoLanzamiento, int idDiscografica){
-        super(nombre, artista);
+    public Album(String nombre, String artista, String idartista, int idAlbum, String tipo, int anhoLanzamiento, int idDiscografica){
+        super(nombre, artista, idartista);
         this.idAlbum= idAlbum;
         this.tipo=tipo;
         this.anhoLanzamiento= anhoLanzamiento;
         this.idDiscografica= idDiscografica;
     }
-    public Album(String nombre, String artista, int idAlbum, String tipo){
-        super(nombre, artista);
+
+    public Album(String nombre, String artista, String idartista,int idAlbum, String tipo){
+        super(nombre, artista, idartista);
         this.idAlbum= idAlbum;
         this.tipo= tipo;
     }
-
 
     public int getIdAlbum(){return idAlbum;}
     public void setTipoA(String tipo) {this.tipo = tipo;}

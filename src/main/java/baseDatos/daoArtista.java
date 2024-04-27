@@ -208,4 +208,27 @@ public class daoArtista extends AbstractDAO{
             try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
+    public void checkGeneros(String artista) {
+        ArrayList<Artista> resultado = new ArrayList<>();
+        Connection con;
+        PreparedStatement stmArtista=null;
+
+        con=this.getConexion();
+        try {
+            System.out.println("creador: "+ artista);
+            stmArtista=con.prepareStatement("delete from participargenero "+
+                    "where idartista = ? and nombregenero not in ( "+
+                    "select distinct c.nombregenero from cancion c "+
+                    "inner join componer cp on c.idalbum = cp.idalbum where cp.idartista = ?) ");
+            stmArtista.setString(1, artista);
+            stmArtista.setString(2, artista);
+            stmArtista.executeUpdate();
+
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+    }
 }

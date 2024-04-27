@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Podcast extends Contenido{
     private int idPodcast;
 
-    public Podcast(String nombre, String artista, int idPodcast){
-        super(nombre, artista);
+    public Podcast(String nombre, String artista, String idartista,int idPodcast){
+        super(nombre, artista, idartista);
         this.idPodcast= idPodcast;
     }
 

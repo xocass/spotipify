@@ -68,4 +68,8 @@ public class FachadaAplicacion {
     public String getPlan(String id){return gu.getPlan(id);}
 
     public Oyente actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){return gu.actualizarUsuario(usuario, contrasena, email, nacimiento);}
+
+    public void actualizarEscuchando(String usuario, Contenido contenido){gu.actualizarEscuchando(usuario, contenido);}
+
+    public void noEscuchando(String usuario){gu.noEscuchando(usuario);}
 }

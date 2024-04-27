@@ -22,7 +22,7 @@ public class daoCapitulos extends AbstractDAO{
 
         con=this.getConexion();
         try {
-            stmCapitulo=con.prepareStatement("select ca.nombre as nombre, ca.idpodcast as idpodcast, ca.idcapitulo as idcapitulo, p.idartista as pidartista, ar.nombre as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
+            stmCapitulo=con.prepareStatement("select ca.nombre as nombre, ca.idpodcast as idpodcast, ca.idcapitulo as idcapitulo, p.idartista as pidartista, ar.nombre as arnombre, ca.duracion as duracion, ca.explicito as explicito, ar.nombre as idartista "+
                     "from capitulo ca, participarpodcast p, artista ar "+
                     "where ca.nombre like ? and ca.idpodcast=p.idpodcast and p.idartista=ar.nombre");
             stmCapitulo.setString(1, "%"+busqueda+"%");
@@ -30,7 +30,7 @@ public class daoCapitulos extends AbstractDAO{
             while (rsCapitulo.next())
             {
                 resultado.add(new Capitulo(rsCapitulo.getString("nombre"), rsCapitulo.getInt("idpodcast"),
-                        rsCapitulo.getString("arnombre"), rsCapitulo.getInt("idcapitulo"),
+                        rsCapitulo.getString("idartista"), rsCapitulo.getString("arnombre"), rsCapitulo.getInt("idcapitulo"),
                         rsCapitulo.getTime("duracion"),rsCapitulo.getBoolean("explicito")));
             }
         } catch (SQLException e){

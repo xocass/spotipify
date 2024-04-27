@@ -30,7 +30,7 @@ public class daoCanciones extends AbstractDAO {
             rsCancion=stmCancion.executeQuery();
             while (rsCancion.next())
             {
-                resultado.add(new Cancion(rsCancion.getString("nombre"),null,rsCancion.getInt("idalbum"),rsCancion.getInt("idcancion")));
+                resultado.add(new Cancion(rsCancion.getString("nombre"),null,null,rsCancion.getInt("idalbum"),rsCancion.getInt("idcancion")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -48,15 +48,15 @@ public class daoCanciones extends AbstractDAO {
         con=this.getConexion();
 
         try {
-            stmCancion=con.prepareStatement("select ca.nombre as nombre, ca.idalbum as caidalbum, ca.idcancion as idcancion, ar.nombreartistico as arnombre, ca.duracion as duracion, ca.explicito as explicito "+
+            stmCancion=con.prepareStatement("select ca.nombre as nombre, ca.idalbum as caidalbum, ca.idcancion as idcancion, ar.nombreartistico as arnombre, ca.duracion as duracion, ca.explicito as explicito, ca.nombregenero as nombregenero, ar.nombre as idnombre "+
                     "from cancion ca, componer c, artista ar "+
                     "where ca.nombre like ? and ca.idalbum=c.idalbum and c.idartista=ar.nombre");
             stmCancion.setString(1, "%"+busqueda+"%");
             rsCancion=stmCancion.executeQuery();
             while (rsCancion.next())
             {
-                resultado.add(new Cancion(rsCancion.getString("nombre"), rsCancion.getString("arnombre"), rsCancion.getInt("caidalbum"),
-                        rsCancion.getInt("idcancion"), rsCancion.getTime("duracion"), rsCancion.getBoolean("explicito")));
+                resultado.add(new Cancion(rsCancion.getString("nombre"), rsCancion.getString("arnombre"), rsCancion.getString("idartista"),rsCancion.getInt("caidalbum"),
+                        rsCancion.getInt("idcancion"), rsCancion.getTime("duracion"), rsCancion.getBoolean("explicito"), rsCancion.getString("nombregenero")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
