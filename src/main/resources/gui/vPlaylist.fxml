@@ -124,7 +124,7 @@
             <VBox prefHeight="200.0" prefWidth="186.0" />
          </content>
       </ScrollPane>
-      <ImageView fx:id="imagen" fitHeight="122.0" fitWidth="124.0" layoutX="375.0" layoutY="38.0">
+      <ImageView fx:id="imagen" fitHeight="122.0" fitWidth="124.0" layoutX="363.0" layoutY="25.0">
          <image>
             <Image url="@../../../../../../Downloads/icons8-lista-de-reproducción-de-vídeos-100.png" />
          </image>

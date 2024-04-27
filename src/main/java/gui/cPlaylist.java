@@ -1,6 +1,7 @@
 package gui;
 
 import aplicacion.FachadaAplicacion;
+import aplicacion.Oyente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -11,8 +12,9 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 public class cPlaylist {
-    char opcion;//a album       b disco       c podcast
-    int id;
+    private char opcion;//a album       b disco       c podcast
+    private int id;
+    private Oyente user;
     private FachadaGui fgui;
     private FachadaAplicacion fa;
     @FXML
@@ -27,6 +29,11 @@ public class cPlaylist {
     private Label labelGeneros;
     @FXML
     private ImageView imagen;
+    public void setOpcionIdUser(char opcion, int id, Oyente user){
+        this.opcion=opcion;
+        this.id=id;
+        this.user=user;
+    }
 
     public void setImagen() {
         Image userImage=null;
