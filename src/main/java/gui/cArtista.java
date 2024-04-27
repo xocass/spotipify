@@ -73,5 +73,8 @@ public class cArtista {
     public void clickBuscar() throws IOException {
         fgui.showBuscar();
     }
-
+    @FXML
+    public void seguir() {
+        fa.seguirArtista();
+    }
 }
