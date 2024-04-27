@@ -59,7 +59,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </HBox>
-                  <HBox fx:id="boxBiblioteca" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseDragged="#clickBiblioteca" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
+                  <HBox fx:id="boxBiblioteca" alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickBiblioteca" prefHeight="100.0" prefWidth="395.0" spacing="20.0" styleClass="dark-hover">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -177,7 +177,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="btnActualizar" layoutX="671.0" layoutY="623.0" mnemonicParsing="false" onAction="#clickActualizar" prefHeight="40.0" prefWidth="111.0" text="Actualizar" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btnActualizar" layoutX="671.0" layoutY="623.0" mnemonicParsing="false" onAction="#clickActualizar" onMouseClicked="#clickActualizar" prefHeight="40.0" prefWidth="111.0" text="Actualizar" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -186,7 +186,7 @@
             <String fx:value="dark-hover" />
          </styleClass>
       </Button>
-      <HBox id="btnPremium" alignment="CENTER_LEFT" layoutX="1006.0" layoutY="115.0" prefHeight="66.0" prefWidth="138.0" spacing="10.0">
+      <HBox id="btnPremium" fx:id="btnPlan" alignment="CENTER_LEFT" layoutX="1006.0" layoutY="115.0" onMouseClicked="#clickActualizarPlan" prefHeight="66.0" prefWidth="138.0" spacing="10.0">
          <children>
             <ImageView fitHeight="42.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
