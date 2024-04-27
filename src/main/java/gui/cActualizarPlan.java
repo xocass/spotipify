@@ -1,6 +1,7 @@
 package gui;
 
 import aplicacion.FachadaAplicacion;
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
@@ -9,11 +10,19 @@ public class cActualizarPlan {
     FachadaGui fgui;
     FachadaAplicacion fa;
 
+    private HostServices hostServices;
+
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui;
         this.fa=fa;
     }
 
+    public void setHostServices(HostServices hostServices) {
+        this.hostServices = hostServices;
+    }
+    public HostServices getHostServices(){
+        return this.hostServices;
+    }
     @FXML
     public void clickInicio() throws IOException {
         fgui.principal();
@@ -28,7 +37,39 @@ public class cActualizarPlan {
         fgui.showBiblioteca();
     }
     @FXML
+    public void clickUsuario() throws IOException {
+        fgui.showUsuario();
+    }
+    @FXML
     public void clickAjustes() throws IOException{
         fgui.showAjustes();
     }
+
+    @FXML
+    protected void clickInfo() {
+        String url = "https://www.youtube.com/shorts/16uJ-jxcKHo"; // MONDONGO
+        getHostServices().showDocument(url);
+
+    }
+    @FXML
+    public void clickNormal(){
+
+    }
+
+    @FXML
+    public void clickPremium(){
+
+    }
+    @FXML
+    public void clickEstudiante(){
+
+    }
+    @FXML
+    public void clickAnual(){
+
+    }
+
+
 }
+
+
