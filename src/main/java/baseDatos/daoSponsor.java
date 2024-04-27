@@ -15,28 +15,28 @@ public class daoSponsor extends AbstractDAO{
     }
 
     public ArrayList<String> getSponsor(String id){
-        ArrayList<String> resultado=null;
+        ArrayList<String> resultado=new ArrayList<>();
         Connection con;
-        PreparedStatement stmUsuario=null;
-        ResultSet rsUsuario;
+        PreparedStatement stmSponsor=null;
+        ResultSet rsSponsor;
 
         con=this.getConexion();
 
         try {
-            stmUsuario=con.prepareStatement("select s.nombre as sponsor "+
+            stmSponsor=con.prepareStatement("select s.nombre as sponsor "+
                     "from sponsor s, patrocinar p "+
                     "where p.idartista=? and s.idsponsor=p.idsponsor");
-            stmUsuario.setString(1, id);
-            rsUsuario=stmUsuario.executeQuery();
-            if (rsUsuario.next())
+            stmSponsor.setString(1, id);
+            rsSponsor=stmSponsor.executeQuery();
+            if (rsSponsor.next())
             {
-                resultado.add(rsUsuario.getString("sponsor"));
+                resultado.add(rsSponsor.getString("sponsor"));
 
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }finally{
-            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+            try {stmSponsor.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
     }

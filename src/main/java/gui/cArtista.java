@@ -56,7 +56,12 @@ public class cArtista {
                 controller.setLabelTexto(aux.getNombre());
             }
         }if(!resultado2.isEmpty()){
-
+            for(int i=0;i<resultado2.size();i++){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("templateSponsor.fxml"));
+                boxSponsor.getChildren().add(loader.load());
+                cTemplateSponsor controller = loader.getController();
+                controller.setText(resultado2.get(i));
+            }
         }
     }
 
