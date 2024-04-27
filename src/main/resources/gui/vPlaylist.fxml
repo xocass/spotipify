@@ -114,12 +114,7 @@
             </VBox>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="201.0" fitWidth="233.0" layoutX="640.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../spoti/usuario-de-perfil.png" />
-         </image>
-      </ImageView>
-      <Label id="labelUsuario" fx:id="labelNombrePlaylist" layoutX="582.0" layoutY="250.0" prefHeight="54.0" prefWidth="333.0" text="NOMBRE PLAYLIST">
+      <Label id="labelUsuario" fx:id="labelNombre" layoutX="537.0" layoutY="80.0" prefHeight="54.0" prefWidth="333.0">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -129,5 +124,65 @@
             <VBox prefHeight="200.0" prefWidth="186.0" />
          </content>
       </ScrollPane>
+      <ImageView fx:id="imagen" fitHeight="122.0" fitWidth="124.0" layoutX="375.0" layoutY="38.0">
+         <image>
+            <Image url="@../../../../../../Downloads/icons8-lista-de-reproducción-de-vídeos-100.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="375.0" layoutY="169.0" prefHeight="126.0" prefWidth="470.0" spacing="15.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label fx:id="label1" prefHeight="40.0" prefWidth="62.0" text="Creador:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCreador" prefHeight="40.0" prefWidth="294.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label fx:id="label2" prefHeight="40.0" text="Duración:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelDuracion" prefHeight="35.0" prefWidth="294.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label fx:id="labelNelementos" prefHeight="26.0" prefWidth="271.0" text=" elementos">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="3.0" prefWidth="470.0" spacing="10.0">
+               <children>
+                  <Label fx:id="label11" prefHeight="40.0" prefWidth="62.0" text="Géneros:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelGeneros" prefHeight="40.0" prefWidth="294.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
