@@ -58,6 +58,8 @@ public class FachadaAplicacion {
     public int getSeguidoresU(String nombre){return gu.getSeguidoresU(nombre);}
 
     public void seguirArtista(String artista, String oyente){gu.seguirArtista(artista,oyente);}
+    public void seguirPerfil(String seguido, String seguidor){gu.seguirPerfil(seguido,seguidor);}
+
     public ArrayList<Contenido> buscarContenidoArtista(String id){return gc.buscarContenidoArtista(id);}
     public ArrayList<String> buscarSponsors(String id){return gu.buscarSponsors(id);}
 

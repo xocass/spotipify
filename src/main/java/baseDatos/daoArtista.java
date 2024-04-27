@@ -176,45 +176,44 @@ public class daoArtista extends AbstractDAO{
     public int getSeguidores(String nombre){
         int resultado=0;
         Connection con;
-        PreparedStatement stmGeneros=null;
-        ResultSet rsGeneros;
+        PreparedStatement stmArtista=null;
+        ResultSet rsArtista;
 
         con=this.getConexion();
         try {
-            stmGeneros=con.prepareStatement("select count(*) as seguidores "+
+            stmArtista=con.prepareStatement("select count(*) as seguidores "+
                     "from seguirartista " +
                     "where idartista = ?");
-            stmGeneros.setString(1,nombre);
-            rsGeneros=stmGeneros.executeQuery();
-            while (rsGeneros.next())
+            stmArtista.setString(1,nombre);
+            rsArtista=stmArtista.executeQuery();
+            while (rsArtista.next())
             {
-                resultado=rsGeneros.getInt("seguidores");
+                resultado=rsArtista.getInt("seguidores");
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
             this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
-            try {stmGeneros.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+            try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
     }
     public void seguirArtista(String artista,String oyente){
         Connection con;
-        PreparedStatement stmGeneros=null;
-        ResultSet rsGeneros;
+        PreparedStatement stmArtista=null;
 
         con=this.getConexion();
         try {
-            stmGeneros=con.prepareStatement("insert into seguirartista "+
+            stmArtista=con.prepareStatement("insert into seguirartista "+
                     "values (?,?)");
-            stmGeneros.setString(1,oyente);
-            stmGeneros.setString(2,artista);
-            rsGeneros=stmGeneros.executeQuery();
+            stmArtista.setString(1,oyente);
+            stmArtista.setString(2,artista);
+            stmArtista.executeQuery();
         } catch (SQLException e){
             System.out.println(e.getMessage());
             this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
         }finally{
-            try {stmGeneros.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+            try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
 }

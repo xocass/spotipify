@@ -42,6 +42,8 @@ public class GestionUsuarios {
     }
 
     public void seguirArtista(String artista, String oyente){fbd.seguirArtista(artista,oyente);}
+    public void seguirPerfil(String seguido, String seguidor){fbd.seguirPerfil(seguido,seguidor);}
+
     public ArrayList<String> buscarSponsors(String id){return fbd.buscarSponsors(id);}
 
     public void actualizarPlanUsuario(String usuario, String plan, int tipo){fbd.actualizarPlanUsuario(usuario, plan, tipo);}

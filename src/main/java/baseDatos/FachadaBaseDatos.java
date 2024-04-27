@@ -200,9 +200,11 @@ public class FachadaBaseDatos {
     public ArrayList<Playlist> tusPlaylist(String nombre){return daoPlaylist.tusPlaylist(nombre);}
     public ArrayList<String> getGeneros(String nombre){return daoArtista.getGeneros(nombre);}
     public int getSeguidores(String nombre){return daoArtista.getSeguidores(nombre);}
-    public int getSeguidoresU(String nombre){return daoUsuarios.getSeguidores(nombre);}
+    public int getSeguidoresU(String nombre){return daoUsuarios.getSeguidoresU(nombre);}
 
     public void seguirArtista(String artista, String oyente){daoArtista.seguirArtista(artista,oyente);}
+    public void seguirPerfil(String seguido, String seguidor){daoUsuarios.seguirPerfil(seguido,seguidor);}
+
 
     public ArrayList<Contenido> buscarContenidoArtista(String id){
         ArrayList<Contenido> resultado=new ArrayList<>(), aux;

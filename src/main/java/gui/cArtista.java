@@ -115,7 +115,13 @@ public class cArtista {
     }
     @FXML
     public void seguir() throws IOException {
-        fa.seguirArtista(id,fgui.getActual().getNombre());
-        fgui.showArtista(new Artista(id,labelArtista.getText(),isVerified,labelPais.getText()));
+        if (esArtista) {
+            fa.seguirArtista(id, fgui.getActual().getNombre());
+            fgui.showArtista(new Artista(id, labelArtista.getText(), isVerified, labelPais.getText()));
+        }
+        else{
+            fa.seguirPerfil(id,fgui.getActual().getNombre());
+            fgui.showPerfil(id);
+        }
     }
 }
