@@ -52,21 +52,21 @@ public class cActualizarPlan {
 
     }
     @FXML
-    public void clickNormal(){
-
+    public void clickNormal() throws IOException{
+        fgui.showTransaccionEnCurso(0);
     }
 
     @FXML
-    public void clickPremium(){
-
+    public void clickPremium() throws IOException{
+        fgui.showTransaccionEnCurso(1);
     }
     @FXML
-    public void clickEstudiante(){
-
+    public void clickEstudiante() throws IOException{
+        fgui.showTransaccionEnCurso(2);
     }
     @FXML
-    public void clickAnual(){
-
+    public void clickAnual() throws IOException{
+        fgui.showTransaccionEnCurso(3);
     }
 
 
