@@ -18,4 +18,32 @@ public class cTransaccionCurso {
         this.fgui=fgui;
         this.fa=fa;
     }
+
+    public void cambiarPlan(){
+
+        String plan;
+
+        switch (this.tipo){
+            case 0:
+                plan = "Básico";
+                break;
+            case 1:
+                plan = "Premium";
+                break;
+            case 2:
+                plan = "Estudiante";
+                break;
+            case 3:
+                plan = "Anual";
+                break;
+
+        }
+
+        //enviar plan y tipo
+        //luego cerrar ventana
+    }
+
+    public void clickCancelar(){
+        //cerrar ventana
+    }
 }
