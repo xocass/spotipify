@@ -39,5 +39,7 @@ public class GestionContenido {
     public int nCapitulosPodcast(int id){return fbd.nCapitulosPodcast(id);}
     public ArrayList<String> generoAlbum(int id){return fbd.generoAlbum(id);}
     public ArrayList<String> generoPlaylist(int id){return fbd.generoPlaylist(id);}
+    public ArrayList<Cancion> getCancionesAP(int id, char opcion){return fbd.getCancionesAP(id,opcion);}
+    public ArrayList<Capitulo> getCapitulosPodcast(int id){return fbd.getCapitulosPodcast(id);}
 
 }

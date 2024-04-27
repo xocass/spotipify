@@ -1,8 +1,11 @@
 package gui;
 
+import aplicacion.Cancion;
 import aplicacion.FachadaAplicacion;
 import aplicacion.Oyente;
+import aplicacion.Playlist;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -74,6 +77,20 @@ public class cPlaylist {
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui;
         this.fa=fa;
+    }
+    public cargarCanciones(){
+        switch(opcion) {
+            case 'a','b':
+                ArrayList<Cancion> resultado=fa.getCancionesAP(id,opcion);
+                for (Cancion aux : resultado) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("templateAnhadirArtista.fxml"));
+                    boxAlbum.getChildren().add(loader.load());
+                    cTemplateAnhadirArtista controller = loader.getController();
+                    controller.setLabelTexto(aux.getNombre());
+                }
+                break;
+            case'c':
+        }
     }
     @FXML
     public void clickInicio() throws IOException {

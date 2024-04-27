@@ -112,4 +112,32 @@ public class daoCanciones extends AbstractDAO {
         }
         return explicito;
     }
+    public ArrayList<Cancion> getCancionesAP(int id, char tipo){
+        ArrayList<Cancion> resultado=new ArrayList<Cancion>();
+        Connection con;
+        PreparedStatement stmCancion=null;
+        ResultSet rsCancion;
+
+        con=this.getConexion();
+        try {
+            if(tipo=='a') stmCancion=con.prepareStatement("select nombre, idalbum, c.idcancion as idcancion, explicito, duracion "+
+                    "from cancion c, formarparte f "+
+                    "where f.idplaylist = ?");
+
+            else stmCancion=con.prepareStatement("select nombre, idalbum, idcancion, explicito, duracion "+
+                    "from cancion "+
+                    "where idalbum = ?");
+
+            stmCancion.setInt(1, id);
+            rsCancion=stmCancion.executeQuery();
+            while(rsCancion.next()){
+                resultado.add(new Cancion(rsCancion.getString("nombre"),null, null,rsCancion.getInt("idalbum"), rsCancion.getInt("idcancion"), rsCancion.getBoolean("explicito"),rsCancion.getTime("duracion")))
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmCancion.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }
