@@ -51,8 +51,8 @@ public class FachadaAplicacion {
     public ArrayList<Cancion> topCanciones(){return gc.topCanciones();}
     public ArrayList<String> siguiendo(String nombre){return gu.siguiendo(nombre);}
     public ArrayList<String> seguidores(String nombre){return gu.seguidores(nombre);}
-
-    public ArrayList<String> siguiendoArtista(String nombre){return gu.siguiendoArtista(nombre);}
+    public ArrayList<String> siguiendoArtistaID(String nombre){return gu.siguiendoArtistaID(nombre);}
+    public ArrayList<String> siguiendoArtistaNombreArtistico(String nombre){return gu.siguiendoArtistaNombreArtistico(nombre);}
     public ArrayList<Playlist> tusPlaylist(String nombre){return gc.tusPlaylist(nombre);}
     public ArrayList<String> getGeneros(String nombre){return gu.getGeneros(nombre);}
     public int getnSeguidores(String nombre){return gu.getnSeguidores(nombre);}

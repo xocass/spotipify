@@ -64,7 +64,7 @@ public class cPrincipal {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
            artistaBox.getChildren().add(loader.load());
            cTemplateArtistaInicio controller = loader.getController();
-           controller.setLabelUsuario(aux.getNombre());
+           controller.setLabelUsuario(aux.getNombreArtistico());
            controller.setFachadas(this.fgui, this.fa);
        }
        ArrayList<Cancion> topCanciones;

@@ -57,7 +57,7 @@ public class cBiblioteca {
                 controller.setFachadas(this.fgui, this.fa);
             }
         }
-        aux=fa.siguiendoArtista(fgui.getActual().getNombre());
+        aux=fa.siguiendoArtistaNombreArtistico(fgui.getActual().getNombre());
         if (!aux.isEmpty()) {
             for (int i = 0; i < aux.size();i++) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("templateArtistaInicio.fxml"));
