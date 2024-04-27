@@ -47,8 +47,11 @@ public class cArtista {
             labelGeneros.setText(labelGeneros.getText()+generos.get(i));
         }
     }
+    public void setLabelPais(String pais){
+        labelPais.setText(pais);
+    }
     public void setLabelSeguidores(int nseguidores){
-        this.labelSeguidores.setText(((Integer)nseguidores).toString());
+        labelSeguidores.setText(((Integer)nseguidores).toString());
     }
     @FXML
     public void clickInicio() throws IOException {

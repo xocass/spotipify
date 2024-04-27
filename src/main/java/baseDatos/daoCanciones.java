@@ -70,13 +70,11 @@ public class daoCanciones extends AbstractDAO {
     public void eliminar(int eliminar){
         Connection con;
         PreparedStatement stmCancion=null;
-        ResultSet rsCancion;
 
         con=this.getConexion();
         try {
-            System.out.println("idcancion: "+ eliminar);
             stmCancion=con.prepareStatement("delete from cancion where idcancion = ? ");
-            stmCancion.setString(1, "%"+eliminar+"%");
+            stmCancion.setInt(1, eliminar);
             stmCancion.execute();
 
         } catch (SQLException e){

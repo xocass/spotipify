@@ -44,15 +44,22 @@ public class cTemplateBuscar {
     public void setUsuario(String id, char tipo){this.idUser=id;this.tipoResultado=tipo;}
 
     public void setImagen() {
-        Image userImage = new Image(getClass().getResource("/spoti/icons8-usuario-90.png").toExternalForm());
-        imagen.setImage(userImage);
+        Image userImage=null;
+        switch(tipoResultado) {
+            case'a':
+                userImage= new Image(getClass().getResource("/spoti/icons8-usuario-90.png").toExternalForm());
+                break;
+            case 'b':
+                userImage= new Image(getClass().getResource("/spoti/UsuarioMusica.png").toExternalForm());
+                break;
+        }
+            imagen.setImage(userImage);
     }
     @FXML
     public void clickEntrar() throws IOException {
-        System.out.println(this.tipoResultado);
-        switch(this.tipoResultado){
+        switch(tipoResultado){
             case 'a':
-                fgui.showArtista(new Artista(this.idUser,this.labelNombre.getText(),this.verified.isVisible(),this.labelTipo.getText()));
+                fgui.showArtista(new Artista(idUser,labelNombre.getText(),verified.isVisible(),labelTipo.getText()));
                 break;
             case 'b':
                 fgui.showUsuario();
