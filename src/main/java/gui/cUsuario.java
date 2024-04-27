@@ -5,6 +5,7 @@ import aplicacion.Oyente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import org.w3c.dom.Text;
@@ -36,6 +37,15 @@ public class cUsuario {
     private TextField fieldCorreo;
     @FXML
     private DatePicker fechaNacimiento;
+    @FXML
+    private Label labelNombreUsuario;
+    @FXML
+    private Label labelError;
+    @FXML
+    private Label labelArtista;
+    @FXML
+    private Label labelMinutos;
+
 
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa, Oyente oyente){
         this.fgui=fgui;
@@ -44,6 +54,8 @@ public class cUsuario {
         fieldCorreo.setText(oyente.getEmail());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         fechaNacimiento.setValue(LocalDate.parse(oyente.getFechanac(), formatter));
+        labelNombreUsuario.setText(fgui.getActual().getNombre());
+        labelError.setText("");
     }
 
 
@@ -69,7 +81,12 @@ public class cUsuario {
     }
     @FXML
     public void clickActualizar(){
-        if(fieldContraseña.getText().isEmpty()||fieldCorreo.getText().isEmpty()||fechaNacimiento.getValue()==null);
+        if(fieldContraseña.getText().isEmpty()||fieldCorreo.getText().isEmpty()||fechaNacimiento.getValue()==null){
+            labelError.setText("¡INTRODUZCA TODOS LOS CAMPOS!");
+        }else{
+            labelError.setText("");
+            fa.actualizarUsuario(fgui.getActual().getNombre(),fieldContraseña.getText(),fieldCorreo.getText(),fechaNacimiento.getValue().toString());
+        }
 
     }
     @FXML

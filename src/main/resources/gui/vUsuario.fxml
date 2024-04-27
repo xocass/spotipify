@@ -123,7 +123,7 @@
             <Image url="@../spoti/usuario-de-perfil.png" />
          </image>
       </ImageView>
-      <Label id="labelUsuario" layoutX="623.0" layoutY="121.0" prefHeight="54.0" prefWidth="359.0" text="NOMBRE USUARIO">
+      <Label id="labelUsuario" fx:id="labelNombreUsuario" layoutX="623.0" layoutY="121.0" prefHeight="54.0" prefWidth="359.0" text="NOMBRE USUARIO">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -214,7 +214,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label id="labelArtista" text="Xocas">
+            <Label id="labelArtista" fx:id="labelArtista" text="Xocas">
                <font>
                   <Font size="20.0" />
                </font>
@@ -228,12 +228,17 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label id="labelMinutos" text="10913 minutos">
+            <Label id="labelMinutos" fx:id="labelMinutos" text="10913 minutos">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
          </children>
       </HBox>
+      <Label fx:id="labelError" layoutX="816.0" layoutY="628.0" prefHeight="27.0" prefWidth="322.0" text="¡INTRODUZCA TODOS LOS CAMPOS!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

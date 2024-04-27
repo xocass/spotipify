@@ -218,4 +218,5 @@ public class FachadaBaseDatos {
     public void actualizarPlanUsuario(String usuario, String plan, int tipo){daoUsuarios.actualizarPlanUsuario(usuario, plan, tipo);}
     public String getPlan(String id){return daoUsuarios.getPlan(id);}
 
+    public void actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){daoUsuarios.actualizarUsuario(usuario, contrasena, email, nacimiento);}
 }

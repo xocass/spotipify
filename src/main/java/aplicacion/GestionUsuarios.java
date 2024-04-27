@@ -51,4 +51,6 @@ public class GestionUsuarios {
     public void actualizarPlanUsuario(String usuario, String plan, int tipo){fbd.actualizarPlanUsuario(usuario, plan, tipo);}
     public String getPlan(String id){return fbd.getPlan(id);}
 
+    public void actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){fbd.actualizarUsuario(usuario,contrasena,email,nacimiento);}
+
 }

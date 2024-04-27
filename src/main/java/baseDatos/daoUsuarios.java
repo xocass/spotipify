@@ -6,7 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 
 public class daoUsuarios extends AbstractDAO{
     public daoUsuarios(Connection conexion, aplicacion.FachadaAplicacion fa){
@@ -153,17 +155,22 @@ public class daoUsuarios extends AbstractDAO{
         con=this.getConexion();
 
         try {
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date parsed = format.parse(nacimiento);
+            java.sql.Date fechaNacimiento = new java.sql.Date(parsed.getTime());
+
             stmUsuario=con.prepareStatement("update Oyente "+
                     "set contraseña= ?, email = ?, fechanacimiento = ? "+
                     "where nombre like ?");
             stmUsuario.setString(1, contrasena);
             stmUsuario.setString(2, email);
-            stmUsuario.setString(3, nacimiento);
+            stmUsuario.setDate(3, fechaNacimiento);
             stmUsuario.setString(4, usuario);
             stmUsuario.executeQuery();
-        } catch (SQLException e){
+        } catch (SQLException | ParseException e){
             System.out.println(e.getMessage());
-        }finally{
+        } finally{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
