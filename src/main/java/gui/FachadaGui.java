@@ -82,11 +82,13 @@ public class FachadaGui extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtista.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         cArtista controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        controller.setId(artista.getNombre(), artista.getVerificado());
+        controller.iniciar();
         controller.setLabelGeneros(fa.getGeneros(artista.getNombre()));
         controller.setLabelArtista(artista.getNombreArtistico());
         controller.setLabelPais(artista.getPaisNacimiento());
         controller.setLabelSeguidores(fa.getSeguidores(artista.getNombre()));
-        controller.setFachadas(this,fa);
         principalStage.setScene(scene);
         principalStage.show();
     }
@@ -165,6 +167,32 @@ public class FachadaGui extends Application {
         principalStage.show();
 
     }
+
+
+    public void showActualizarPlan() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vActualizarPlan.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        cActualizarPlan controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        controller.setHostServices(getHostServices());
+        principalStage.setScene(scene);
+        principalStage.show();
+    }
+
+    public void showTransaccionEnCurso(int tipo) throws IOException{
+
+        Stage aux = new Stage();
+        aux.setResizable(false);
+        aux.setTitle("Transaccion en curso");
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vTransaccionCurso.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 486,262);
+        cTransaccionCurso controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa);
+        controller.setTipo(tipo);
+        aux.setScene(scene);
+        aux.show();
+    }
+
     public void irAtrasMod() throws IOException{showAdmin();}
     public static void main(String[] args) {
         launch();

@@ -1,4 +1,5 @@
 package baseDatos;
+import aplicacion.Album;
 import aplicacion.Contenido;
 import aplicacion.Podcast;
 
@@ -58,5 +59,31 @@ public class daoPodcast extends AbstractDAO{
             try {stmPodcast.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
+    public ArrayList<Contenido> getPodcastArtista(String id){
+        ArrayList<Contenido> resultado = new ArrayList<>();
+        Connection con;
+        PreparedStatement stmAlbum=null;
+        ResultSet rsAlbum;
 
+        con=this.getConexion();
+
+        try {
+            stmAlbum=con.prepareStatement("select p.nombre as nombre, p.idpodcast as idpodcast "+
+                    "from podcast p, participarpodcast pp "+
+                    "where p.idpodcast=pp.idpodcast and pp.idartista=?");
+            stmAlbum.setString(1, id);
+            rsAlbum=stmAlbum.executeQuery();
+            while (rsAlbum.next())
+            {
+                resultado.add(new Podcast(rsAlbum.getString("nombre"), null,
+                        rsAlbum.getInt("idpodcast")));
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmAlbum.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }

@@ -242,4 +242,49 @@ public class daoUsuarios extends AbstractDAO{
         }
         return resultado;
     }
+
+    public void actualizarPlanUsuario(String usuario, String plan, int tipo){
+        Connection con;
+        PreparedStatement stmUsuario=null;
+
+        int valor=0;
+
+        switch (tipo){
+            case 1:case 2:
+                valor = 30;
+                break;
+            case 3:
+                valor = 365;
+                break;
+
+        }
+
+        con=this.getConexion();
+
+        try {
+
+            if(tipo!=0) {
+                stmUsuario = con.prepareStatement("update Oyente " +
+                        "set tipoplan= ?,  fechapago = now(), fechavencimiento = now() +  interval '? days', " +
+                        "where nombre like ?");
+                stmUsuario.setString(1, plan);
+                stmUsuario.setInt(2, valor);
+                stmUsuario.setString(3, usuario);
+                stmUsuario.executeQuery();
+            }
+            else{
+                stmUsuario = con.prepareStatement("update Oyente " +
+                        "set tipoplan= ?,  fechapago = null, fechavencimiento = null, " +
+                        "where nombre like ?");
+                stmUsuario.setString(1, plan);
+                stmUsuario.setString(2, usuario);
+                stmUsuario.executeQuery();
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+    }
 }

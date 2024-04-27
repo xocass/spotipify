@@ -19,6 +19,7 @@ public class FachadaBaseDatos {
     private daoPlaylist daoPlaylist;
     private daoCanciones daoCanciones;
     private daoCapitulos daoCapitulos;
+    private daoSponsor daoSponsor;
 
     public FachadaBaseDatos (aplicacion.FachadaAplicacion fa){
         Properties configuracion = new Properties();
@@ -50,6 +51,7 @@ public class FachadaBaseDatos {
             this.daoPlaylist = new daoPlaylist(conexion,fa);
             this.daoCanciones = new daoCanciones(conexion,fa);
             this.daoCapitulos= new daoCapitulos(conexion, fa);
+            this.daoSponsor= new daoSponsor(conexion, fa);
 
         } catch (FileNotFoundException f){
             System.out.println(f.getMessage());
@@ -198,5 +200,20 @@ public class FachadaBaseDatos {
     public ArrayList<Playlist> tusPlaylist(String nombre){return daoPlaylist.tusPlaylist(nombre);}
     public ArrayList<String> getGeneros(String nombre){return daoArtista.getGeneros(nombre);}
     public int getSeguidores(String nombre){return daoArtista.getSeguidores(nombre);}
+    public void seguirArtista(String artista, String oyente){daoArtista.seguirArtista(artista,oyente);}
+
+    public ArrayList<Contenido> buscarContenidoArtista(String id){
+        ArrayList<Contenido> resultado=new ArrayList<>(), aux;
+        aux=daoPodcast.getPodcastArtista(id);
+        if(!aux.isEmpty())
+            resultado.addAll(aux);
+        aux=daoAlbumes.getAlbumesArtista(id);
+        if(!aux.isEmpty())
+            resultado.addAll(aux);
+        return resultado;
+    }
+    public ArrayList<String> buscarSponsors(String id){
+        return daoSponsor.getSponsor(id);
+    }
 
 }
