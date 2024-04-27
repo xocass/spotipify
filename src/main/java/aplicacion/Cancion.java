@@ -11,9 +11,9 @@ public class Cancion extends Album{
     private int visualizaciones;
 
 
-    public Cancion(String nombre, String artista ,int idAlbum, Time duracion, String idioma, String nombreGenero,
+    public Cancion(String nombre, String artista, String idartista, int idAlbum, Time duracion, String idioma, String nombreGenero,
                    boolean letra, boolean explicito, int visualizaciones){
-        super(nombre, artista, idAlbum, null);
+        super(nombre, artista, idartista, idAlbum, null);
         this.duracion= duracion;
         this.idioma=idioma;
         this.nombreGenero= nombreGenero;
@@ -22,15 +22,22 @@ public class Cancion extends Album{
         this.visualizaciones= visualizaciones;
     }
 
-    public Cancion(String nombre, String artista ,int idAlbum, int idCancion, Time duracion, boolean explicito){
-        super(nombre, artista, idAlbum, null);
+    public Cancion(String nombre, String artista, String idartista,int idAlbum, int idCancion, Time duracion, boolean explicito){
+        super(nombre, artista, idartista, idAlbum, null);
         this.idCancion= idCancion;
         this.duracion= duracion;
         this.explicito= explicito;
 
     }
-    public Cancion(String nombre, String artista, int idAlbum, int idCancion){
-        super(nombre, artista, idAlbum, null);
+    public Cancion(String nombre, String artista, String idartista,int idAlbum, int idCancion, Time duracion, boolean explicito, String genero){
+        super(nombre, artista, idartista, idAlbum, null);
+        this.idCancion= idCancion;
+        this.duracion= duracion;
+        this.explicito= explicito;
+        this.nombreGenero= genero;
+    }
+    public Cancion(String nombre, String artista, String idartista, int idAlbum, int idCancion){
+        super(nombre, artista, idartista, idAlbum, null);
         this.idCancion= idCancion;
     }
 

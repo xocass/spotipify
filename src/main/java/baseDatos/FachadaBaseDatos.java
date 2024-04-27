@@ -145,7 +145,7 @@ public class FachadaBaseDatos {
             }else {
                 daoAlbumes.eliminar(album.getIdAlbum());
             }
-
+            daoArtista.checkGeneros(contenido.getCreador().get(0));
         }else{
             if(contenido instanceof Capitulo capitulo){
                 daoCapitulos.eliminar(capitulo.getIdCapitulo());
@@ -219,4 +219,8 @@ public class FachadaBaseDatos {
     public String getPlan(String id){return daoUsuarios.getPlan(id);}
 
     public Oyente actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){return daoUsuarios.actualizarUsuario(usuario, contrasena, email, nacimiento);}
+
+    public void actualizarEscuchando(String usuario, Contenido contenido){daoUsuarios.actualizarEscuchando(usuario, contenido);}
+
+    public void noEscuchando(String usuario){daoUsuarios.noEscuchando(usuario);}
 }

@@ -53,4 +53,7 @@ public class GestionUsuarios {
 
     public Oyente actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){return fbd.actualizarUsuario(usuario,contrasena,email,nacimiento);}
 
+    public void actualizarEscuchando(String usuario, Contenido contenido){fbd.actualizarEscuchando(usuario, contenido);}
+
+    public void noEscuchando(String usuario){fbd.noEscuchando(usuario);}
 }

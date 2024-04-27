@@ -6,9 +6,9 @@ public class Capitulo extends Podcast{
     final private Time duracion;
     private boolean explicito;
 
-    public Capitulo(String nombre, int idPodcast, String artista, int idCapitulo, Time duracion,
+    public Capitulo(String nombre, int idPodcast, String idartista,String artista, int idCapitulo, Time duracion,
                     boolean explicito){
-        super(nombre, artista, idPodcast);
+        super(nombre, artista, idartista, idPodcast);
         this.idCapitulo= idCapitulo;
         this.duracion= duracion;
         this.explicito= explicito;

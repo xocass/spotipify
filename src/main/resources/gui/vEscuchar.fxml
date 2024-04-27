@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="450.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="450.0" stylesheets="@../spoti/estilos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cEscuchar">
    <children>
       <VBox alignment="CENTER" layoutX="-5.0" layoutY="119.0" prefHeight="195.0" prefWidth="463.0" spacing="20.0">
          <children>
-            <Label text="CANCION QUE ESTA SONANDO">
+            <Label fx:id="labelContenido" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="376.0" text="CANCION QUE ESTA SONANDO">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label text="ARTISTA/GRUPO" textAlignment="CENTER">
+            <Label fx:id="labelArtista" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="296.0" text="ARTISTA/GRUPO" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
@@ -50,9 +50,14 @@
       </VBox>
       <AnchorPane layoutX="-6.0" layoutY="-21.0" prefHeight="143.0" prefWidth="464.0" style="-fx-background-color: #01D856;">
          <children>
-            <ImageView fitHeight="103.0" fitWidth="216.0" layoutX="137.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="103.0" fitWidth="216.0" layoutX="116.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../spoti/SpotifyLogo.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnAtras" fitHeight="50.0" fitWidth="41.0" layoutX="379.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../spoti/icons8-flecha-responder-50.png" />
                </image>
             </ImageView>
          </children>

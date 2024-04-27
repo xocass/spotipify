@@ -410,4 +410,59 @@ public class daoUsuarios extends AbstractDAO{
         }
         return resultado;
     }
+
+    public void actualizarEscuchando(String usuario, Contenido contenido){
+        Connection con;
+        PreparedStatement stmUsuario=null;
+
+        String valor;
+
+
+
+        con=this.getConexion();
+
+        try {
+
+                stmUsuario = con.prepareStatement("update Oyente " +
+                        "set cancion = ? " +
+                        "where nombre like ?");
+                if(contenido instanceof Cancion){
+                    stmUsuario.setInt(1, ((Cancion) contenido).getIdCancion());
+                }else if(contenido instanceof Capitulo){
+                    stmUsuario.setInt(1, ((Capitulo) contenido).getIdCapitulo());
+                }
+                stmUsuario.setString(2, usuario);
+                stmUsuario.executeQuery();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+    }
+    public void noEscuchando(String usuario){
+        Connection con;
+        PreparedStatement stmUsuario=null;
+
+        String valor;
+
+
+
+        con=this.getConexion();
+
+        try {
+
+            stmUsuario = con.prepareStatement("update Oyente " +
+                    "set cancion = null " +
+                    "where nombre like ?");
+
+            stmUsuario.setString(1, usuario);
+            stmUsuario.executeQuery();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+    }
 }

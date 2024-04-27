@@ -24,14 +24,15 @@ public class daoPodcast extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmPrograma=con.prepareStatement("select p.nombre as nombre, a.nombreartistico as creador, p.idpodcast as idpodcast "+
+            stmPrograma=con.prepareStatement("select p.nombre as nombre, a.nombreartistico as creador, p.idpodcast as idpodcast, a.nombre as idartista "+
                     "from podcast p, participarpodcast pp, artista a "+
                     "where p.nombre like ? and p.idpodcast = pp.idpodcast and pp.idartista = a.nombre");
             stmPrograma.setString(1, "%"+busqueda+"%");
             rsPrograma=stmPrograma.executeQuery();
             while (rsPrograma.next())
             {
-                resultado.add(new Podcast(rsPrograma.getString("nombre"), rsPrograma.getString("creador"), rsPrograma.getInt("idpodcast")));
+                resultado.add(new Podcast(rsPrograma.getString("nombre"), rsPrograma.getString("creador"),
+                        rsPrograma.getString("idartista"), rsPrograma.getInt("idpodcast")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -66,14 +67,14 @@ public class daoPodcast extends AbstractDAO{
         con=this.getConexion();
 
         try {
-            stmAlbum=con.prepareStatement("select p.nombre as nombre, p.idpodcast as idpodcast "+
+            stmAlbum=con.prepareStatement("select p.nombre as nombre, p.idpodcast as idpodcast, pp.idartista as idartista "+
                     "from podcast p, participarpodcast pp "+
                     "where p.idpodcast=pp.idpodcast and pp.idartista=?");
             stmAlbum.setString(1, id);
             rsAlbum=stmAlbum.executeQuery();
             while (rsAlbum.next())
             {
-                resultado.add(new Podcast(rsAlbum.getString("nombre"), null,
+                resultado.add(new Podcast(rsAlbum.getString("nombre"), null, rsAlbum.getString("idartista"),
                         rsAlbum.getInt("idpodcast")));
             }
         } catch (SQLException e){
