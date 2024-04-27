@@ -149,19 +149,12 @@ public class daoUsuarios extends AbstractDAO{
         }
     }
     public Oyente actualizarUsuario(String usuario, String contrasena, String email, String nacimiento){
-
-
         Oyente resultado = new Oyente(usuario,contrasena,email,nacimiento);
-
-
         Connection con;
         PreparedStatement stmUsuario=null;
 
-
         con=this.getConexion();
-
         try {
-
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date parsed = format.parse(nacimiento);
             java.sql.Date fechaNacimiento = new java.sql.Date(parsed.getTime());
@@ -174,8 +167,6 @@ public class daoUsuarios extends AbstractDAO{
             stmUsuario.setDate(3, fechaNacimiento);
             stmUsuario.setString(4, usuario);
             stmUsuario.executeQuery();
-
-
 
         } catch (SQLException | ParseException e){
             System.out.println(e.getMessage());
@@ -282,9 +273,7 @@ public class daoUsuarios extends AbstractDAO{
     public void actualizarPlanUsuario(String usuario, String plan, int tipo){
         Connection con;
         PreparedStatement stmUsuario=null;
-
         String valor;
-
         switch (tipo){
             case 1:case 2:
                 valor = "30";
@@ -298,9 +287,7 @@ public class daoUsuarios extends AbstractDAO{
         }
 
         con=this.getConexion();
-
         try {
-
             if(tipo!=0) {
                 stmUsuario = con.prepareStatement("update Oyente " +
                         "set tipoplan = ?,  fechapago = now(), fechavencimiento = now() + INTERVAL '"+valor+" DAYS' " +
@@ -414,15 +401,10 @@ public class daoUsuarios extends AbstractDAO{
     public void actualizarEscuchando(String usuario, Contenido contenido){
         Connection con;
         PreparedStatement stmUsuario=null;
-
         String valor;
 
-
-
         con=this.getConexion();
-
         try {
-
                 stmUsuario = con.prepareStatement("update Oyente " +
                         "set cancion = ? " +
                         "where nombre like ?");
