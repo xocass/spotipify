@@ -87,4 +87,6 @@ public class FachadaAplicacion {
     public ArrayList<String> generoPlaylist(int id){return gc.generoPlaylist(id);}
 
     public Artista getArtistaId(String idArtista){return gu.getArtistaId(idArtista);}
+    public ArrayList<Cancion> getCancionesAP(int id, char opcion){return gc.getCancionesAP(id,opcion);}
+    public ArrayList<Capitulo> getCapitulosPodcast(int id){return gc.getCapitulosPodcast(id);}
 }

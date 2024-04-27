@@ -3,6 +3,7 @@ package gui;
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.sql.Time;
@@ -17,6 +18,8 @@ public class cTemplateElemento {
     private Label labelNombre;
     @FXML
     private Label labelTiempo;
+    @FXML
+    private ImageView explicit;
 
     public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
         this.fgui=fgui;
@@ -29,4 +32,12 @@ public class cTemplateElemento {
     public void setLabelTiempo(Time tiempo){
         labelTiempo.setText(tiempo.toString());
     }
+    public void setExplicit(boolean explicito){
+        if (explicito) {
+            explicit.setVisible(true);
+        }
+    }
+
+
+
 }

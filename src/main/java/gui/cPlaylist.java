@@ -1,14 +1,12 @@
 package gui;
 
-import aplicacion.Cancion;
-import aplicacion.FachadaAplicacion;
-import aplicacion.Oyente;
-import aplicacion.Playlist;
+import aplicacion.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.sql.Time;
@@ -32,6 +30,8 @@ public class cPlaylist {
     private Label labelGeneros;
     @FXML
     private ImageView imagen;
+    @FXML
+    private VBox boxDatos;
     public void setOpcionIdUser(char opcion, int id, Oyente user){
         this.opcion=opcion;
         this.id=id;
@@ -78,18 +78,29 @@ public class cPlaylist {
         this.fgui=fgui;
         this.fa=fa;
     }
-    public cargarCanciones(){
+    public void cargarCanciones() throws IOException {
         switch(opcion) {
             case 'a','b':
                 ArrayList<Cancion> resultado=fa.getCancionesAP(id,opcion);
                 for (Cancion aux : resultado) {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("templateAnhadirArtista.fxml"));
-                    boxAlbum.getChildren().add(loader.load());
-                    cTemplateAnhadirArtista controller = loader.getController();
-                    controller.setLabelTexto(aux.getNombre());
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("templateElemento.fxml"));
+                    boxDatos.getChildren().add(loader.load());
+                    cTemplateElemento controller = loader.getController();
+                    controller.setLabelNombre(aux.getNombre());
+                    controller.setLabelTiempo(aux.getDuracion());
                 }
                 break;
             case'c':
+                ArrayList<Capitulo> resultado1=fa.getCapitulosPodcast(id);
+                for (Capitulo aux : resultado1) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("templateElemento.fxml"));
+                    boxDatos.getChildren().add(loader.load());
+                    cTemplateElemento controller = loader.getController();
+                    controller.setLabelNombre(aux.getNombre());
+                    controller.setLabelTiempo(aux.getDuracion());
+
+                }
+                break;
         }
     }
     @FXML

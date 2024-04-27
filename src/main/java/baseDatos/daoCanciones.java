@@ -131,7 +131,7 @@ public class daoCanciones extends AbstractDAO {
             stmCancion.setInt(1, id);
             rsCancion=stmCancion.executeQuery();
             while(rsCancion.next()){
-                resultado.add(new Cancion(rsCancion.getString("nombre"),null, null,rsCancion.getInt("idalbum"), rsCancion.getInt("idcancion"), rsCancion.getBoolean("explicito"),rsCancion.getTime("duracion")))
+                resultado.add(new Cancion(rsCancion.getString("nombre"),null, null,rsCancion.getInt("idalbum"), rsCancion.getInt("idcancion"), rsCancion.getBoolean("explicito"),rsCancion.getTime("duracion")));
             }
         } catch (SQLException e){
             System.out.println(e.getMessage());

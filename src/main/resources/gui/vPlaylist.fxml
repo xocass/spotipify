@@ -121,7 +121,7 @@
       </Label>
       <ScrollPane hbarPolicy="NEVER" layoutX="375.0" layoutY="335.0" prefHeight="330.0" prefWidth="764.0">
          <content>
-            <VBox prefHeight="200.0" prefWidth="186.0" />
+            <VBox fx:id="boxDatos" prefHeight="200.0" prefWidth="186.0" />
          </content>
       </ScrollPane>
       <ImageView fx:id="imagen" fitHeight="122.0" fitWidth="124.0" layoutX="363.0" layoutY="25.0">
