@@ -267,11 +267,10 @@ public class daoUsuarios extends AbstractDAO{
 
             if(tipo!=0) {
                 stmUsuario = con.prepareStatement("update Oyente " +
-                        "set tipoplan = ?,  fechapago = now(), fechavencimiento = now() +  interval ? DAY " +
+                        "set tipoplan = ?,  fechapago = now(), fechavencimiento = now() + INTERVAL '"+valor+" DAYS' " +
                         "where nombre like ?");
                 stmUsuario.setString(1, plan);
-                stmUsuario.setString(2, valor);
-                stmUsuario.setString(3, usuario);
+                stmUsuario.setString(2, usuario);
                 stmUsuario.executeQuery();
             }
             else{

@@ -26,7 +26,7 @@ public class cTransaccionCurso {
 
         switch (this.tipo){
             case 0:
-                plan = "Básico";
+                plan = "Basico";
                 break;
             case 1:
                 plan = "Premium";
@@ -38,7 +38,7 @@ public class cTransaccionCurso {
                 plan = "Anual";
                 break;
             default:
-                plan = "Básico";
+                plan = "Basico";
                 break;
         }
 
