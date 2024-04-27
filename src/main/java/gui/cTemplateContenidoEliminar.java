@@ -27,10 +27,12 @@ public class cTemplateContenidoEliminar {
 
     private FachadaGui fgui;
     private FachadaAplicacion fa;
+    private cTemplateContenidoEntrar ctce;
 
-    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa) {
+    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa, cTemplateContenidoEntrar ctce) {
         this.fgui = fgui;
         this.fa = fa;
+        this.ctce= ctce;
     }
 
     public void setLabelTipo(Contenido contenido){
@@ -57,12 +59,18 @@ public class cTemplateContenidoEliminar {
     public void setTickExplicito(boolean explicito){tickExplicito.setSelected(explicito);}
     public void ocultarExplicito(){tickExplicito.setVisible(false);}
     @FXML
-    public void clickExplicito() throws IOException{
-
+    public void cambiarExplicito() throws IOException{
+        if(tickExplicito.isSelected()){
+            tickExplicito.setSelected(false);
+        }else{
+            tickExplicito.setSelected(true);
+        }
+        fa.cambiarExplicito(contenido);
+        fgui.showContenidoMod();
     }
     @FXML
     public void clickEliminar() throws IOException {
         fa.eliminarContenido(this.contenido);
-        fgui.showContenidoMod(null);
+        fgui.showContenidoMod();
     }
 }

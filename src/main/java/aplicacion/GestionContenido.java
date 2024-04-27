@@ -21,6 +21,7 @@ public class GestionContenido {
         return fbd.buscarMod(buscar);
     }
     public void eliminar(Contenido contenido){fbd.eliminarContenido(contenido);}
+    public boolean cambiarExplicito(Contenido contenido){return fbd.cambiarExplicito(contenido);}
     public ArrayList<Playlist> playlistDefecto(){return fbd.playlistDefecto();}
     public ArrayList<Cancion> topCanciones(){return fbd.topCanciones();}
     public void crearFavoritos(String user){fbd.crearFavoritos(user);}

@@ -49,7 +49,7 @@ public class cArtistaMod {
                 controller.setLabelPaisNacimiento(aux.getPaisNacimiento());
 
 
-                controller.setFachadas(this.fgui,this.fa);
+                controller.setFachadas(this.fgui,this.fa, this);
             }
         }
     }

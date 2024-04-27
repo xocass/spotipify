@@ -21,10 +21,12 @@ public class cTemplateArtistaEliminar {
 
     private FachadaGui fgui;
     private FachadaAplicacion fa;
+    private cArtistaMod cam;
 
-    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa) {
+    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa, cArtistaMod cam) {
         this.fgui = fgui;
         this.fa = fa;
+        this.cam= cam;
     }
     public void setNombre(String nombre){this.nombre= nombre;}
     public void setLabelNombreArtistico(String nombre){labelNombreArtistico.setText(nombre);}
@@ -35,5 +37,15 @@ public class cTemplateArtistaEliminar {
     public void clickEliminar() throws IOException {
         fa.eliminarArtista(this.nombre);
         fgui.showArtistasMod();
+    }
+    @FXML
+    public void cambiarVerificado() throws IOException {
+        if(tickVerificado.isSelected()){
+            tickVerificado.setSelected(false);
+        }else{
+            tickVerificado.setSelected(true);
+        }
+        fa.cambiarVerificado(this.nombre);
+        this.cam.clickBuscar();
     }
 }

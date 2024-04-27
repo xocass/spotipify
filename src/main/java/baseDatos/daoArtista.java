@@ -65,6 +65,37 @@ public class daoArtista extends AbstractDAO{
         }
 
     }
+    public boolean cambiarVerificado(String nombre){
+        boolean verificado= false;
+        Connection con;
+        PreparedStatement stmArtista=null;
+        ResultSet rsArtista;
+
+        con=this.getConexion();
+        try {
+            stmArtista=con.prepareStatement("select verificado "+
+                    "from artista "+
+                    "where nombre like ?");
+            stmArtista.setString(1, nombre);
+            rsArtista=stmArtista.executeQuery();
+            rsArtista.next();
+            verificado= !rsArtista.getBoolean("verificado");
+
+            stmArtista=con.prepareStatement("update artista "+
+                    "set verificado = ? "+
+                    "where artista.nombre like ?");
+            stmArtista.setBoolean(1, verificado);
+            stmArtista.setString(2, nombre);
+            stmArtista.execute();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmArtista.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return verificado;
+    }
     public ArrayList<Artista> verificados(){
         ArrayList<Artista> resultado = new ArrayList<>();
         Connection con;

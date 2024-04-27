@@ -29,6 +29,7 @@ public class GestionUsuarios {
     public ArrayList<Artista> buscarArtista(String buscar){return fbd.buscarArtista(buscar);}
     public void eliminarOyente(String nombre){fbd.eliminarOyente(nombre);}
     public void eliminarArtista(String nombre){fbd.eliminarArtista(nombre);}
+    public boolean cambiarVerificado(String nombre){return fbd.cambiarVerificado(nombre);}
     public ArrayList<Artista> verificados(){return fbd.verificados();}
     public ArrayList<String> siguiendo(String nombre){return fbd.siguiendo(nombre);}
     public ArrayList<String> siguiendoArtista(String nombre){return fbd.siguiendoArtista(nombre);}

@@ -22,7 +22,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <CheckBox fx:id="tickVerificado" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Verificado" textFill="WHITE">
+      <CheckBox fx:id="tickVerificado" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Verificado" textFill="WHITE" onMouseClicked="#cambiarVerificado">
          <HBox.margin>
             <Insets left="5.0" />
          </HBox.margin>

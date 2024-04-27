@@ -175,6 +175,20 @@ public class FachadaBaseDatos {
         }
         return resultado;
     }
+    public boolean cambiarVerificado(String nombre){return daoArtista.cambiarVerificado(nombre);}
+    public boolean cambiarExplicito(Contenido contenido) {
+        boolean explicito= false;
+        if (contenido instanceof Album album) {
+            if (album instanceof Cancion cancion) {
+                explicito= daoCanciones.cambiarExplicito(cancion.getIdCancion());
+            }
+        } else if (contenido instanceof Podcast podcast) {
+            if (podcast instanceof Capitulo capitulo) {
+                explicito= daoCapitulos.cambiarExplicito(capitulo.getIdCapitulo());
+            }
+        }
+        return explicito;
+    }
     public ArrayList<Playlist> playlistDefecto(){return daoPlaylist.playlistDefecto();}
     public ArrayList<Artista> verificados(){return daoArtista.verificados();}
     public ArrayList<Cancion> topCanciones(){return daoCanciones.topCanciones();}

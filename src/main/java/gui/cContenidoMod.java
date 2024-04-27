@@ -37,26 +37,13 @@ public class cContenidoMod {
         if (!fieldBuscar.getText().isEmpty()) {
             resultado = fa.buscarContenidoMod(fieldBuscar.getText());
             for (Contenido aux : resultado) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEliminar.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("templateContenidoEntrar.fxml"));
                 vboxBuscar.getChildren().add(loader.load());
 
-                cTemplateContenidoEliminar controller = loader.getController();
-                controller.setFachadas(this.fgui,this.fa);
+                cTemplateContenidoEntrar controller = loader.getController();
+                controller.setFachadas(this.fgui,this.fa, this);
 
-                controller.setContenido(aux);
                 controller.setLabelNombre(aux.getNombre());
-                if(aux instanceof Cancion cancion){
-                    controller.setLabelDuracion(cancion.getDuracion().toString());
-                    controller.setTickExplicito(cancion.getExplicito());
-                }if(aux instanceof Capitulo capitulo){
-                    controller.setLabelDuracion(capitulo.getDuracion().toString());
-                    controller.setTickExplicito(capitulo.getExplicito());
-                }else{
-                    controller.ocultarExplicito();
-                }
-
-
-                /*controller.setLabelNombre(aux.getNombre());
                 controller.setLabelTipo(aux);
                 for (int i = 0; i < aux.getCreador().size(); i++) {
                     if (i != 0) controller.setLabelCreadores(", ");
@@ -64,7 +51,6 @@ public class cContenidoMod {
                 }
 
                 controller.setContenido(aux);
-                controller.setFachadas(this.fgui,this.fa);*/
             }
 
         }

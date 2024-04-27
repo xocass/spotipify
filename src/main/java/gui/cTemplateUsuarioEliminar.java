@@ -2,6 +2,7 @@ package gui;
 
 import aplicacion.FachadaAplicacion;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -30,6 +31,7 @@ public class cTemplateUsuarioEliminar {
     public void clickEliminar() throws IOException {
         fa.eliminarOyente(labelNombre.getText());
         fgui.showOyenteMod();
+
     }
 
 }

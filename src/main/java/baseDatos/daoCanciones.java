@@ -83,6 +83,37 @@ public class daoCanciones extends AbstractDAO {
         }finally{
             try {stmCancion.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
+    }
 
+    public boolean cambiarExplicito(int idcancion){
+        boolean explicito= false;
+        Connection con;
+        PreparedStatement stmCancion=null;
+        ResultSet rsCancion;
+
+        con=this.getConexion();
+        try {
+            stmCancion=con.prepareStatement("select explicito "+
+                    "from cancion "+
+                    "where idcancion = ?");
+            stmCancion.setInt(1, idcancion);
+            rsCancion=stmCancion.executeQuery();
+            rsCancion.next();
+            explicito= !rsCancion.getBoolean("verificado");
+
+            stmCancion=con.prepareStatement("update cancion "+
+                    "set explicito = ? "+
+                    "where cancion.idcancion like ?");
+            stmCancion.setBoolean(1, explicito);
+            stmCancion.setInt(2, idcancion);
+            stmCancion.execute();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmCancion.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return explicito;
     }
 }

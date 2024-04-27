@@ -60,4 +60,35 @@ public class daoCapitulos extends AbstractDAO{
             try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
+    public boolean cambiarExplicito(int idcapitulo){
+        boolean explicito= false;
+        Connection con;
+        PreparedStatement stmCapitulo=null;
+        ResultSet rsCapitulo;
+
+        con=this.getConexion();
+        try {
+            stmCapitulo=con.prepareStatement("select explicito "+
+                    "from capitulo "+
+                    "where idcapitulo = ?");
+            stmCapitulo.setInt(1, idcapitulo);
+            rsCapitulo=stmCapitulo.executeQuery();
+            rsCapitulo.next();
+            explicito= !rsCapitulo.getBoolean("verificado");
+
+            stmCapitulo=con.prepareStatement("update capitulo "+
+                    "set explicito = ? "+
+                    "where capitulo.idcapitulo like ?");
+            stmCapitulo.setBoolean(1, explicito);
+            stmCapitulo.setInt(2, idcapitulo);
+            stmCapitulo.execute();
+
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmCapitulo.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return explicito;
+    }
 }
