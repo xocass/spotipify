@@ -84,4 +84,33 @@ public class daoPodcast extends AbstractDAO{
         }
         return resultado;
     }
+
+    public ArrayList<Podcast> getPodcastID(int idAlbum){
+        ArrayList<Podcast> resultado=new ArrayList<>();
+
+        Connection con;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
+
+        con=this.getConexion();
+
+        try {
+            stmUsuario=con.prepareStatement("select p.nombre as nombrePodcast, a.nombreartistico as nombreArtista, a.nombre as idArtista, p.idpodcast "+
+                    "from podcast p,  participarpodcast pp, artista a "+
+                    "where p.idpodcast = ? and pp.idartista= a.nombre and pp.idpodcast=p.idpodcast ");
+            stmUsuario.setInt(1, idAlbum);
+            rsUsuario=stmUsuario.executeQuery();
+            while (rsUsuario.next())
+            {
+                resultado.add( new Podcast(rsUsuario.getString("nombrePodcast"),rsUsuario.getString("nombreArtistico"),
+                        rsUsuario.getString("idArtista"),rsUsuario.getInt("p.idpodcast")));
+
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }

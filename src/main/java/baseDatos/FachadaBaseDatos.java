@@ -136,6 +136,34 @@ public class FachadaBaseDatos {
 
         return resultado;
     }
+
+    public Contenido unificarContenido(int id, int tipo){
+        ArrayList<Contenido> resultado = new ArrayList<>();
+        ArrayList<Contenido> aux;
+        switch (tipo){
+
+            case 0: //ALBUM
+                resultado.addAll(daoAlbumes.getAlbumID(id));
+                break;
+            case 1: //PODCAST
+                resultado.addAll(daoPodcast.getPodcastID(id));
+                break;
+        }
+
+        int tam=resultado.size();
+        for (int i=0;i<tam;i++) {
+            for(int j=i+1;j<tam;j++){
+                if(resultado.get(i).getNombre().equals(resultado.get(j).getNombre()) && !resultado.get(i).getCreador().contains(resultado.get(j).getCreador().get(0))){
+                    resultado.get(i).getCreador().add(resultado.get(j).getCreador().get(0));
+                    resultado.remove(j);
+                    tam--;
+                    j--;
+                }
+            }
+        }
+
+        return resultado.get(0);
+    }
     public void eliminarOyente(String nombre){daoUsuarios.eliminar(nombre);}
     public void eliminarArtista(String nombre){daoArtista.eliminar(nombre);}
     public void eliminarContenido(Contenido contenido){
@@ -223,4 +251,8 @@ public class FachadaBaseDatos {
     public void actualizarEscuchando(String usuario, Contenido contenido){daoUsuarios.actualizarEscuchando(usuario, contenido);}
 
     public void noEscuchando(String usuario){daoUsuarios.noEscuchando(usuario);}
+
+    public Playlist getPlaylistId(int id){return daoPlaylist.getPlaylistID(id);}
+    public Album getAlbumId(int id){return (Album) unificarContenido(id,0);}
+    public Podcast getPodcastId(int id){return (Podcast) unificarContenido(id,1);}
 }

@@ -1,5 +1,6 @@
 package baseDatos;
 
+import aplicacion.Album;
 import aplicacion.Contenido;
 import aplicacion.FachadaAplicacion;
 import aplicacion.Playlist;
@@ -110,6 +111,35 @@ public class daoPlaylist extends AbstractDAO{
             System.out.println(e.getMessage());
         }finally{
             try {stmPlaylist.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
+
+    public Playlist getPlaylistID(int idPlaylist){
+        Playlist resultado=null;
+
+        Connection con;
+        PreparedStatement stmUsuario=null;
+        ResultSet rsUsuario;
+
+        con=this.getConexion();
+
+        try {
+            stmUsuario=con.prepareStatement("select idplaylist, nombreplaylist, idoyente "+
+                    "from playlist  "+
+                    "where idplaylist = ?  ");
+            stmUsuario.setInt(1, idPlaylist);
+            rsUsuario=stmUsuario.executeQuery();
+            if (rsUsuario.next())
+            {
+                resultado = new Playlist(rsUsuario.getString("nombreplaylist"),rsUsuario.getString("idoyente"),
+                        rsUsuario.getInt("idplaylist"));
+
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }finally{
+            try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
         return resultado;
     }
