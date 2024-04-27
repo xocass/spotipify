@@ -215,6 +215,6 @@
             <Image url="@../spoti/icons8-insignia-verificada-48.png" />
          </image>
       </ImageView>
-      <Button layoutX="1150.0" layoutY="336.0" mnemonicParsing="false" onAction="#seguir" prefHeight="32.0" prefWidth="75.0" styleClass="button-style" text="Seguir" />
+      <Button layoutX="951.0" layoutY="173.0" mnemonicParsing="false" onAction="#seguir" prefHeight="32.0" prefWidth="75.0" styleClass="button-style" text="Seguir" />
    </children>
 </AnchorPane>

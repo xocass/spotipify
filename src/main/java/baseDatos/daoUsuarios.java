@@ -288,4 +288,29 @@ public class daoUsuarios extends AbstractDAO{
             try {stmUsuario.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
         }
     }
+    public int getSeguidores(String nombre){
+        int resultado=0;
+        Connection con;
+        PreparedStatement stmGeneros=null;
+        ResultSet rsGeneros;
+
+        con=this.getConexion();
+        try {
+            stmGeneros=con.prepareStatement("select count(*) as seguidores "+
+                    "from seguir " +
+                    "where idoyente2 = ?");
+            stmGeneros.setString(1,nombre);
+            rsGeneros=stmGeneros.executeQuery();
+            while (rsGeneros.next())
+            {
+                resultado=rsGeneros.getInt("seguidores");
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+            this.getFachadaAplicacion().muestraExcepcion(e.getMessage());
+        }finally{
+            try {stmGeneros.close();} catch (SQLException e){System.out.println("Imposible cerrar cursores");}
+        }
+        return resultado;
+    }
 }

@@ -79,11 +79,23 @@ public class FachadaGui extends Application {
         principalStage.setScene(scene);
         principalStage.show();
     }
+    public void showPerfil(String id) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtista.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
+        cArtista controller = fxmlLoader.getController();
+        controller.setFachadas(this,fa,false);
+        controller.setId(id, false);
+        controller.iniciar();
+
+        controller.setLabelSeguidores(fa.getSeguidoresU(id));
+        principalStage.setScene(scene);
+        principalStage.show();
+    }
     public void showArtista(Artista artista) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(FachadaGui.class.getResource("vArtista.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         cArtista controller = fxmlLoader.getController();
-        controller.setFachadas(this,fa);
+        controller.setFachadas(this,fa,true);
         controller.setId(artista.getNombre(), artista.getVerificado());
         controller.iniciar();
         controller.setLabelGeneros(fa.getGeneros(artista.getNombre()));

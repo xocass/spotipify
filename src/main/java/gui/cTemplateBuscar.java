@@ -2,6 +2,7 @@ package gui;
 
 import aplicacion.Artista;
 import aplicacion.FachadaAplicacion;
+import aplicacion.Oyente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -62,7 +63,7 @@ public class cTemplateBuscar {
                 fgui.showArtista(new Artista(idUser,labelNombre.getText(),verified.isVisible(),labelTipo.getText()));
                 break;
             case 'b':
-                fgui.showUsuario();
+                fgui.showPerfil(idUser);
         }
     }
 

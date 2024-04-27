@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class cArtista {
     private FachadaGui fgui;
+    private boolean esArtista;
     private FachadaAplicacion fa;
     @FXML
     private Label labelArtista;
@@ -72,9 +73,10 @@ public class cArtista {
             this.verified.setVisible(true);
     }
 
-    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa){
+    public void setFachadas(FachadaGui fgui, FachadaAplicacion fa, boolean artista){
         this.fgui=fgui;
         this.fa=fa;
+        esArtista=artista;
     }
     public void setLabelArtista(String nombre){
         this.labelArtista.setText(nombre);
