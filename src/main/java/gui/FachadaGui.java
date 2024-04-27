@@ -243,6 +243,25 @@ public class FachadaGui extends Application {
         controller.setOpcionIdUser(opcion,id,actual);
         controller.setFachadas(this,fa);
         controller.setImagen();
+        switch(opcion){
+            case'a':
+                Playlist contenido=fa.getPlaylistId(id);
+                ArrayList<String> aux=new ArrayList<String>();
+                aux.add(contenido.getCreador());
+                controller.setLabelCreador(aux);
+                controller.setLabelNombre(contenido.getNombre());
+                break;
+            case 'b':
+                Album contenido1=fa.getAlbumId(id);
+                controller.setLabelCreador(contenido1.getCreador());
+                controller.setLabelNombre(contenido1.getNombre());
+                break;
+            case'c':
+                Podcast contenido2=fa.getPodcastId(id);
+                controller.setLabelCreador(contenido2.getCreador());
+                controller.setLabelNombre(contenido2.getNombre());
+                break;
+        }
 
         principalStage.setScene(scene);
         principalStage.show();
