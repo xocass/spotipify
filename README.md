@@ -1,2 +1,2 @@
 # spotipify
-Simulador de GUI de spotify. Trabajo para asignatura de bases de datos, donde trabajar con una bbdd era lo principal. Ciertas funcionalidades están sin terminar (imagenes, ajustes...).
+Simulador de Spotify, con GUI y acceso a base de datos. Trabajo para asignatura de bases de datos, donde el diseño y trabajar con una BB.DD. era lo principal. Ciertas funcionalidades están sin terminar (imagenes, ajustes, reproducir...).
